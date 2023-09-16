@@ -4,7 +4,7 @@ This is a workspace that represents client side of the application.
 
 ### Link to the project design
 
-
+[Job Listing SaaS Dashboard](https://www.figma.com/file/Kk9QCQFwJ0tgvnmuGshuGa/Job-Listing---SaaS-Dashboard---Omnicreativora-(Community)?type=design&node-id=189%3A33202&mode=design&t=2KmVj2TxX5C65GrQ-1)
 
 ### Commands
 
