@@ -1,27 +1,37 @@
-import React from 'react';
-import './App.css';
-import useBearStore from './store/example.store';
-import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
-import useTestHook from './hooks/test.hook';
+import React from "react";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
+import SignUpPage from "./pages/signup/Signup";
+import LoginPage from "./pages/login/Login";
+import { AuthProvider } from "./contexts/authContext";
+import ResetPassword from "./pages/password/Reset";
+import Dashboard from "./pages/dashbord/Dashboard";
+import PrivateRoute from "./routes/PrivateRoute";
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <React.Fragment>
+      <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/password" element={<ResetPassword />} />
+      <Route
+        path="/dashboard"
+        element={<PrivateRoute component={Dashboard} />}
+      />
+      <Route path="*" element={<Navigate to="/login" />} />
+    </React.Fragment>
+  )
+);
 
-function App() {
-  const {bears, increase} = useBearStore();
-
-  useTestHook();
-
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          The amount of Bears {bears}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" onClick={() => increase(1)}>Increase Bears</Button>
-      </CardActions>
-    </Card>
-    </div>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   );
 }
 
