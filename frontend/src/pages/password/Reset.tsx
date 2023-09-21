@@ -3,7 +3,7 @@ import { Box, Grid, Typography, TextField, Button, InputLabel } from "@mui/mater
 import handImage from "../../utilis/password.png";
 import ArrowRight from "../../utilis/ArrowRight.png"
 import Icon from "../../utilis/aperture.png";
-import "./ForgetPassword.css";
+import "./Reset.css";
 import { AuthContext } from "../../contexts/authContext";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -69,8 +69,9 @@ function ResetPassword() {
                 <>
                   <Typography variant="subtitle2" className="forget-password">Forgot Password</Typography>
                   <Typography variant="subtitle1">We will send reset password you link on your mail</Typography>
-
+                  <form onSubmit={handleSubmit}>
                   <div className="label-wrap">
+                  
                     <InputLabel className="label">Email</InputLabel>
                     <TextField
                       name="email"
@@ -78,21 +79,22 @@ function ResetPassword() {
                       label="Enter email"
                       variant="outlined"
                       className="email-input"
-                      onChange={(e) => {
-                        setIsButtonDisabled(!e.target.value);
-                      }}
+                      value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                     />
                   </div>
                   <div className="button-wrap">
                     <Button
                       variant="contained"
                       className={`reset-password-button ${isButtonDisabled ? "disabled" : ""}`}
-                      disabled={isButtonDisabled}
-                      onClick={handleFormSubmit}
+                      disabled={loading} type="submit"
                     >
                       Reset password
                     </Button>
+               
                   </div>
+                  </form>
                   <Typography variant="body1">
                 Need an account? <Link to="/signup">Sign Up</Link>
               </Typography>
@@ -112,30 +114,6 @@ function ResetPassword() {
       </Grid>
     </Box>
   
-      {/* <div>
-        <div>
-          <h2>reset</h2>
-
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-
-            <button disabled={loading} type="submit">
-              reset
-            </button>
-          </form>
-        </div>
-      </div>
-      <div>
-        Need an account? <Link to="/signup">Sign Up</Link>
-      </div> */}
     </>
   );
 };

@@ -59,7 +59,8 @@ function LoginPage() {
                 <>
                   <Typography variant="subtitle2" className="forget-password">Login</Typography>
                   <Typography variant="subtitle1">Easy step to enter the platform</Typography>
-
+                  {error && <p>{error}</p>}
+                  <form onSubmit={handleSubmit}>
                   <div className="label-wrap">
                     <InputLabel className="label">Email</InputLabel>
                     <TextField
@@ -68,9 +69,8 @@ function LoginPage() {
                       label="Enter email"
                       variant="outlined"
                       className="email-input"
-                      onChange={(e) => {
-                        setIsButtonDisabled(!e.target.value);
-                      }}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="label-wrap">
@@ -81,9 +81,8 @@ function LoginPage() {
                       label="Enter password"
                       variant="outlined"
                       className="email-input"
-                      onChange={(e) => {
-                        setIsButtonDisabled(!e.target.value);
-                      }}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                   <FormControlLabel
@@ -97,12 +96,12 @@ function LoginPage() {
                     <Button
                       variant="contained"
                       className={`reset-password-button ${isButtonDisabled ? "disabled" : ""}`}
-                      disabled={isButtonDisabled}
+                      disabled={loading} type="submit"
                       >
                      Log in
                     </Button>
                   </div>
-                 
+                </form> 
                   <Typography variant="body1">
                   Don’t have an account?<Link to="/signup">Sign Up</Link>
               </Typography>
@@ -121,45 +120,6 @@ function LoginPage() {
         </Grid>
       </Grid>
     </Box>
-
-
-    // <>
-    //   <div>
-    //     <div>
-    //       <h2>login</h2>
-    //       {error && <p>{error}</p>}
-    //       <form onSubmit={handleSubmit}>
-    //         <div>
-    //           <label>Email</label>
-    //           <input
-    //             type="email"
-    //             value={email}
-    //             onChange={(e) => setEmail(e.target.value)}
-    //             required
-    //           />
-    //         </div>
-    //         <div>
-    //           <label>Password</label>
-    //           <input
-    //             type="password"
-    //             value={password}
-    //             onChange={(e) => setPassword(e.target.value)}
-    //             required
-    //           />
-    //         </div>
-
-    //         <button disabled={loading} type="submit">
-    //           login
-    //         </button>
-    //       </form>
-    //     </div>
-    //   </div>
-    //   <div>
-    //     Need an account? <Link to="/signup">Sign Up</Link>
-    //   </div>
-    //   <div>
-    //     forgot password ? <Link to="/password">reset password</Link>
-    //   </div>
   
   );
 }
