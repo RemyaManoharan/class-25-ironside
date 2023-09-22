@@ -25,7 +25,6 @@ export default function SignUpPage() {
   const { signup, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("submit");
     e.preventDefault();
     if(password.length < 8){
       return setError("Password should be more than 8 characters");

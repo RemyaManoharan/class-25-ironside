@@ -16,7 +16,7 @@ function LoginPage() {
   const { login, currentUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
-  console.log(currentUser);
+
   useEffect(() => {
     if (currentUser) {
       return navigate("/");
