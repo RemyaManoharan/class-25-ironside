@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Box, Grid, Typography, TextField, Button, InputLabel,Checkbox,
   FormControlLabel, } from "@mui/material";
-import Login from "../../utilis/login.png";
-import Icon from "../../utilis/aperture.png";
+import Login from "../../assets/login.png";
+import Icon from "../../assets/aperture.png";
 import "./Login.css";
 
 function LoginPage() {

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Box, Grid, Typography, TextField, Button, InputLabel } from "@mui/material";
-import handImage from "../../utilis/password.png";
-import ArrowRight from "../../utilis/ArrowRight.png"
-import Icon from "../../utilis/aperture.png";
+import handImage from "../../assets/password.png";
+import ArrowRight from "../../assets/ArrowRight.png"
+import Icon from "../../assets/aperture.png";
 import "./Reset.css";
 import { AuthContext } from "../../contexts/authContext";
 import { Link } from "react-router-dom";
@@ -29,7 +29,6 @@ function ResetPassword() {
     setLoading(false);
   };
 
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [isLinkSent, setIsLinkSent] = useState(false);
   const handleFormSubmit = () => {
