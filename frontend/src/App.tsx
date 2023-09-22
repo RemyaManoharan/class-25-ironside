@@ -12,6 +12,8 @@ import { AuthProvider } from "./contexts/authContext";
 import ResetPassword from "./pages/password/Reset";
 import Dashboard from "./pages/dashbord/Dashboard";
 import PrivateRoute from "./routes/PrivateRoute";
+import Header from "./pages/header/Header";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <React.Fragment>
@@ -19,9 +21,15 @@ const router = createBrowserRouter(
       <Route path="/login" element={<LoginPage />} />
       <Route path="/password" element={<ResetPassword />} />
       <Route
-        path="/dashboard"
-        element={<PrivateRoute component={Dashboard} />}
+        path="/"
+        element={
+          <>
+            <PrivateRoute component={Header} />
+            <PrivateRoute component={Dashboard} />
+          </>
+        }
       />
+
       <Route path="*" element={<Navigate to="/login" />} />
     </React.Fragment>
   )

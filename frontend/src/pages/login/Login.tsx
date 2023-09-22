@@ -14,7 +14,7 @@ function LoginPage() {
   console.log(currentUser);
   useEffect(() => {
     if (currentUser) {
-      return navigate("/dashboard");
+      return navigate("/");
     }
   }, []);
 
@@ -25,7 +25,7 @@ function LoginPage() {
       setError("");
       setLoading(true);
       await login(email, password);
-      navigate("/dashboard");
+      navigate("/");
     } catch (error) {
       console.error("Error during login:", error);
 

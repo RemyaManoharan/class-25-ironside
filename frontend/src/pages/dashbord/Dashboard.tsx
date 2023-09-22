@@ -1,30 +1,25 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../contexts/authContext";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Dashbord() {
-  const { logout, currentUser } = useContext(AuthContext);
-
-  const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate("/login");
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <div>
-      <div>this is dashboard</div>
       <div>
-        <strong>{currentUser.displayName}</strong> <br />
-        <strong>Email:</strong> {currentUser.email}
+        <Link to={"/home"}>Home</Link>
       </div>
       <div>
-        <button onClick={handleLogout}>Log Out</button>
+        <Link to={"/event"}>Event</Link>
+      </div>
+      <div>
+        <Link to={"/schedule"}>Schedule</Link>
+      </div>
+      <div>
+        <Link to={"/history"}>History</Link>
+      </div>
+      <div>
+        <Link to={"/company"}>Company</Link>
+      </div>
+      <div>
+        <Link to={"/messages"}>Messages</Link>
       </div>
     </div>
   );
