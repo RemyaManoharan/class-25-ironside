@@ -16,7 +16,6 @@ export default function SignUpPage() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("submit");
     e.preventDefault();
 
     if (password !== passwordConfirm) {

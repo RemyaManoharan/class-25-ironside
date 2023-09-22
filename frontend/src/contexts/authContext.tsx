@@ -6,19 +6,20 @@ import {
   onAuthStateChanged,
   sendPasswordResetEmail,
   updateProfile,
+  User,
 } from "firebase/auth";
 
-export const AuthContext = createContext();
+export const AuthContext: React.Context<any> = createContext(null);
 
-export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
-  const [loading, setLoading] = useState(true);
+export function AuthProvider({ children }: any) {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<Boolean>(true);
 
-  function signup(email, password) {
+  function signup(email: string, password: string) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
-  function login(email, password) {
+  function login(email: string, password: string) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
@@ -26,13 +27,15 @@ export function AuthProvider({ children }) {
     return auth.signOut();
   }
 
-  function resetPassword(email) {
+  function resetPassword(email: string) {
     return sendPasswordResetEmail(auth, email);
   }
 
-  function updateUser(firstName, lastName) {
+  function updateUser(firstName: string, lastName: string) {
     const user = auth.currentUser;
-    return updateProfile(user, { displayName: `${firstName} ${lastName}` });
+    return user
+      ? updateProfile(user, { displayName: `${firstName} ${lastName}` })
+      : null;
   }
 
   useEffect(() => {
