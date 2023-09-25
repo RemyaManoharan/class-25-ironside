@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import NavBar from "../../components/navbar/Navbar";
 import { Outlet } from "react-router-dom";
+import menu from "../../assets/menu.svg";
 import "./main.css";
 
 function Main() {
@@ -17,7 +18,7 @@ function Main() {
         className={`toggle-button ${showNav ? "hidden" : ""}`}
         onClick={toggleNav}
       >
-        ☰
+        <img src={menu} alt="menu" />
       </button>
 
       <nav className={`nav ${showNav ? "nav-show" : ""}`}>

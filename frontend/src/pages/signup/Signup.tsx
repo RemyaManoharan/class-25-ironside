@@ -37,7 +37,7 @@ export default function SignUpPage() {
       setLoading(true);
       await signup(email, password);
       await updateUser(firstName, lastName);
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.error("Error during sign-up:", error);
       setError("Failed to create an account");

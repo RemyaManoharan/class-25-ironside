@@ -7,7 +7,7 @@ import me from "../../assets/me.png";
 
 function Header() {
   const { logout, currentUser } = useContext(AuthContext);
-  // const { showLogOut, setShowLogOut } = useState<boolean>(false);
+
   const navigate = useNavigate();
 
   const handleLogout = async () => {
