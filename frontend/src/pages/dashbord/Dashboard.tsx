@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Dashbord() {
   const { logout, currentUser } = useContext(AuthContext);
-  console.log(currentUser);
+
   const navigate = useNavigate();
 
   const handleLogout = async () => {
