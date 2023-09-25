@@ -26,7 +26,7 @@ export default function SignUpPage() {
   const navigate = useNavigate();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(password.length < 8){
+    if (password.length < 8) {
       return setError("Password should be more than 8 characters");
     }
     if (password !== passwordConfirm) {
@@ -200,14 +200,3 @@ export default function SignUpPage() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
