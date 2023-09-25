@@ -1,14 +1,9 @@
 import { Request, Response } from "express";
 import { adminFireAuth } from "../../firebase/config";
-interface CustomRequest extends Request {
-  user: {
-    uid: string;
-  };
-}
 
-export const getUserById = async (req: CustomRequest, res: Response) => {
+export const getUserById = async (req: Request, res: Response) => {
   try {
-    const uid = req["user"]["uid"];
+    const uid = req.params.id;
     const user = await adminFireAuth.getUser(uid);
     res.status(200).send({ user });
   } catch (error: any) {

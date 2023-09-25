@@ -3,7 +3,7 @@ import { readFileSync } from "fs";
 import { resolve } from "path";
 
 const ADMIN_FIRE_CONFIG = readFileSync(
-  resolve("./src/config/firebase-admin.config.json"),
+  resolve("./src/config/firebase-admin-sdk.json"),
   "utf-8"
 );
 

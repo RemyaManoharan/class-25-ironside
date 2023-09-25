@@ -3,6 +3,6 @@ import { getUserById } from "../../controllers/user";
 
 const userRoute: Router = express.Router();
 
-userRoute.get("/current", getUserById);
+userRoute.get("/:id", getUserById);
 
 export default userRoute;
