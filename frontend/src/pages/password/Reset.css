@@ -1,126 +1,130 @@
-/* ForgetPassword.css */
-
-.forgetpass-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .forgetpass-container {
-    max-width: 400px;
-    margin: auto;
-    text-align: start;
-  }
-  
-  .label-wrap {
-    margin-bottom: 20px;
-    text-align: left;
-    width: 100%;
-  }
-  
-  .label {
-    font-size: 14px;
-  }
-  
-  /* Adjust styles for the button */
-  .button-wrap {
-    width: 85%;
-    margin-top: 20px;
-  }
-  
-  /* Styles for the Reset Password button */
-  .reset-password-button {
-    width: 100%;
-    height: 45px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .reset-password-button.empty {
-    background-color: gray;
-    color: white;
-  }
-  
-  .reset-password-button.filled {
-    background-color: blue;
-    color: white;
-  }
-
-.image-wrap {
-  margin-bottom: 20px;
-  position: relative;
+/* Reset.css */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
 }
 
-.handimage {
-  width: 496px;
-  height: 482px;
-  top: 121px;
-  left: 645px;
+.main-content {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 5%;
 }
-/* ForgetPassword.css */
 
-.arrow-icon {
-   
-    height: 24px;
-    position: absolute;
-    top: 122px; 
-    cursor: pointer;
+.image-content img {
+  max-width: 100%;
+}
 
-  }
-  .email-input {
-    width: 350px;
-    height: 49px;
-    padding: 14px 16px;
-    border-radius: 8px;
-    border: 1px solid #000; /* Add your desired border color */
-    margin-bottom: 10px; /* Adjust the margin as needed */
-  }
-  
-  .email-input:focus {
-    outline: none;
-    border-color: blue; /* Add your desired border color when focused */
-  }
+.form-content {
+  flex: 1;
+  margin-left: 4%;
+}
+
+.forget-password {
+  color: #111111;
+  font-family: Poppins;
+  font-weight: 700 !important;
+  line-height: 28px;
+  text-align: left;
+  margin-top: 4%;
+  font-size: 2.2%;
+  letter-spacing: -0.2%;
+}
+
+.form-span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 7%;
+}
+
+.form-span .MuiTypography-root {
+  text-align: center;
+}
 
 
-  .reset-link-container {
-    display: flex;
-    flex-direction: column;
-    width: 346px;
-    height: 46.66px;
-    top: 597.09px;
-    left: 273px;
-    background: #89899C;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .reset-link-text {
-    text-align: left;
+.error-message {
+  color: red;
+  font-size: 100%;
+  margin-top: 2%;
+}
+.label-wrap .email-input {
+    width: 332%;
+    height: 10%; 
+    padding: 2%; 
+    box-sizing: border-box;
     margin-bottom: 10px;
-    color: #89899C;
-  }
-  
-  .didnt-receive-text {
-    text-align: left;
-    color: #89899C;
-    margin-top: 10px;
-  }
-  
-  .resend-text {
-    text-align: left;  
-    color: #0B5FAE;
-    padding: 5px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .forget-password{
-    color: #111111;
-    font-family: Poppins;
-    font-size: 22px;
-    font-weight: 700 !important;
-    line-height: 28px;
-    letter-spacing: 0px;
-    text-align: left;
+}
 
+.reset-password-button {
+    width: 60%;
+    height: 10%; 
+    border-radius: 4px; 
+    cursor: pointer;
+    padding: 2%; 
+    font-size: 16px;
+}
+
+.reset-link-container {
+  display: flex;
+  flex-direction: column;
+  width: 34.6%; 
+  height: 4.666%;
+  top: 59.709%; 
+  left: 27.3%; 
+  background: #89899C;
+  padding: 2%;
+  border-radius: 0.8%;
+}
+
+.reset-link-text {
+  text-align: left;
+  margin-bottom: 1%; 
+  color: #89899C;
+}
+
+.didnt-receive-text {
+  color: #89899C;
+  margin-top: 6%;
+}
+
+.resend-text {
+  text-align: left;  
+  color: #0B5FAE;
+  padding: 0.5%; 
+  border-radius: 0.4%; 
+  cursor: pointer;
+}
+
+
+/* Styles for larger screens using media queries */
+@media (min-width: 768px) {
+  .main-content {
+      flex-direction: row;
   }
+
+  .form-content {
+      flex: 0 0 50%;
+  }
+
+  .image-content {
+      flex: 0 0 40%;
+  }
+
+  .forget-password {
+      margin-top: 2%;
+      font-size: 2.2%;
+      letter-spacing: -0.2%;
+  }
+
+
+
+  .reset-password-button {
+      width: 60%;
+      height: 6%;
+      border-radius: 2%;
+      cursor: pointer;
+      padding: 1.5% 0;
+      font-size: 2%;
+  }
+}
