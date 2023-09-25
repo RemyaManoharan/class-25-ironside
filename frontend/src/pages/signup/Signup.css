@@ -1,0 +1,7 @@
+.label-wrap {
+  display: flex;
+  width: 125px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
