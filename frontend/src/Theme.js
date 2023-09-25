@@ -10,7 +10,7 @@ export const theme = createTheme({
     },
     subtitle2: {
       fontFamily: "Poppins",
-      fontSize: "22px",
+      fontSize: "25px",
       fontWeight: "700",
       lineHeight: "45px" /* 129.412% */,
     },
@@ -18,7 +18,7 @@ export const theme = createTheme({
       fontFamily: "Poppins",
       fontSize: "17px",
       fontStyle: "normal",
-      fontWeight: "100",
+      fontWeight: "50",
       lineHeight: "22px" /* 129.412% */,
       letterSpacing: "-0.41px",
       color: "#89899C",
