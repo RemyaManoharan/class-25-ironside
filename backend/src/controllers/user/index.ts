@@ -1,12 +1,12 @@
-import { Request, Response } from "express";
-import { adminFireAuth } from "../../firebase/config";
-import db from "../../config/db-config";
+import { Request, Response } from 'express';
+import { adminFireAuth } from '../../firebase/config';
+import db from '../../config/db-config';
 
 export const getUserById = async (req: Request, res: Response) => {
   try {
     const uid = req.params.id;
     const user = await adminFireAuth.getUser(uid);
-    const getUser = await db("users").where("uid", uid);
+    const getUser = await db('users').where('uid', uid);
 
     res.status(200).send({ getUser });
   } catch (error: any) {
@@ -19,8 +19,8 @@ export const getUserById = async (req: Request, res: Response) => {
 export const signupdb = async (req: Request, res: Response) => {
   const user = req.body;
   try {
-    await db("users").insert(user);
-    res.status(200).send({ message: "User registered" });
+    await db('users').insert(user);
+    res.status(200).send({ message: 'User registered' });
   } catch (err) {
     res.status(400).json(err);
   }

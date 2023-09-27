@@ -1,8 +1,8 @@
 // Update with your config settings.
-require("dotenv").config();
+require('dotenv').config();
 export const config: Record<string, any> = {
   development: {
-    client: "postgres",
+    client: 'postgres',
     connection: {
       host: process.env.DB_HOST,
       database: process.env.DB,
@@ -16,7 +16,7 @@ export const config: Record<string, any> = {
     },
   },
   production: {
-    client: "postgres",
+    client: 'postgres',
     connection: {
       host: process.env.PROD_DB_HOST,
       database: process.env.PROD_DB,
