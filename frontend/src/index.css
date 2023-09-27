@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Overpass:wght@400;700&family=Poppins:wght@700&display=swap');
 
-
 :root {
-  --font-primary: "Manrope", sans-serif;
-  --font-title : "Poppins", sans-serif;
+  --font-primary: 'Manrope', sans-serif;
+  --font-title: 'Poppins', sans-serif;
   --font-color: #111111;
   --sec-font-color: #55555f;
 
