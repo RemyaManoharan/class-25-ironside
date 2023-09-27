@@ -28,7 +28,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <PrivateRoute component={Main} />,
+    element: (
+      <PrivateRoute>
+        <Main />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: '/',
