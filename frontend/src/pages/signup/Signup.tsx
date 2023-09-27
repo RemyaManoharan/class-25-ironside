@@ -2,19 +2,12 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import {
-  Box,
-  Grid,
-  Typography,
-  TextField,
-  Button,
-  Checkbox,
-  FormControlLabel,
-  InputLabel,
-} from "@mui/material";
+import { Typography, TextField, Button, InputLabel } from "@mui/material";
 import signupImage from "../../assets/signup.svg";
 import Icon from "../../assets/aperture.svg";
 import "./Signup.css";
+import axios from "axios";
+
 export default function SignUpPage() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -39,8 +32,19 @@ export default function SignUpPage() {
     try {
       setError("");
       setLoading(true);
-      await signup(email, password);
+      const user = await signup(email, password);
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.user.accessToken}`,
+        },
+      };
+
+      const newUser = { uid: user.user.uid, email: user.user.email };
+
+      await axios.post("/api/user", newUser, config);
       await updateUser(firstName, lastName);
+
       navigate("/");
     } catch (error) {
       console.error("Error during sign-up:", error);
