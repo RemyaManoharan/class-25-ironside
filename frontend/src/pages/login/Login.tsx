@@ -38,7 +38,8 @@ function LoginPage() {
       setError("");
       setLoading(true);
       await login(email, password);
-
+      // await axios(/api/getuser/uid)
+      //zustand set user
       navigate("/");
     } catch (error) {
       console.error("Error during login:", error);

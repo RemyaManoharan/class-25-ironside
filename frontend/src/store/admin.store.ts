@@ -5,12 +5,11 @@ interface BearState {
   increase: (by: number) => void;
 }
 
-const useBearStore = create<BearState>()((set) => ({
+const useAdminStore = create<BearState>()((set) => ({
   userToken: null,
-  
+
   bears: 0,
   increase: (by) => set((state) => ({ bears: state.bears + by })),
- 
 }));
 
-export default useBearStore;
+export default useAdminStore;

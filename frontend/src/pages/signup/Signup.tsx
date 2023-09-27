@@ -6,7 +6,7 @@ import { Typography, TextField, Button, InputLabel } from "@mui/material";
 import signupImage from "../../assets/signup.svg";
 import Icon from "../../assets/aperture.svg";
 import "./Signup.css";
-import axios from "axios";
+import axios from "../../api";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState<string>("");
@@ -42,7 +42,7 @@ export default function SignUpPage() {
 
       const newUser = { uid: user.user.uid, email: user.user.email };
 
-      await axios.post("/api/user", newUser, config);
+      await axios.post("/user", newUser, config);
       await updateUser(firstName, lastName);
 
       navigate("/");

@@ -6,8 +6,9 @@ export const getUserById = async (req: Request, res: Response) => {
   try {
     const uid = req.params.id;
     const user = await adminFireAuth.getUser(uid);
+    const getUser = await db("users").where("uid", uid);
 
-    res.status(200).send({ user });
+    res.status(200).send({ getUser });
   } catch (error: any) {
     const errorCode = error.code;
     const errorMessage = error.message;
