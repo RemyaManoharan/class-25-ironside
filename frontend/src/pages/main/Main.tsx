@@ -7,9 +7,7 @@ import './main.css';
 
 function Main() {
   const [showNav, setShowNav] = useState(false);
-  console.log('assad');
-  console.log('sdsd');
-  console.log('sdsd');
+
   const toggleNav = () => {
     setShowNav(!showNav);
   };

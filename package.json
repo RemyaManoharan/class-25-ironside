@@ -15,7 +15,8 @@
     "build": "npm run build --workspaces",
     "start-prod": "node ./backend/server/index.js",
     "start": "concurrently \"npm run start --workspace=frontend\" \"npm run dev --workspace=backend\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -23,9 +24,10 @@
     "@typescript-eslint/parser": "^6.7.3",
     "concurrently": "^5.1.0",
     "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",
     "husky": "^8.0.3",
-    "prettier": "^3.0.3"
+    "prettier": "3.0.3"
   },
   "dependencies": {
     "firebase": "^10.4.0",
