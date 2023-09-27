@@ -1,20 +1,19 @@
-import { useContext } from "react";
-import { AuthContext } from "../contexts/authContext";
-import { Navigate } from "react-router-dom";
+import React, { useContext } from 'react';
+import { AuthContext } from '../contexts/authContext';
+import { Navigate } from 'react-router-dom';
 
-interface Props {
-  component: React.ComponentType;
-}
+type Props = {
+  children: string | JSX.Element | JSX.Element[];
+};
 
-export const PrivateRoute: React.FC<Props> = ({
-  component: RouteComponent,
-}) => {
+export const PrivateRoute: React.FC<Props> = ({ children }: Props) => {
   const { currentUser } = useContext(AuthContext);
+
   if (currentUser) {
-    return <RouteComponent />;
+    return <>{children}</>;
   }
 
-  return <Navigate to="/login" />;
+  return <Navigate to='/login' />;
 };
 
 export default PrivateRoute;

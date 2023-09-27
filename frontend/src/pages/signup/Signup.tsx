@@ -44,7 +44,6 @@ export default function SignUpPage() {
 
       await axios.post('/user', newUser, config);
       await updateUser(firstName, lastName);
-
       navigate('/');
     } catch (error) {
       console.error('Error during sign-up:', error);
