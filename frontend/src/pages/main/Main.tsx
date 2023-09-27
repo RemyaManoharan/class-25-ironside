@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import menu from '../../assets/menu.svg';
 import './main.css';
 
-function Main(): React.ReactNode {
+function Main() {
   const [showNav, setShowNav] = useState(false);
 
   const toggleNav = () => {
