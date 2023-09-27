@@ -16,7 +16,7 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-export const signupdb = async (req: Request, res: Response) => {
+export const addUserdb = async (req: Request, res: Response) => {
   const user = req.body;
   try {
     await db('users').insert(user);

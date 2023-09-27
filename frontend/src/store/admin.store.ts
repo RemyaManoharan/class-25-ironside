@@ -1,15 +1,18 @@
-import { create } from "zustand";
+import { create } from 'zustand';
+import api from '../api';
 
 interface BearState {
-  bears: number;
-  increase: (by: number) => void;
+  currentUser: any | null;
+  fetchCurrentUser: (uid: string) => Promise<void>;
 }
 
 const useAdminStore = create<BearState>()((set) => ({
-  userToken: null,
+  currentUser: null,
 
-  bears: 0,
-  increase: (by) => set((state) => ({ bears: state.bears + by })),
+  fetchCurrentUser: async (uid: string) => {
+    const currentUser = await api.get(`/user/${uid}`);
+    set({ currentUser });
+  },
 }));
 
 export default useAdminStore;
