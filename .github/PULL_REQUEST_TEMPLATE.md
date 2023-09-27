@@ -2,7 +2,7 @@
 
 ## 📝 Description
 
-- [x] [Description what you did]
+- [x] Description of work
 
 ## ⚠️ Notes
 
