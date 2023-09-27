@@ -2,11 +2,6 @@
 
 ## 📝 Description
 
-
-
-
-
-
 - [x] [Description what you did]
 
 ## ⚠️ Notes
