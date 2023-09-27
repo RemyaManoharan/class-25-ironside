@@ -8,6 +8,7 @@ const router: Router = express.Router();
 // Route that is protected by auth validation
 router.use("/jobs", validateAuth, jobRoute);
 // Route that is protected by auth validation
+
 router.use("/user", validateAuth, userRoute);
 
 export default router;
