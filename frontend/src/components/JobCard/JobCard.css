@@ -1,0 +1,72 @@
+.job-card {
+  width: calc(
+    25% - 16px
+  ); 
+  margin-right: 16px; /* Spacing between cards (adjust as needed) */
+  margin-bottom: 16px;
+  background-color: #ffffff; /* Background color for the card */
+  border: 1px solid #e0e0e0; /* Border for the card */
+  border-radius: 8px; /* Border radius for rounded corners */
+  padding: 16px; /* Padding inside the card */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift effect */
+  gap: 1rem;
+  box-sizing: border-box;
+}
+.title {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 21.6px */
+  letter-spacing: 0.36px;
+
+}
+.customLink {
+  color: black;
+}
+.card-head {
+    display: flex;
+    align-items:center;
+    gap:1rem;
+    margin-bottom: 1rem;
+}
+.logo {
+    display: flex;
+    /* align-items: center; */
+}
+.com-name {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.28px;
+}
+.card-title {
+    margin-bottom: 0.5rem;
+}
+.job-descp {
+    margin-bottom: 0.5rem; 
+}
+.job-descp p {
+    font-family: var(--font-primary);
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 21px */
+letter-spacing: 0.28px;
+}
+.card-footer {
+  display: flex;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+    .job-card {
+        width: calc(50% - 20px); /* Two cards per row on smaller screens */
+    }
+}
+@media (max-width: 480px) {
+    .job-card {
+        width: 100%; /* One card per row on mobile */
+    }
+}

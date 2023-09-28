@@ -1,0 +1,30 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+ align-items: flex-start;
+}
+
+
+.home-content {
+  display: flex;
+  justify-content: space-between; /* Distribute space between the filter and job sections */
+  align-items: flex-start; /* Align items to the top */
+  padding: 16px; /* Add padding as needed */
+  gap: 2%;
+}
+.filter-section {
+  flex: 1; /* Occupy 1/4 of the available space */
+  max-width: 100%; /* Prevent the filter section from exceeding its parent's width */
+  /* border:1px solid green; */
+}
+.job-wrapper {
+  flex: 3; /* Occupy 3/4 of the available space */
+  margin: 16px; /* Add margin for spacing */
+  max-width: 100%; /* Prevent the job section from exceeding its parent's width */
+  flex-wrap: wrap;
+  align-items: flex-start; /* Vertically align items to the top */
+ 
+}
+.sub-head {
+    margin-bottom: 2rem;
+}
