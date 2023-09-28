@@ -50,8 +50,8 @@ export default function SignUpPage() {
   };
   return (
     <div className="main-container">
-      <div className="header">
-        <Typography component="p" variant="h5">
+      <div className="form-header">
+        <Typography component="p" variant="h5" className="header-title"  style={{ fontSize: '150%' }}>
           <img className="Icon" src={Icon} alt="Icon" /> Dashboard
         </Typography>
       </div>
@@ -74,12 +74,12 @@ export default function SignUpPage() {
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    InputProps={{ style: { background: "#F8F9FD" } }}
+                    InputProps={{ style: { background: "#F8F9FD", width: '48%'} }}
                     required
-                    className="email-input"
+                    className="email-input"                    
                   />
                 </div>
-                <div className="label-wrap">
+                <div className="label-wrap" style={{  marginLeft: "80px" }}>
                   <InputLabel className="label">Last name</InputLabel>
                   <TextField
                     name="lName"
@@ -90,8 +90,9 @@ export default function SignUpPage() {
                     required
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    InputProps={{ style: { background: "#F8F9FD" } }}
+                    InputProps={{ style: { background: "#F8F9FD", width: '48%'  } }}
                     className="email-input"
+                    
                   />
                 </div>
               </div>
@@ -141,27 +142,19 @@ export default function SignUpPage() {
                 />
               </div>
 
-              <div>
+              <div className="signup-button-container">
                 <Button
                   variant="contained"
                   className={`signup-button ${loading ? "disabled" : ""}`}
                   disabled={isButtonDisabled}
                   type="submit"
-                  style={{
-                    width: "60%",
-                    height: "10%",
-                    padding: "2%",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    fontSize: "16px",
-                  }}
                 >
                   Sign up
                 </Button>
               </div>
               <div className="form-span">
                 <Typography variant="body1">
-                  Already have an account? <Link to="/login">Sign In</Link>
+                  Already have an account? <Link to="/login" className="form-link">Sign In</Link>
                 </Typography>
               </div>
             </form>

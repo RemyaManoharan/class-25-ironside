@@ -10,6 +10,7 @@ export const PrivateRoute: React.FC<Props> = ({
   component: RouteComponent,
 }) => {
   const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
   if (currentUser) {
     return <RouteComponent />;
   }
