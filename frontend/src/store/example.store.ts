@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 interface BearState {
   bears: number;
@@ -7,10 +7,9 @@ interface BearState {
 
 const useBearStore = create<BearState>()((set) => ({
   userToken: null,
-  
+
   bears: 0,
   increase: (by) => set((state) => ({ bears: state.bears + by })),
- 
 }));
 
 export default useBearStore;

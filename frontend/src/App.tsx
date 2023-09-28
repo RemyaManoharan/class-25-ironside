@@ -1,66 +1,68 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SignUpPage from "./pages/signup/Signup";
-import LoginPage from "./pages/login/Login";
-import { AuthProvider } from "./contexts/authContext";
-import ResetPassword from "./pages/password/Reset";
-import PrivateRoute from "./routes/PrivateRoute";
-import Main from "./pages/main/Main";
-import Home from "./pages/home/Home";
-import Schedule from "./pages/schedule/Schedule";
-import Company from "./pages/company/Company";
-import Messages from "./pages/messages/Messages";
-import History from "./pages/history/History";
-import EventPage from "./pages/eventPage/EventPage";
-import JobDetail from "./components/JobDetail/JobDetail";
-
-
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import SignUpPage from './pages/signup/Signup';
+import LoginPage from './pages/login/Login';
+import { AuthProvider } from './contexts/authContext';
+import ResetPassword from './pages/password/Reset';
+import PrivateRoute from './routes/PrivateRoute';
+import Main from './pages/main/Main';
+import Home from './pages/home/Home';
+import Schedule from './pages/schedule/Schedule';
+import Company from './pages/company/Company';
+import Messages from './pages/messages/Messages';
+import History from './pages/history/History';
+import EventPage from './pages/eventPage/EventPage';
+import JobDetail from './components/JobDetail/JobDetail';
 
 const router = createBrowserRouter([
   {
-    path: "/signup",
+    path: '/signup',
     element: <SignUpPage />,
   },
   {
-    path: "/login",
+    path: '/login',
     element: <LoginPage />,
   },
   {
-    path: "/password",
+    path: '/password',
     element: <ResetPassword />,
   },
   {
-    path: "/",
-    element: <PrivateRoute component={Main} />,
+    path: '/',
+    element: (
+      <PrivateRoute>
+        <Main />
+      </PrivateRoute>
+    ),
     children: [
       {
-        path: "/",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "/event",
+        path: '/event',
         element: <EventPage />,
       },
       {
-        path: "/schedule",
+        path: '/schedule',
         element: <Schedule />,
       },
       {
-        path: "/history",
+        path: '/history',
         element: <History />,
       },
       {
-        path: "/company",
+        path: '/company',
         element: <Company />,
       },
       {
-        path: "/messages",
+        path: '/messages',
         element: <Messages />,
       },
       {
-        path:"/jobdetails/:jobId",
-        element: <JobDetail/>
-      }
+        path: '/jobdetails/:jobId',
+        element: <JobDetail />,
+      },
     ],
   },
 ]);
