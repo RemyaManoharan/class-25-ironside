@@ -1,27 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import JobCard from '../JobCard/JobCard';
-import "./JobList.css";
+import './JobList.css';
+import useJobStore from '../../store/jobstore';
 
-// interface for jobs
-interface Job {
-  job_id: number;
-  job_title : string;
-  company_name : string;
-  description:string;
-  location : string;
-}
-interface JobListProps {
-  jobs: Job[] ;
-}
+const JobList: React.FC = () => {
+  const jobs = useJobStore((state) => state.jobs);
+  const fetchJobs = useJobStore((state) => state.fetchJobs);
+  useEffect(() => {
+    // will be replacing the accessToken when code is ready
+    const accessToken = '';
+    fetchJobs(accessToken).catch((error) => {
+      console.error('Error fetching jobs:', error);
+    });
+  }, [fetchJobs]);
 
-const JobList: React.FC<JobListProps> = ({ jobs }) => {
   return (
     <section>
-    <div className='job-container'>
-      {jobs.map((job, index) => (
-        <JobCard key={index} job={job} />
-      ))}
-    </div>
+      <div className='job-container'>
+        {jobs.map((job, index) => (
+          <JobCard key={index} job={job} />
+        ))}
+      </div>
     </section>
   );
 };

@@ -1,7 +1,5 @@
 .job-card {
-  width: calc(
-    25% - 16px
-  ); 
+  width: calc(30% - 16px);
   margin-right: 16px; /* Spacing between cards (adjust as needed) */
   margin-bottom: 16px;
   background-color: #ffffff; /* Background color for the card */
@@ -19,20 +17,19 @@
   font-weight: 700;
   line-height: 120%; /* 21.6px */
   letter-spacing: 0.36px;
-
 }
 .customLink {
   color: black;
 }
 .card-head {
-    display: flex;
-    align-items:center;
-    gap:1rem;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 .logo {
-    display: flex;
-    /* align-items: center; */
+  display: flex;
+  /* align-items: center; */
 }
 .com-name {
   font-family: var(--font-primary);
@@ -43,30 +40,30 @@
   letter-spacing: 0.28px;
 }
 .card-title {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .job-descp {
-    margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
 }
 .job-descp p {
-    font-family: var(--font-primary);
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 150%; /* 21px */
-letter-spacing: 0.28px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.28px;
 }
 .card-footer {
   display: flex;
   gap: 1rem;
 }
 @media (max-width: 768px) {
-    .job-card {
-        width: calc(50% - 20px); /* Two cards per row on smaller screens */
-    }
+  .job-card {
+    width: calc(50% - 20px); /* Two cards per row on smaller screens */
+  }
 }
 @media (max-width: 480px) {
-    .job-card {
-        width: 100%; /* One card per row on mobile */
-    }
+  .job-card {
+    width: 100%; /* One card per row on mobile */
+  }
 }

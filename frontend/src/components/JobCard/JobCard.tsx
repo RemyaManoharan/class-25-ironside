@@ -1,17 +1,24 @@
 // JobCard.tsx
-import React from "react";
-import "./JobCard.css";
-import { CiLocationOn } from "react-icons/ci";
-import { BsPeople } from "react-icons/bs";
-import CompanyLogo from "../../assets/Logo Tumbnail.svg";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './JobCard.css';
+import { CiLocationOn } from 'react-icons/ci';
+import { BsPeople } from 'react-icons/bs';
+import CompanyLogo from '../../assets/Logo Tumbnail.svg';
+import { Link } from 'react-router-dom';
+import { Typography } from '@mui/material';
 
 interface Job {
-  job_id: number;
-  job_title: string;
-  company_name: string;
+  id: number;
+  title: string;
+  title_description: string;
   description: string;
+  skills: string;
+  jobType: string;
+  experience: string;
+  requirements: string;
+  name: string;
   location: string;
+  is_remotework: boolean;
 }
 
 interface JobCardProps {
@@ -20,32 +27,38 @@ interface JobCardProps {
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
   return (
-    <div className="job-card">
-      <div className="card-head">
-        <div className="logo">
-          <img src={CompanyLogo} alt="companylogo" />
+    <div className='job-card'>
+      <div className='card-head'>
+        <div className='logo'>
+          <img src={CompanyLogo} alt='companylogo' />
         </div>
 
-        <div className="card-title">
-          <Link to={`/jobdetails/${job.job_id}`} className="customLink">
-            <h2 className="title-job">{job.job_title}</h2>
+        <div className='card-title'>
+          <Link to={`/jobdetails/${job.id}`} className='customLink'>
+            <Typography variant='h3' component='h2'>
+              {job.title}
+            </Typography>
           </Link>
-          <p className="com-name">{job.company_name}</p>
+          <Typography variant='h4' component='h2'>
+            {job.name}
+          </Typography>
         </div>
       </div>
 
-      <div className="job-descp">
-        <p>{job.description}</p>
+      <div className='job-descp'>
+        <Typography variant='h4' component='h2'>
+          {job.title_description}
+        </Typography>
       </div>
 
-      <div className="card-footer">
-        <p>
+      <div className='card-footer'>
+        <Typography variant='h4' component='h2'>
           <BsPeople /> 00
-        </p>
-        <p>
-          {" "}
-          <CiLocationOn /> {job.location}
-        </p>
+        </Typography>
+        <Typography variant='h4' component='h2'>
+          <CiLocationOn />
+          {job.location}
+        </Typography>
       </div>
     </div>
   );

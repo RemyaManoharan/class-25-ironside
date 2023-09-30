@@ -32,15 +32,16 @@
     "prettier": "3.0.3"
   },
   "dependencies": {
-    "lint-staged": "^14.0.1",
-    "react-icons": "^4.11.0",
-    "react-router-dom": "^6.16.0",
+    "express": "^4.18.2",
     "firebase": "^10.4.0",
     "firebase-admin": "^11.10.1",
     "i": "^0.3.7",
     "jsonwebtoken": "^9.0.2",
     "knex": "^2.5.1",
+    "lint-staged": "^14.0.1",
     "npm": "^10.1.0",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "react-icons": "^4.11.0",
+    "react-router-dom": "^6.16.0"
   }
 }
