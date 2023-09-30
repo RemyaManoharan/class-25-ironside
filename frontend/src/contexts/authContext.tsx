@@ -1,5 +1,5 @@
-import React, { useState, useEffect, createContext } from "react";
-import { auth } from "../firebase/config";
+import React, { useState, useEffect, createContext } from 'react';
+import { auth } from '../firebase/config';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,13 +7,13 @@ import {
   sendPasswordResetEmail,
   updateProfile,
   User,
-} from "firebase/auth";
+} from 'firebase/auth';
 
 export const AuthContext: React.Context<any> = createContext(null);
 
 export function AuthProvider({ children }: any) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<Boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   function signup(email: string, password: string) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -33,9 +33,7 @@ export function AuthProvider({ children }: any) {
 
   function updateUser(firstName: string, lastName: string) {
     const user = auth.currentUser;
-    return user
-      ? updateProfile(user, { displayName: `${firstName} ${lastName}` })
-      : null;
+    return user ? updateProfile(user, { displayName: `${firstName} ${lastName}` }) : null;
   }
 
   useEffect(() => {
@@ -56,9 +54,5 @@ export function AuthProvider({ children }: any) {
     updateUser,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 }

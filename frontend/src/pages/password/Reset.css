@@ -42,89 +42,85 @@
   text-align: center;
 }
 
-
 .error-message {
   color: red;
   font-size: 100%;
   margin-top: 2%;
 }
 .label-wrap .email-input {
-    width: 332%;
-    height: 10%; 
-    padding: 2%; 
-    box-sizing: border-box;
-    margin-bottom: 10px;
+  width: 332%;
+  height: 10%;
+  padding: 2%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
 .reset-password-button {
-    width: 60%;
-    height: 10%; 
-    border-radius: 4px; 
-    cursor: pointer;
-    padding: 2%; 
-    font-size: 16px;
+  width: 60%;
+  height: 10%;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 2%;
+  font-size: 16px;
 }
 
 .reset-link-container {
   display: flex;
   flex-direction: column;
-  width: 34.6%; 
+  width: 34.6%;
   height: 4.666%;
-  top: 59.709%; 
-  left: 27.3%; 
-  background: #89899C;
+  top: 59.709%;
+  left: 27.3%;
+  background: #89899c;
   padding: 2%;
   border-radius: 0.8%;
 }
 
 .reset-link-text {
   text-align: left;
-  margin-bottom: 1%; 
-  color: #89899C;
+  margin-bottom: 1%;
+  color: #89899c;
 }
 
 .didnt-receive-text {
-  color: #89899C;
+  color: #89899c;
   margin-top: 6%;
 }
 
 .resend-text {
-  text-align: left;  
-  color: #0B5FAE;
-  padding: 0.5%; 
-  border-radius: 0.4%; 
+  text-align: left;
+  color: #0b5fae;
+  padding: 0.5%;
+  border-radius: 0.4%;
   cursor: pointer;
 }
-
 
 /* Styles for larger screens using media queries */
 @media (min-width: 768px) {
   .main-content {
-      flex-direction: row;
+    flex-direction: row;
   }
 
   .form-content {
-      flex: 0 0 50%;
+    flex: 0 0 50%;
   }
 
   .image-content {
-      flex: 0 0 40%;
+    flex: 0 0 40%;
   }
 
   .forget-password {
-      margin-top: 2%;
-      font-size: 2.2%;
-      letter-spacing: -0.2%;
+    margin-top: 2%;
+    font-size: 2.2%;
+    letter-spacing: -0.2%;
   }
 
-
-
   .reset-password-button {
-      width: 60%;
-      height: 6%;
-      border-radius: 2%;
-      cursor: pointer;
-      padding: 1.5% 0;
-      font-size: 2%;
+    width: 60%;
+    height: 6%;
+    border-radius: 2%;
+    cursor: pointer;
+    padding: 1.5% 0;
+    font-size: 2%;
   }
 }
