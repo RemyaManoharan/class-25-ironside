@@ -3,15 +3,17 @@ import { AuthContext } from '../../contexts/authContext';
 import { useNavigate } from 'react-router-dom';
 import './header.css';
 import me from '../../assets/me.png';
+import useAdminStore from '../../store/admin.store';
 
 function Header() {
   const { logout, currentUser } = useContext(AuthContext);
-
+  const resetUser = useAdminStore((state) => state.resetUser);
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       await logout();
+      resetUser();
       navigate('/login');
     } catch (err) {
       console.error(err);

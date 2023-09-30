@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
 
 export const getAllJobs = (req: Request, res: Response) => {
-  res.status(200).send({ message: 'Successfully got the products' });
+  res.status(200).send({ message: 'Successfully got the jobs' });
 };

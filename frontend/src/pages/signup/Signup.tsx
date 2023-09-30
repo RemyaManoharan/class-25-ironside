@@ -34,15 +34,9 @@ export default function SignUpPage() {
       setLoading(true);
       const user = await signup(email, password);
 
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user.user.accessToken}`,
-        },
-      };
-
       const newUser = { uid: user.user.uid, email: user.user.email };
-
-      await api.post('/user', newUser, config);
+      const request = await api();
+      await request.post('/user', newUser);
       await updateUser(firstName, lastName);
 
       navigate('/');
