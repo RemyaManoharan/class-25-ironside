@@ -10,22 +10,15 @@ import { AuthContext } from '../../contexts/authContext';
 function Main() {
   const [showNav, setShowNav] = useState(false);
   const { currentUser } = useContext(AuthContext);
-  const [isUserAdmin, setIsUserAdmin] = useState<boolean>(false);
 
   const fetchCurrentUser = useAdminStore((state) => state.fetchCurrentUser);
   const user = useAdminStore((state) => state.user);
+
   useEffect(() => {
-    (async () => {
-      try {
-        await fetchCurrentUser(currentUser.uid);
-      } catch (err) {
-        console.error(err);
-      }
-    })();
+    fetchCurrentUser(currentUser.uid);
   }, []);
-  useEffect(() => {
-    setIsUserAdmin(user?.user_type === 'admin');
-  }, [user]);
+
+  const isUserAdmin = user?.user_type === 'admin';
 
   const toggleNav = () => {
     setShowNav(!showNav);

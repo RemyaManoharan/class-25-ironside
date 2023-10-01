@@ -71,7 +71,7 @@ export default function SignUpPage() {
                     variant='outlined'
                     type='text'
                     value={firstName}
-                    onChange={(e: any) => setFirstName(e.target.value)}
+                    onChange={(e) => setFirstName(e.target.value)}
                     InputProps={{ style: { background: '#F8F9FD' } }}
                     required
                     className='email-input'
