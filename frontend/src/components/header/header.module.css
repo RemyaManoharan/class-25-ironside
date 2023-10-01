@@ -1,0 +1,47 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0 25px;
+  font-size: 1.2rem;
+}
+
+.header img {
+  width: 2rem;
+  height: 2rem;
+}
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.pageSelected {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+.logOut button {
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 1px solid #0b5fae;
+  transition: all 400ms ease;
+}
+
+.logOut button:hover {
+  background-color: #0b5fae;
+  color: white;
+  border-color: transparent;
+}
+@media screen and (max-width: 930px) {
+  .header img {
+    display: none;
+  }
+  .logOut {
+    display: none;
+  }
+  .userInfo {
+    display: none;
+  }
+}

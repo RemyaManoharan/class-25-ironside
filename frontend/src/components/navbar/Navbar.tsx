@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import icon from '../../assets/icon.png';
-import './navBar.css';
+import style from './nav.module.css';
 import category from '../../assets/Category.png';
 import ticket from '../../assets/Ticket.png';
 import calendar from '../../assets/Calendar.png';
@@ -9,62 +9,35 @@ import work from '../../assets/Work.png';
 import sidebar from '../../assets/Sidebar.png';
 
 function NavBar() {
+  const navLinks = [
+    { to: '/', icon: category, text: 'Home' },
+    { to: '/event', icon: ticket, text: 'Event' },
+    { to: '/schedule', icon: calendar, text: 'Schedule' },
+    { to: '/history', icon: circle, text: 'History' },
+    { to: '/company', icon: work, text: 'Company' },
+    { to: '/messages', icon: sidebar, text: 'Messages' },
+  ];
+
   return (
-    <div className='navbar-container'>
-      <div className='header'>
-        <span className='icon'>
+    <div className={style.content}>
+      <div className={style.header}>
+        <span className={style.icon}>
           <img src={icon} alt='dashboard icon' />
         </span>
-        <h1>Dashboard</h1>
+        <h1>Dashhhhboard</h1>
       </div>
-      <Link to={'/'}>
-        <div className='nav-link'>
-          <span className='icon'>
-            <img src={category} alt='dashboard icon' />
-          </span>
-          Home
-        </div>
-      </Link>
-      <Link to={'/event'}>
-        <div className='nav-link'>
-          <span className='icon'>
-            <img src={ticket} alt='dashboard icon' />
-          </span>
-          Event
-        </div>
-      </Link>
-      <Link to={'/schedule'}>
-        <div className='nav-link'>
-          <span className='icon'>
-            <img src={calendar} alt='dashboard icon' />
-          </span>
-          Schedule
-        </div>
-      </Link>
-      <Link to={'/history'}>
-        <div className='nav-link'>
-          <span className='icon'>
-            <img src={circle} alt='dashboard icon' />
-          </span>
-          History
-        </div>
-      </Link>
-      <Link to={'/company'}>
-        <div className='nav-link'>
-          <span className='icon'>
-            <img src={work} alt='dashboard icon' />
-          </span>
-          Company
-        </div>
-      </Link>
-      <Link to={'/messages'}>
-        <div className='nav-link'>
-          <span className='icon'>
-            <img src={sidebar} alt='dashboard icon' />
-          </span>
-          Messages
-        </div>
-      </Link>
+      <div className={style.navLinkContainer}>
+        {navLinks.map((link, index) => (
+          <Link to={link.to} className={style.link} key={index}>
+            <div className={style.navLink}>
+              <span className={style.icon}>
+                <img src={link.icon} alt='dashboard icon' />
+              </span>
+              {link.text}
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
