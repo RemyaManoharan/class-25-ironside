@@ -77,12 +77,12 @@ export default function SignUpPage() {
                     type='text'
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    InputProps={{ style: { background: '#F8F9FD' } }}
+                    InputProps={{ style: { background: '#F8F9FD', width: '48%' } }}
                     required
                     className='email-input'
                   />
                 </div>
-                <div className='label-wrap'>
+                <div className='label-wrap' style={{ marginLeft: '80px' }}>
                   <InputLabel className='label'>Last name</InputLabel>
                   <TextField
                     name='lName'
@@ -93,7 +93,7 @@ export default function SignUpPage() {
                     required
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    InputProps={{ style: { background: '#F8F9FD' } }}
+                    InputProps={{ style: { background: '#F8F9FD', width: '48%' } }}
                     className='email-input'
                   />
                 </div>
@@ -164,7 +164,10 @@ export default function SignUpPage() {
               </div>
               <div className='form-span'>
                 <Typography variant='body1'>
-                  Already have an account? <Link to='/login'>Sign In</Link>
+                  Already have an account?{' '}
+                  <Link to='/login' className='form-link'>
+                    Sign In
+                  </Link>
                 </Typography>
               </div>
             </form>

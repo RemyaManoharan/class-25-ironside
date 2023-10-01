@@ -5,21 +5,21 @@
   align-items: flex-start;
 }
 .name-input {
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 .name-wrapper {
   display: flex;
-  gap: 10px; /* Adjust the gap as needed */
+  gap: 10px;
 }
 
 .email-input {
-  width: 100%; /* Adjust the width as needed */
+  width: 100%;
 }
 
 body {
   overflow: hidden;
 }
-.signup-button-container .signup-button{
+.signup-button-container .signup-button {
   width: 60%;
   height: 10%;
   padding: 2%;
