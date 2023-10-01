@@ -59,7 +59,7 @@ export const getJobsByWorkTypes = async (req: Request, res: Response) => {
   }
 };
 export const getJobsByExperience = async (req: Request, res: Response) => {
-  let { experience } = req.params;
+  const { experience } = req.params;
 
   try {
     // Assuming experience is given as a range, e.g., "1-3", "3-5"
