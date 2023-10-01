@@ -73,8 +73,6 @@ function LoginPage() {
                   variant='outlined'
                   className='email-input'
                   InputProps={{ style: { background: '#F8F9FD' } }}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className='label-wrap'>

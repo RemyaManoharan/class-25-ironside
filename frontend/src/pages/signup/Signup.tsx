@@ -54,12 +54,7 @@ export default function SignUpPage() {
   return (
     <div className='main-container'>
       <div className='form-header'>
-        <Typography
-          component='p'
-          variant='h5'
-          className='header-title'
-          style={{ fontSize: '150%' }}
-        >
+        <Typography component='p' variant='h5'>
           <img className='Icon' src={Icon} alt='Icon' /> Dashboard
         </Typography>
       </div>
@@ -82,12 +77,12 @@ export default function SignUpPage() {
                     type='text'
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    InputProps={{ style: { background: '#F8F9FD', width: '48%' } }}
+                    InputProps={{ style: { background: '#F8F9FD' } }}
                     required
                     className='email-input'
                   />
                 </div>
-                <div className='label-wrap' style={{ marginLeft: '80px' }}>
+                <div className='label-wrap'>
                   <InputLabel className='label'>Last name</InputLabel>
                   <TextField
                     name='lName'
@@ -98,7 +93,7 @@ export default function SignUpPage() {
                     required
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    InputProps={{ style: { background: '#F8F9FD', width: '48%' } }}
+                    InputProps={{ style: { background: '#F8F9FD' } }}
                     className='email-input'
                   />
                 </div>
@@ -155,16 +150,21 @@ export default function SignUpPage() {
                   className={`signup-button ${loading ? 'disabled' : ''}`}
                   disabled={isButtonDisabled}
                   type='submit'
+                  style={{
+                    width: '60%',
+                    height: '10%',
+                    padding: '2%',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '16px',
+                  }}
                 >
                   Sign up
                 </Button>
               </div>
               <div className='form-span'>
                 <Typography variant='body1'>
-                  Already have an account?{' '}
-                  <Link to='/login' className='form-link'>
-                    Sign In
-                  </Link>
+                  Already have an account? <Link to='/login'>Sign In</Link>
                 </Typography>
               </div>
             </form>
