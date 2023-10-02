@@ -5,9 +5,9 @@ import db from '../../config/db-config';
 export const getUserById = async (req: Request, res: Response) => {
   try {
     const uid = req.params.id;
-    const user = await adminFireAuth.getUser(uid);
+    const getUser = await db('users').where('uid', uid).first();
 
-    res.status(200).send({ user });
+    res.status(200).json(getUser);
   } catch (error: any) {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -15,7 +15,7 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-export const signupdb = async (req: Request, res: Response) => {
+export const addUserdb = async (req: Request, res: Response) => {
   const user = req.body;
   try {
     await db('users').insert(user);
