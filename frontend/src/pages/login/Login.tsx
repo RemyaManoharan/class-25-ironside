@@ -35,6 +35,7 @@ function LoginPage() {
     try {
       setError('');
       setLoading(true);
+
       await login(email, password);
 
       navigate('/');

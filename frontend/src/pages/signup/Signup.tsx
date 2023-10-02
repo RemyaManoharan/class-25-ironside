@@ -6,7 +6,7 @@ import { Typography, TextField, Button, InputLabel } from '@mui/material';
 import signupImage from '../../assets/signup.svg';
 import Icon from '../../assets/aperture.svg';
 import './Signup.css';
-import axios from '../../api';
+import api from '../../api';
 
 export default function SignUpPage() {
   const [email, setEmail] = useState<string>('');
@@ -34,16 +34,11 @@ export default function SignUpPage() {
       setLoading(true);
       const user = await signup(email, password);
 
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user.user.accessToken}`,
-        },
-      };
-
       const newUser = { uid: user.user.uid, email: user.user.email };
-
-      await axios.post('/user', newUser, config);
+      const request = await api();
+      await request.post('/user', newUser);
       await updateUser(firstName, lastName);
+
       navigate('/');
     } catch (error) {
       console.error('Error during sign-up:', error);

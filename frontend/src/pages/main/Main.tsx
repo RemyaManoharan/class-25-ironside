@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Header from '../../components/header/Header';
 import NavBar from '../../components/navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import menu from '../../assets/menu.svg';
 import './main.css';
+import useAdminStore from '../../store/admin.store';
+import { AuthContext } from '../../contexts/authContext';
 
 function Main() {
   const [showNav, setShowNav] = useState(false);
+  const { currentUser } = useContext(AuthContext);
+
+  const fetchCurrentUser = useAdminStore((state) => state.fetchCurrentUser);
+  const user = useAdminStore((state) => state.user);
+
+  useEffect(() => {
+    fetchCurrentUser(currentUser.uid);
+  }, []);
+
+  const isUserAdmin = user?.user_type === 'admin';
 
   const toggleNav = () => {
     setShowNav(!showNav);
@@ -29,6 +41,7 @@ function Main() {
           </header>
 
           <div className='outlet'>
+            {isUserAdmin && 'this is admin'}
             <Outlet />
           </div>
         </div>
