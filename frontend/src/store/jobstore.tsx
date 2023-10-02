@@ -1,5 +1,6 @@
 import create from 'zustand';
 import axios from 'axios';
+import api from '../api';
 interface Job {
   id: number;
   title: string;
@@ -16,17 +17,14 @@ interface Job {
 }
 interface JobStore {
   jobs: Job[];
-  fetchJobs: (accessToken: string) => Promise<void>;
+  fetchJobs: () => Promise<void>;
 }
 const useJobStore = create<JobStore>((set) => ({
   jobs: [],
-  fetchJobs: async (accessToken) => {
+  fetchJobs: async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/jobs/all', {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
+      const request = await api();
+      const response = await request.get('/jobs/all');
       set({ jobs: response.data });
     } catch (error) {
       console.error('Error fetching jobs:', error);
