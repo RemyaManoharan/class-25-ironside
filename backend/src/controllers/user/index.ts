@@ -5,7 +5,6 @@ import db from '../../config/db-config';
 export const getUserById = async (req: Request, res: Response) => {
   try {
     const uid = req.params.id;
-    const user = await adminFireAuth.getUser(uid);
     const getUser = await db('users').where('uid', uid).first();
 
     res.status(200).json(getUser);
