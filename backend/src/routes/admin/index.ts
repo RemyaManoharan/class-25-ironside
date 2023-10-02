@@ -1,8 +1,8 @@
-import express, { Router } from "express";
-import { getAdmin } from "../../controllers/admin";
+import express, { Router } from 'express';
+import { getAdmin } from '../../controllers/admin';
 
 const adminRoute: Router = express.Router();
 
-adminRoute.get("/", getAdmin);
+adminRoute.get('/', getAdmin);
 
 export default adminRoute;

@@ -2,14 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/authContext';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import {
-  Typography,
-  TextField,
-  Button,
-  InputLabel,
-  Checkbox,
-  FormControlLabel,
-} from '@mui/material';
+import { Typography, TextField, Button, InputLabel } from '@mui/material';
 import LoginImage from '../../assets/login.svg';
 import Icon from '../../assets/aperture.svg';
 import './Login.css';
@@ -51,8 +44,8 @@ function LoginPage() {
 
   return (
     <div className='main-container'>
-      <div className='header'>
-        <Typography component='p' variant='h5'>
+      <div className='form-header'>
+        <Typography component='p' variant='h5' style={{ fontSize: '150%' }}>
           <img className='Icon' src={Icon} alt='Icon' /> Dashboard
         </Typography>
       </div>
@@ -74,7 +67,6 @@ function LoginPage() {
                   variant='outlined'
                   className='email-input'
                   InputProps={{ style: { background: '#F8F9FD' } }}
-                  value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
@@ -91,13 +83,11 @@ function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <FormControlLabel
-                control={<Checkbox name='rem-password' value='rem-password' />}
-                label='Remember me'
-              />
               <div className='button-wrap'>
                 <Typography variant='body1' className='forget-pass'>
-                  <Link to='/password'>Forgot Password</Link>
+                  <Link to='/password' className='form-link'>
+                    Forgot Password
+                  </Link>
                 </Typography>
 
                 <Button
@@ -121,7 +111,10 @@ function LoginPage() {
           </div>
           <div className='form-span'>
             <Typography variant='body1'>
-              Don’t have an account? <Link to='/signup'>Sign Up</Link>
+              Don’t have an account?{' '}
+              <Link to='/signup' className='form-link'>
+                Sign Up
+              </Link>
             </Typography>
           </div>
         </div>
