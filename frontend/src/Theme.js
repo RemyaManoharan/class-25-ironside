@@ -6,13 +6,13 @@ export const theme = createTheme({
       fontFamily: 'Poppins',
       fontSize: '38px',
       fontWeight: '700',
-      lineHeight: '45px' /* 129.412% */,
+      lineHeight: '45px',
     },
     subtitle2: {
       fontFamily: 'Poppins',
       fontSize: '25px',
       fontWeight: '700',
-      lineHeight: '45px' /* 129.412% */,
+      lineHeight: '45px',
     },
     subtitle1: {
       fontFamily: 'Poppins',

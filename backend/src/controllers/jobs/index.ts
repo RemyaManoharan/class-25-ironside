@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
-import { adminFireAuth } from '../../firebase/config';
 import db from '../../config/db-config';
 export const getAllJobs = async (req: Request, res: Response) => {
-  //res.status(200).send({ message: "Successfully got the products" });
   try {
     const jobs = await db('jobs').select('*');
     res.status(200).json(jobs);

@@ -6,11 +6,11 @@ import { useParams } from 'react-router-dom';
 import useJobStore from '../../store/jobstore';
 
 type JobDetailParams = {
-  jobId: string; // Match the parameter name to your URL
+  jobId: string;
 };
 
 function JobDetail() {
-  const { jobId } = useParams<JobDetailParams>(); // Get the jobId from the URL as a string
+  const { jobId } = useParams<JobDetailParams>();
   const jobs = useJobStore((state) => state.jobs);
   const selectedJob = jobs.find((job) => job.id === Number(jobId));
 
@@ -23,10 +23,9 @@ function JobDetail() {
 
   let jobRequirements: string[] = [];
   if (selectedJob.requirement) {
-    // Check if selectedJob.requirements is defined and not empty
     jobRequirements = selectedJob.requirement.split(',');
   }
-  // const classes = useStyles();
+
   return (
     //   main div
     <section className='job-detail-wrapper'>
@@ -74,8 +73,6 @@ function JobDetail() {
               <li key={index}>{item}</li>
             ))}
           </Typography>
-          {/* // job description heading
-                // list of job description */}
         </div>
         <div className='skill-container'>
           <Typography variant='body1' component='h2'>
@@ -88,9 +85,6 @@ function JobDetail() {
               </li>
             ))}
           </ul>
-
-          {/* //skill heading
-                // list of skills */}
         </div>
         <div className='requirement-container'>
           <Typography variant='body1' component='h2'>
@@ -101,8 +95,6 @@ function JobDetail() {
               <li key={index}>{item}</li>
             ))}
           </Typography>
-          {/* // requirement heading
-                // list of requirements */}
         </div>
 
         <div className='about-company-container'>
@@ -112,8 +104,6 @@ function JobDetail() {
           <Typography variant='h4' component='h2'>
             {selectedJob.about}
           </Typography>
-          {/* // about company heading
-                //paragraph about company */}
         </div>
       </div>
     </section>

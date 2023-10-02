@@ -2,12 +2,9 @@ import React from 'react';
 import styles from './FilterForm.module.css';
 import { TextField, InputLabel, FormControlLabel, Switch, Select, MenuItem } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
-import { Typography } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import FormLabel from '@mui/material/FormLabel';
 import FormGroup from '@mui/material/FormGroup';
-
-import FormHelperText from '@mui/material/FormHelperText';
 
 function FilterForm() {
   const [typeWork, setTypeWork] = React.useState({
@@ -64,8 +61,6 @@ function FilterForm() {
             fullWidth
             label='Age'
             value={10}
-            // value={age}
-            // onChange={handleChange}
           >
             <MenuItem value=''>
               <em>Relevant</em>
