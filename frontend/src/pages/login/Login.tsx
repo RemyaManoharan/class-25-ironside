@@ -2,14 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/authContext';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import {
-  Typography,
-  TextField,
-  Button,
-  InputLabel,
-  Checkbox,
-  FormControlLabel,
-} from '@mui/material';
+import { Typography, TextField, Button, InputLabel } from '@mui/material';
 import LoginImage from '../../assets/login.svg';
 import Icon from '../../assets/aperture.svg';
 import './Login.css';
