@@ -22,9 +22,9 @@ function JobDetail() {
   const JobDescpArray = selectedJob.description.split(',');
 
   let jobRequirements: string[] = [];
-  if (selectedJob.requirements) {
+  if (selectedJob.requirement) {
     // Check if selectedJob.requirements is defined and not empty
-    jobRequirements = selectedJob.requirements.split(',');
+    jobRequirements = selectedJob.requirement.split(',');
   }
   // const classes = useStyles();
   return (
@@ -46,7 +46,7 @@ function JobDetail() {
                 {selectedJob.is_remotework ? 'Remote' : 'In-Office'}
               </Typography>
               <Typography variant='h4' component='h2'>
-                {selectedJob.jobType}
+                {selectedJob.job_type}
               </Typography>
 
               <Typography variant='h4' component='h2'>
@@ -96,9 +96,11 @@ function JobDetail() {
           <Typography variant='body1' component='h2'>
             Requirement
           </Typography>
-          {jobRequirements.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
+          <Typography variant='h4' component='h2'>
+            {jobRequirements.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </Typography>
           {/* // requirement heading
                 // list of requirements */}
         </div>
@@ -108,7 +110,7 @@ function JobDetail() {
             About Company
           </Typography>
           <Typography variant='h4' component='h2'>
-            About Company
+            {selectedJob.about}
           </Typography>
           {/* // about company heading
                 //paragraph about company */}

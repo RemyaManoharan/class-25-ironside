@@ -13,12 +13,13 @@ interface Job {
   title_description: string;
   description: string;
   skills: string;
-  jobType: string;
+  job_type: string;
   experience: string;
-  requirements: string;
+  requirement: string;
   name: string;
   location: string;
   is_remotework: boolean;
+  about: string;
 }
 
 interface JobCardProps {
