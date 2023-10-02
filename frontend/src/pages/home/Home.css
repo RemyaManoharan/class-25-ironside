@@ -1,0 +1,25 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 2%;
+}
+.filter-section {
+  flex: 1;
+  max-width: 100%;
+}
+.job-wrapper {
+  flex: 3;
+  margin: 16px;
+  max-width: 100%;
+  align-items: flex-start;
+}
+.sub-head {
+  margin-bottom: 2rem;
+}

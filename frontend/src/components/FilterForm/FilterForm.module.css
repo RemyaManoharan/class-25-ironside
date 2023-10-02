@@ -1,0 +1,24 @@
+.filterContainer {
+  width: 100%;
+  height: 70%;
+  padding: 1.5%;
+  margin-top: 5%;
+  background-color: white;
+}
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5%;
+  gap: 15px;
+  width: 90%;
+}
+.locationDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.showByCont {
+  flex-direction: column;
+  gap: 10px;
+}

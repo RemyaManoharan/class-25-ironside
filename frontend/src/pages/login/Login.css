@@ -44,9 +44,8 @@
   font-size: 100%;
   margin-top: 2%;
 }
-.form-link{
-  color: #0B5FAE;
-  ;
+.form-link {
+  color: #0b5fae;
 }
 /* Styles for larger screens using media queries */
 @media (min-width: 768px) {
