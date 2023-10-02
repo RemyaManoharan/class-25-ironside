@@ -1,5 +1,4 @@
 import create from 'zustand';
-import axios from 'axios';
 import api from '../api';
 interface Job {
   id: number;

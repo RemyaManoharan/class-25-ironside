@@ -27,13 +27,6 @@ function FilterForm() {
     });
   };
 
-  const handleChangeExperience = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setExperience({
-      ...experience,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
   const { internship, partTime, freelance, fullTime } = typeWork;
   const { freshGraduate, group1, group2, group3, group4 } = experience;
   return (
