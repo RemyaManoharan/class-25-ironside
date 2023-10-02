@@ -7,8 +7,10 @@ import calendar from '../../assets/Calendar.png';
 import circle from '../../assets/Circle.png';
 import work from '../../assets/Work.png';
 import sidebar from '../../assets/Sidebar.png';
+import { useState } from 'react';
 
 function NavBar() {
+  const [selectedLink, setSelectedLink] = useState('/');
   const navLinks = [
     { to: '/', icon: category, text: 'Home' },
     { to: '/event', icon: ticket, text: 'Event' },
@@ -28,8 +30,15 @@ function NavBar() {
       </div>
       <div className={style.navLinkContainer}>
         {navLinks.map((link, index) => (
-          <Link to={link.to} className={style.link} key={index}>
-            <div className={style.navLink}>
+          <Link
+            to={link.to}
+            className={style.link}
+            key={index}
+            onClick={() => setSelectedLink(link.to)}
+          >
+            <div
+              className={`${style.navLink} ${selectedLink === link.to ? style.selectedLink : ''} `}
+            >
               <span className={style.icon}>
                 <img src={link.icon} alt='dashboard icon' />
               </span>

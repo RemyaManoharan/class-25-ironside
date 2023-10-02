@@ -4,17 +4,16 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import style from './header.module.css';
 import me from '../../assets/me.png';
 import useAdminStore from '../../store/admin.store';
+import { getFormattedName } from './utils';
 
 function Header() {
   const { logout, currentUser } = useContext(AuthContext);
   const resetUser = useAdminStore((state) => state.resetUser);
   const navigate = useNavigate();
-  const displayName = currentUser.displayName.split('   ');
+  const displayName = currentUser.displayName.split(' ');
 
-  const formattedFirstName =
-    displayName[0]?.charAt(0).toUpperCase() + displayName[0]?.slice(1).toLowerCase();
-  const formattedLastName =
-    displayName[1]?.charAt(0).toUpperCase() + displayName[1]?.slice(1).toLowerCase();
+  const formattedFirstName = getFormattedName(displayName[0]);
+  const formattedLastName = getFormattedName(displayName[1]);
 
   const userName = `${formattedFirstName} ${formattedLastName}`;
   const handleLogout = async () => {
