@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 type Props = {
   children: string | JSX.Element | JSX.Element[];
+  uid?: string;
 };
 
 export const PrivateRoute: React.FC<Props> = ({ children }: Props) => {
