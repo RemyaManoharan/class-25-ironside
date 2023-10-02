@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { adminFireAuth } from '../../firebase/config';
 import db from '../../config/db-config';
 
 export const getUserById = async (req: Request, res: Response) => {
