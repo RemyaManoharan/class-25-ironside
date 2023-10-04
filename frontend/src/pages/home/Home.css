@@ -9,6 +9,7 @@
   align-items: flex-start;
   padding: 16px;
   gap: 2%;
+  width: 100%;
 }
 .filter-section {
   flex: 1;

@@ -6,9 +6,10 @@ import useJobStore from '../../store/jobstore';
 const JobList: React.FC = () => {
   const jobs = useJobStore((state) => state.jobs);
   const fetchJobs = useJobStore((state) => state.fetchJobs);
+  const filters = useJobStore((state) => state.filters);
   useEffect(() => {
     fetchJobs();
-  }, []);
+  }, [filters]);
 
   return (
     <section>
