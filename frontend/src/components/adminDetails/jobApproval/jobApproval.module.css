@@ -1,0 +1,32 @@
+.content {
+  padding: 20px;
+}
+.cardContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.title p {
+  color: #0b5fae;
+  cursor: pointer;
+}
+@media screen and (max-width: 930px) {
+  .content {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .title {
+    margin-bottom: 5px;
+  }
+}

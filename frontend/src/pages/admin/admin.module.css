@@ -1,0 +1,29 @@
+.content {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 90px 380px auto;
+  grid-template-columns: auto;
+  grid-template-areas: 'top' 'mid' 'btm';
+}
+.top {
+  grid-area: top;
+}
+.mid {
+  grid-area: mid;
+}
+
+.btm {
+  grid-area: btm;
+}
+@media screen and (max-width: 930px) {
+  .content {
+    grid-template-rows: 170px auto auto;
+
+    grid-template-areas: 'top' 'mid' 'btm';
+  }
+  .top {
+    grid-area: top;
+    overflow-x: scroll;
+  }
+}

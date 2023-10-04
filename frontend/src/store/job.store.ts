@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import api from '../api';
 interface Job {
   id: number;
@@ -17,6 +17,7 @@ interface Job {
 interface JobStore {
   jobs: Job[];
   fetchJobs: () => Promise<void>;
+  resetJobStore: () => void;
 }
 const useJobStore = create<JobStore>((set) => ({
   jobs: [],
@@ -24,10 +25,14 @@ const useJobStore = create<JobStore>((set) => ({
     try {
       const request = await api();
       const response = await request.get('/jobs/all');
-      set({ jobs: response.data });
+      const jobs = await response.data;
+      set({ jobs });
     } catch (error) {
       console.error('Error fetching jobs:', error);
     }
+  },
+  resetJobStore: () => {
+    set({ jobs: [] });
   },
 }));
 export default useJobStore;
