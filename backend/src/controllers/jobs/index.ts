@@ -75,26 +75,20 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
       // Apply experience filter
       const [start, end] = experience.map(Number);
       query = query.where('experience', '>=', start).andWhere('experience', '<=', end);
-      console.log(query);
     }
     if (sort === 'latest') {
       query = query.orderBy('jobs.created_date', 'desc');
     } else if (sort === 'oldest') {
       query = query.orderBy('jobs.created_date', 'asc');
-    } else if (sort === 'all') {
-      query = query;
     }
     if (isRemote === true) {
       query = query.where('is_remotework', isRemote);
-    } else {
-      query = query;
     }
     if (
       !location &&
       (!workTypes || workTypes.length === 0) &&
       (!experience || experience.length !== 2)
     ) {
-      query = query;
     }
     const jobs = await query;
     res.status(200).json(jobs);
