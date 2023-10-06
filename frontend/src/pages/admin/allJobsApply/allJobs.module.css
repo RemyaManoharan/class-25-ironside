@@ -1,0 +1,82 @@
+.content {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  overflow-wrap: normal;
+}
+.card {
+  width: 300px;
+  height: auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  align-items: center;
+}
+.header a {
+  text-decoration: none;
+  color: #0b5fae;
+}
+.filter {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  height: 80px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  align-items: center;
+}
+.filter input {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+.btn {
+  border-radius: 0.4rem;
+  font-size: 10px;
+  font-family: var(--font-text);
+  cursor: pointer;
+  border: 1px solid #0b5fae;
+  transition: all 400ms ease;
+  padding: 10px;
+  font-weight: bold;
+  width: 60px;
+}
+.btn:hover {
+  background-color: #0b5fae;
+  color: white;
+  border-color: transparent;
+}
+.actice {
+  background-color: #0b5fae;
+}
+.salary {
+  padding: 5px;
+  background-color: white;
+  border-radius: 8px;
+}
+.sorting {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+@media screen and (max-width: 930px) {
+  .filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    gap: 20px;
+  }
+  .filter input {
+    width: 100%;
+  }
+}

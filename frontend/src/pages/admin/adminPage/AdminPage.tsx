@@ -1,9 +1,7 @@
-import { useEffect } from 'react';
-import useAdminStore from '../../store/admin.store';
 import style from './admin.module.css';
-import CountDisplay from '../../components/adminDetails/countDisplay/CountDisplay';
-import JobApproval from '../../components/adminDetails/jobApproval/JobApproval';
-import { useAdminData } from '../../hooks/UseAdminData';
+import CountDisplay from '../../../components/adminDetails/countDisplay/CountDisplay';
+import JobApproval from '../../../components/adminDetails/jobApproval/JobApproval';
+import { useAdminData } from '../../../hooks/UseAdminData';
 
 function AdminPage() {
   const { usersCount, companiesCount, jobsCount, jobsRequest, openJobsCount } = useAdminData();
