@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { getCompanies, postCompany, updateCompany } from '../../controllers/company';
+import { getCompanies, postCompany } from '../../controllers/company';
 
 const companyRoute: Router = express.Router();
 
@@ -8,8 +8,5 @@ companyRoute.get('/', getCompanies);
 
 // to insert company details into database
 companyRoute.post('/', postCompany);
-
-// Update company details
-companyRoute.put('/:id', updateCompany);
 
 export default companyRoute;

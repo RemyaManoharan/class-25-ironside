@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import db from '../../config/db-config';
 
-const companies = [];
-
 export const getCompanies = async (req: Request, res: Response) => {
   try {
     const companies = await db('companies').select('*');
