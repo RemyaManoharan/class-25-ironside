@@ -10,11 +10,14 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  font-family: var(--font-primary);
 }
 .title p {
   color: #0b5fae;
   cursor: pointer;
+  font-weight: bold;
 }
+
 @media screen and (max-width: 930px) {
   .content {
     padding: 5px;
@@ -27,6 +30,6 @@
     gap: 5px;
   }
   .title {
-    margin-bottom: 5px;
+    margin: 20px 0;
   }
 }

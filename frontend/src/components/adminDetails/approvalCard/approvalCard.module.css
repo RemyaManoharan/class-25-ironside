@@ -4,16 +4,20 @@
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  align-items: center;
+  align-items: self-start;
   padding: 20px;
-  gap: 10px;
-  height: 280px;
+  gap: 20px;
+  height: auto;
 }
 
 .logoTitle {
   display: flex;
   align-items: center;
   gap: 20px;
+  font-weight: bold;
+  font-family: var(--font-text);
+  color: var(--font-color);
+  font-size: 18px;
 }
 
 .logo img {
@@ -24,14 +28,22 @@
 .title {
   flex-grow: 1;
 }
-
+.name {
+  color: #7d7a89;
+}
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .btn {
-  padding: 0.75rem 1.2rem;
+  padding: 0.8rem 1.2rem;
   border-radius: 0.4rem;
+  font-size: 16px;
+  font-family: var(--font-text);
   cursor: pointer;
   border: 1px solid #0b5fae;
   transition: all 400ms ease;
-  margin: 10px;
   width: 107px;
 }
 .approve {
@@ -40,10 +52,14 @@
 }
 .description {
   margin-bottom: 5px;
+  font-size: 16px;
+  font-family: var(--font-text);
 }
 
 .location {
-  color: #494949;
+  color: var(--font-color);
+  font-size: 16px;
+  font-family: var(--font-text);
 }
 .fadeOut {
   opacity: 0;

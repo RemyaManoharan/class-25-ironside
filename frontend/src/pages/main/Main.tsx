@@ -14,7 +14,7 @@ function Main() {
 
   return (
     <div className={style.main}>
-      <button className={`${style.toggleBtn} ${showNav ? style.hidden : ''}`} onClick={toggleNav}>
+      <button className={style.toggleBtn} onClick={toggleNav}>
         <img src={menu} alt='menu' />
       </button>
 

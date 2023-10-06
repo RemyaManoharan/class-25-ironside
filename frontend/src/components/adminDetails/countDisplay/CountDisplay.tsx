@@ -4,13 +4,7 @@ import allJobs from '../assets/allJobs.svg';
 import companies from '../assets/companies.svg';
 import openJobs from '../assets/openJobs.svg';
 import users from '../assets/users.svg';
-
-interface CountDisplayProps {
-  openJobsCount: number | null;
-  jobsCount: number | null;
-  companiesCount: number | null;
-  usersCount: number | null;
-}
+import { CountDisplayProps } from '../types/types';
 
 const CountDisplay: React.FC<CountDisplayProps> = ({
   openJobsCount,
