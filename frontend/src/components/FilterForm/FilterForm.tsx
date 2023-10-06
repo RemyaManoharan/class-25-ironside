@@ -65,6 +65,7 @@ function FilterForm() {
             required
             value={filters.location}
             onChange={handleChangeLocation}
+            autoComplete='off'
           />
         </div>
         {/* show by  date*/}
