@@ -84,12 +84,6 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
     if (isRemote === true) {
       query = query.where('is_remotework', isRemote);
     }
-    if (
-      !location &&
-      (!workTypes || workTypes.length === 0) &&
-      (!experience || experience.length !== 2)
-    ) {
-    }
     const jobs = await query;
     res.status(200).json(jobs);
   } catch (error) {

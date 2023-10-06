@@ -13,7 +13,7 @@ function FilterForm() {
     freelance: false,
     fullTime: false,
   });
-  const [experience, setExperience] = React.useState({
+  const [experience] = React.useState({
     freshGraduate: true,
     group1: false,
     group2: false,
