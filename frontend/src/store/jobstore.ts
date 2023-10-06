@@ -73,7 +73,6 @@ const useJobStore = create<JobStore>((set, get) => ({
       const response = await request.get(url);
 
       set({ jobs: response.data });
-      console.log(response);
     } catch (error) {
       console.error('Error fetching jobs:', error);
     }

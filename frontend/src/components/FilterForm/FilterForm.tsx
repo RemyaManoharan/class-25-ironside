@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './FilterForm.module.css';
 import useJobStore from '../../store/jobstore';
 
@@ -14,7 +14,6 @@ function FilterForm() {
   const handleChangeShowBy = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newFilters = { ...filters, showBy: event.target.value as 'latest' | 'oldest' };
     setFilters(newFilters);
-    console.log(newFilters);
   };
 
   const handleChangeRemoteWork = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +33,6 @@ function FilterForm() {
       newFilters.workTypes = newFilters.workTypes.filter((type) => type !== workType);
     }
     setFilters(newFilters);
-    console.log(newFilters);
   };
 
   const handleChangeExperience = (event: React.ChangeEvent<HTMLInputElement>) => {

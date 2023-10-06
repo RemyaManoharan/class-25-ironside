@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import JobList from '../../components/JobList/JobList';
 import './Home.css';
 import { Typography } from '@mui/material';
