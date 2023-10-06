@@ -1,13 +1,6 @@
 import { Request, Response } from 'express';
 import db from '../../config/db-config';
-export const getAllJobs = async (req: Request, res: Response) => {
-  try {
-    const jobs = await db('jobs').select('*');
-    res.status(200).json(jobs);
-  } catch (error) {
-    res.status(500).json({ error: 'Error fetching job list' });
-  }
-};
+
 export const getJobById = async (req: Request, res: Response) => {
   const jobId = req.params.id;
   try {
@@ -26,7 +19,7 @@ export const getJobsByLocation = async (req: Request, res: Response) => {
     const jobs = await db('jobs')
       .select('jobs.*', 'companies.location')
       .join('companies', 'jobs.company_id', 'companies.id')
-      .where('companies.location', location);
+      .where('companies.location', 'like', `%${location}%`);
     res.status(200).json(jobs);
   } catch (error) {
     console.error('Error fetching jobs:', error);
@@ -37,7 +30,10 @@ export const getJobsByWorkTypes = async (req: Request, res: Response) => {
   const { workTypes } = req.query;
   try {
     const workTypesArray = typeof workTypes === 'string' ? workTypes.split(',') : [];
-    const jobs = await db('jobs').whereIn('job_type', workTypesArray).select('*');
+    const jobs = await db('jobs')
+      .select('jobs.*', 'companies.*')
+      .join('companies', 'jobs.company_id', 'companies.id')
+      .whereIn('jobs.job_type', workTypesArray);
     res.status(200).json(jobs);
   } catch (error) {
     console.error('Error fetching jobs:', error);
@@ -61,14 +57,17 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
   const location = req.query.location as string;
   const workTypes = (req.query.workTypes as string)?.split(',');
   const experience = (req.query.experience as string)?.split('-');
+  const sort = req.query.showBy as string;
+  const isRemote = req.query.isRemote === 'true';
+
   try {
-    let query = db('jobs');
+    let query = db('jobs')
+      .select('jobs.*', 'companies.*')
+      .join('companies', 'jobs.company_id', 'companies.id');
     if (location) {
-      // Apply location filter
-      query = query
-        .select('jobs.*', 'companies.location')
-        .join('companies', 'jobs.company_id', 'companies.id')
-        .where('companies.location', location);
+      query = query.whereRaw('LOWER(companies.location) LIKE LOWER(?)', [
+        `%${location.toLowerCase()}%`,
+      ]);
     }
     if (workTypes && workTypes.length > 0) {
       // Apply work type filter
@@ -77,7 +76,28 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
     if (experience && experience.length === 2) {
       // Apply experience filter
       const [start, end] = experience.map(Number);
-      query = query.whereBetween('experience', [start, end]);
+      query = query.where('experience', '>=', start).andWhere('experience', '<=', end);
+      console.log(query);
+    }
+    if (sort === 'latest') {
+      query = query.orderBy('jobs.created_date', 'desc');
+    } else if (sort === 'oldest') {
+      query = query.orderBy('jobs.created_date', 'asc');
+    } else if (sort === 'all') {
+      query = query;
+    }
+
+    if (isRemote === true) {
+      query = query.where('is_remotework', isRemote);
+    } else {
+      query = query;
+    }
+    if (
+      !location &&
+      (!workTypes || workTypes.length === 0) &&
+      (!experience || experience.length !== 2)
+    ) {
+      query = query;
     }
     const jobs = await query;
     res.status(200).json(jobs);

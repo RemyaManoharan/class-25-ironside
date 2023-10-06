@@ -24,3 +24,66 @@
 .sub-head {
   margin-bottom: 2rem;
 }
+.toggleFilter {
+  display: none;
+}
+/* For smaller screens (e.g., mobile phones) */
+@media (max-width: 767px) {
+  .home-content {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .filter-section {
+    order: 1;
+    margin-top: 16px;
+    flex: 1;
+  }
+  .job-wrapper {
+    order: 2;
+    flex: 1;
+  }
+  .toggleFilter {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    margin-top: 5%;
+    margin-left: 5%;
+    display: block;
+
+    width: 2rem;
+    height: 2rem;
+    z-index: 2;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .toggleFilter:hover {
+    background-color: none;
+  }
+  .filter-heading {
+    display: none;
+  }
+  .filter-btn-container {
+    display: flex;
+  }
+}
+/* For tablet screens and larger */
+@media (min-width: 768px) {
+  .home-content {
+    flex-direction: row;
+  }
+  .filter-section {
+    max-width: 30%;
+    margin-right: 16px;
+  }
+  .job-wrapper {
+    flex-grow: 1;
+    margin-top: 0;
+  }
+
+  .toggleFilter {
+    display: none;
+  }
+}

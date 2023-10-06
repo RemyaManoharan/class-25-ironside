@@ -1,4 +1,3 @@
-// JobCard.tsx
 import React from 'react';
 import './JobCard.css';
 import { CiLocationOn } from 'react-icons/ci';
@@ -27,6 +26,7 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
+  console.log(job);
   return (
     <div className='job-card'>
       <div className='card-head'>
