@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import api from '../api';
 
-interface adminStore {
+interface AdminStore {
   user: any | null;
   jobsRequest: any[];
   usersCount: null | number;
@@ -19,7 +19,7 @@ interface adminStore {
   addJobRequest: (id: number) => Promise<void>;
 }
 
-const useAdminStore = create<adminStore>()((set) => ({
+const useAdminStore = create<AdminStore>()((set) => ({
   user: null,
   jobsRequest: [],
   usersCount: null,

@@ -16,9 +16,9 @@ const AdminRoute: React.FC<Props> = ({ children }: Props) => {
   useEffect(() => {
     fetchCurrentUser(currentUser.uid);
   }, []);
-  console.log(user);
+
   const isUserAdmin = user?.user_type === 'admin';
-  console.log(isUserAdmin);
+
   if (user) {
     if (isUserAdmin) {
       return <>{children}</>;
