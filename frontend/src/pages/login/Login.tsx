@@ -2,16 +2,15 @@ import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/authContext';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Typography, TextField, Button, InputLabel } from '@mui/material';
 import LoginImage from '../../assets/login.svg';
 import Icon from '../../assets/aperture.svg';
-import './Login.css';
+import style from './Login.module.css';
 
 function LoginPage() {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [error, setError] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const { login, currentUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ function LoginPage() {
     }
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     try {
@@ -43,83 +42,73 @@ function LoginPage() {
   const isButtonDisabled = !email || !password || loading;
 
   return (
-    <div className='main-container'>
-      <div className='form-header'>
-        <Typography component='p' variant='h5' style={{ fontSize: '150%' }}>
-          <img className='Icon' src={Icon} alt='Icon' /> Dashboard
-        </Typography>
+    <div className={style.mainContainer}>
+      <div className={style.formHeader}>
+        <p>
+          <img className={style.icon} src={Icon} alt='Icon' /> Dashboard
+        </p>
       </div>
-      <div className='main-content'>
-        <div className='form-content'>
-          <div className='form-design'>
-            <Typography variant='subtitle2' className='login-title'>
-              Log in
-            </Typography>
-            <Typography variant='subtitle1'>Easy steps to enter the platform</Typography>
-            {error && <p className='error-message'>{error}</p>}
+      <div className={style.mainContent}>
+        <div className={style.formContent}>
+          <div className={style.formDesign}>
+            <div className={style.head}>
+              <h2 className={style.loginTitle}>Log in</h2>
+              <p>Easy steps to enter the platform</p>
+              {error && <p className={style.errorMessage}>{error}</p>}
+            </div>
             <form onSubmit={handleSubmit}>
-              <div className='label-wrap'>
-                <InputLabel className='label'>Email</InputLabel>
-                <TextField
+              <div className={style.labelWrap}>
+                <label className={style.label}>Email</label>
+                <input
+                  type='email'
                   name='email'
                   id='email'
-                  label='Enter email'
-                  variant='outlined'
-                  className='email-input'
-                  InputProps={{ style: { background: '#F8F9FD' } }}
+                  placeholder='Enter email'
+                  className={style.input}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className='label-wrap'>
-                <InputLabel className='label'>Password</InputLabel>
-                <TextField
+              <div className={style.labelWrap}>
+                <label className={style.label}>Password</label>
+                <input
+                  type='password'
                   name='password'
                   id='password'
-                  label='Enter password'
-                  variant='outlined'
-                  className='email-input'
-                  InputProps={{ style: { background: '#F8F9FD' } }}
+                  placeholder='Enter password'
+                  className={style.input}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <div className='button-wrap'>
-                <Typography variant='body1' className='forget-pass'>
-                  <Link to='/password' className='form-link'>
+              <div className={style.buttonWrap}>
+                <p className={style.forgetPass}>
+                  <Link to='/password' className={style.formLink}>
                     Forgot Password
                   </Link>
-                </Typography>
+                </p>
 
-                <Button
-                  variant='contained'
-                  className={`login-button ${loading ? 'disabled' : ''}`}
+                <button
+                  className={`${style.loginButton} ${isButtonDisabled ? style.disabled : ''}`}
                   disabled={isButtonDisabled}
                   type='submit'
-                  style={{
-                    width: '60%',
-                    height: '10%',
-                    padding: '2%',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontSize: '16px',
-                  }}
                 >
                   Log in
-                </Button>
+                </button>
               </div>
             </form>
-          </div>
-          <div className='form-span'>
-            <Typography variant='body1'>
-              Don’t have an account?{' '}
-              <Link to='/signup' className='form-link'>
-                Sign Up
-              </Link>
-            </Typography>
+
+            <div className={style.formSpan}>
+              <p>
+                Don’t have an account?
+                <Link to='/signup' className={style.formLink}>
+                  Sign Up
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
-        <div className='image-content'>
-          <img className='login-image' src={LoginImage} alt='Login' />
+        <div className={style.imageContent}>
+          <img className={style.loginImage} src={LoginImage} alt='Login' />
         </div>
       </div>
     </div>

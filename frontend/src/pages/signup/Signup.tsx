@@ -2,26 +2,25 @@ import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/authContext';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Typography, TextField, Button, InputLabel } from '@mui/material';
 import signupImage from '../../assets/signup.svg';
 import Icon from '../../assets/aperture.svg';
-import './Signup.css';
 import api from '../../api';
+import styles from './Signup.module.css';
 
 export default function SignUpPage() {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [passwordConfirm, setPasswordConfirm] = useState<string>('');
-  const [error, setError] = useState<string>('');
-  const [firstName, setFirstName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [error, setError] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [loading, setLoading] = useState(false);
   const { signup, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const isButtonDisabled = !email || !password || loading;
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (password.length < 8) {
       return setError('Password should be more than 8 characters');
@@ -46,130 +45,105 @@ export default function SignUpPage() {
     }
     setLoading(false);
   };
+
   return (
-    <div className='main-container'>
-      <div className='form-header'>
-        <Typography component='p' variant='h5'>
-          <img className='Icon' src={Icon} alt='Icon' /> Dashboard
-        </Typography>
+    <div className={styles.mainContainer}>
+      <div className={styles.formHeader}>
+        <p>
+          <img className={styles.icon} src={Icon} alt='Icon' /> Dashboard
+        </p>
       </div>
-      <div className='main-content'>
-        <div className='form-content'>
-          <div className='form-design'>
-            <Typography variant='subtitle2' className='login-title'>
-              Sign up
-            </Typography>
-            {error && <p>{error}</p>}
+      <div className={styles.mainContent}>
+        <div className={styles.formContent}>
+          <div className={styles.formDesign}>
+            <h2 className={styles.loginTitle}>Sign up</h2>
+            {error && <p className={styles.errorMessage}>{error}</p>}
             <form onSubmit={handleSubmit}>
-              <div className='name-wrapper'>
-                <div className='label-wrap'>
-                  <InputLabel className='label'>First name</InputLabel>
-                  <TextField
+              <div className={styles.nameWrapper}>
+                <div className={styles.labelWrap}>
+                  <label className={styles.label}>First name</label>
+                  <input
                     name='fName'
-                    id='outlined-required'
-                    label='First Name'
-                    variant='outlined'
                     type='text'
+                    placeholder='Enter your First name'
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    InputProps={{ style: { background: '#F8F9FD', width: '48%' } }}
+                    className={`${styles.input} ${styles.inputName}`}
                     required
-                    className='email-input'
                   />
                 </div>
-                <div className='label-wrap' style={{ marginLeft: '80px' }}>
-                  <InputLabel className='label'>Last name</InputLabel>
-                  <TextField
+                <div className={styles.labelWrap}>
+                  <label className={styles.label}>Last name</label>
+                  <input
                     name='lName'
-                    id='outlined-required'
-                    label='Last Name'
                     type='text'
-                    variant='outlined'
-                    required
+                    placeholder='Enter your Last name'
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    InputProps={{ style: { background: '#F8F9FD', width: '48%' } }}
-                    className='email-input'
+                    className={`${styles.input} ${styles.inputName}`}
+                    required
                   />
                 </div>
               </div>
-              <div className='label-wrap'>
-                <InputLabel className='label'>Email</InputLabel>
-                <TextField
+              <div className={styles.labelWrap}>
+                <label className={styles.label}>Email</label>
+                <input
                   name='email'
-                  id='outlined-required'
-                  label='Enter email'
-                  variant='outlined'
                   type='email'
+                  placeholder='Enter your Email'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  InputProps={{ style: { background: '#F8F9FD' } }}
+                  className={styles.input}
                   required
-                  className='email-input'
                 />
               </div>
-              <div className='label-wrap'>
-                <InputLabel className='label'>Password</InputLabel>
-                <TextField
+              <div className={styles.labelWrap}>
+                <label className={styles.label}>Password</label>
+                <input
                   name='password'
-                  id='outlined-required'
-                  label='Enter password'
-                  variant='outlined'
                   type='password'
+                  placeholder='Enter your Password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  InputProps={{ style: { background: '#F8F9FD' } }}
+                  className={styles.input}
                   required
-                  className='email-input'
                 />
               </div>
-              <div className='label-wrap'>
-                <InputLabel className='label'>Confirm Password</InputLabel>
-                <TextField
+              <div className={styles.labelWrap}>
+                <label className={styles.label}>Confirm Password</label>
+                <input
                   name='passwordConfirm'
-                  id='outlined-required'
-                  label='Confirm Password'
-                  variant='outlined'
                   type='password'
+                  placeholder='Confirm Password'
                   value={passwordConfirm}
                   onChange={(e) => setPasswordConfirm(e.target.value)}
-                  InputProps={{ style: { background: '#F8F9FD' } }}
+                  className={styles.input}
                   required
-                  className='email-input'
                 />
               </div>
 
-              <div className='signup-button-container'>
-                <Button
-                  variant='contained'
-                  className={`signup-button ${loading ? 'disabled' : ''}`}
+              <div className={styles.signupButtonContainer}>
+                <button
+                  className={`${styles.signupButton} ${isButtonDisabled ? styles.disabled : ''}`}
                   disabled={isButtonDisabled}
                   type='submit'
-                  style={{
-                    width: '60%',
-                    height: '10%',
-                    padding: '2%',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontSize: '16px',
-                  }}
                 >
                   Sign up
-                </Button>
-              </div>
-              <div className='form-span'>
-                <Typography variant='body1'>
-                  Already have an account?{' '}
-                  <Link to='/login' className='form-link'>
-                    Sign In
-                  </Link>
-                </Typography>
+                </button>
               </div>
             </form>
+            <div className={styles.formSpan}>
+              <p>
+                Already have an account?
+                <Link to='/login' className={styles.formLink}>
+                  Sign In
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
-        <div className='image-content'>
-          <img className='login-image' src={signupImage} alt='Login' />
+        <div className={styles.imageContent}>
+          <img className={styles.loginImage} src={signupImage} alt='Login' />
         </div>
       </div>
     </div>
