@@ -3,7 +3,7 @@ import './JobDetail.css';
 import logoImage from '../../assets/Logo Tumbnail.svg';
 import { Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import useJobStore from '../../store/jobstore';
+import useJobStore from '../../store/job.store';
 
 type JobDetailParams = {
   jobId: string;

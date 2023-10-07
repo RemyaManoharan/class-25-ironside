@@ -13,6 +13,9 @@ import Messages from './pages/messages/Messages';
 import History from './pages/history/History';
 import EventPage from './pages/eventPage/EventPage';
 import JobDetail from './components/JobDetail/JobDetail';
+import AdminRoute from './routes/AdminRoute';
+import AdminPage from './pages/admin/adminPage/AdminPage';
+import AllJobsApply from './pages/admin/allJobsApply/AllJobs';
 
 const router = createBrowserRouter([
   {
@@ -62,6 +65,24 @@ const router = createBrowserRouter([
       {
         path: '/jobdetails/:jobId',
         element: <JobDetail />,
+      },
+    ],
+  },
+  {
+    path: '/admin',
+    element: (
+      <AdminRoute>
+        <Main />
+      </AdminRoute>
+    ),
+    children: [
+      {
+        path: '',
+        element: <AdminPage />,
+      },
+      {
+        path: 'see-all',
+        element: <AllJobsApply />,
       },
     ],
   },

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import JobCard from '../JobCard/JobCard';
 import './JobList.css';
-import useJobStore from '../../store/jobstore';
+import useJobStore from '../../store/job.store';
 
 const JobList: React.FC = () => {
   const jobs = useJobStore((state) => state.jobs);

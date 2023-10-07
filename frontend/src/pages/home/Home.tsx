@@ -19,7 +19,7 @@ function Home() {
         <div className='job-wrapper'>
           <div className='result sub-head'>
             <Typography variant='h3' component='h2'>
-              Recomended Jobs
+              Recommended Jobs
             </Typography>
           </div>
           <JobList />

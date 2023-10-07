@@ -5,10 +5,12 @@ import style from './header.module.css';
 import me from '../../assets/me.png';
 import useAdminStore from '../../store/admin.store';
 import { getFormattedName } from './utils';
+import useJobStore from '../../store/job.store';
 
 function Header() {
   const { logout, currentUser } = useContext(AuthContext);
   const resetUser = useAdminStore((state) => state.resetUser);
+  const resetJobStore = useJobStore((state) => state.resetJobStore);
   const navigate = useNavigate();
   const displayName = currentUser.displayName.split(' ');
 
@@ -18,8 +20,9 @@ function Header() {
   const userName = `${formattedFirstName} ${formattedLastName}`;
   const handleLogout = async () => {
     try {
-      await logout();
+      resetJobStore();
       resetUser();
+      await logout();
       navigate('/login');
     } catch (err) {
       console.error(err);
