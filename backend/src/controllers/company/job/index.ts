@@ -17,7 +17,7 @@ export const addJobByCompany = async (req: Request, res: Response) => {
 
     const company_id = req.params.company_id;
     // Insert the new job into the database
-    const insertedJob = await db('jobs')
+    const insertedJobDetails = await db('jobs')
       .insert({
         title,
         title_description,
@@ -30,18 +30,10 @@ export const addJobByCompany = async (req: Request, res: Response) => {
         is_remotework,
         requirement,
       })
-      .returning('id');
+      .returning('*');
 
-    const jobId = insertedJob[0]?.id;
-
-    if (jobId) {
-      const insertedJobDetails = await db('jobs').where('id', jobId).first();
-
-      if (insertedJobDetails) {
-        res.status(201).json({ message: 'Job added successfully', job: insertedJobDetails });
-      } else {
-        res.status(500).json({ error: 'Failed to retrieve the inserted job' });
-      }
+    if (insertedJobDetails && insertedJobDetails.length > 0) {
+      res.status(201).json({ message: 'Job added successfully', job: insertedJobDetails[0] });
     } else {
       res.status(500).json({ error: 'Failed to insert the job' });
     }
