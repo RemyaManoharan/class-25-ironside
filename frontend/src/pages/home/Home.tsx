@@ -14,8 +14,6 @@ function Home() {
 
   return (
     <div className='home-container'>
-      <div>this is Home</div>
-
       <div className='home-content '>
         <div className={`filter-section sub-head`}>
           <div className='filter-header'>

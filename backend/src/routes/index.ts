@@ -2,7 +2,6 @@ import express, { Router } from 'express';
 import jobRoute from './jobs';
 import userRoute from './user';
 import adminRoute from './admin';
-
 import { validateAuth } from '../helpers/auth';
 
 const router: Router = express.Router();

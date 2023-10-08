@@ -25,6 +25,7 @@ interface JobStore {
     showBy: string;
     isRemote: boolean;
   };
+  resetJobStore: () => void;
   fetchJobs: () => Promise<void>;
   setFilters: (newFilters: {
     location: string;
@@ -78,8 +79,8 @@ const useJobStore = create<JobStore>((set, get) => ({
     }
   },
   setFilters: (newFilters) => set((state) => ({ filters: newFilters })),
-  // resetFilters: () => {
-  //   set({ filters: { location: ''  } });
-  // },
+  resetJobStore: () => {
+    set({ jobs: [] });
+  },
 }));
 export default useJobStore;
