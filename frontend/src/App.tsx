@@ -13,6 +13,7 @@ import Messages from './pages/messages/Messages';
 import History from './pages/history/History';
 import EventPage from './pages/eventPage/EventPage';
 import JobDetail from './components/JobDetail/JobDetail';
+import ApplyForm from './components/ApplyForm/ApplyForm';
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: '/jobdetails/:jobId',
         element: <JobDetail />,
+      },
+      {
+        path: '/applyform/:jobId',
+        element: <ApplyForm />,
       },
     ],
   },

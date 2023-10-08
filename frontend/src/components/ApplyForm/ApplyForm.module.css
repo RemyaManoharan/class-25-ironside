@@ -1,0 +1,49 @@
+.applyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem;
+  padding: 2rem;
+}
+.formTitle {
+  width: 70%;
+  height: 22px;
+  text-align: center;
+}
+.jobHeader {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 70%;
+}
+.formContainer {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 70%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+.applyNowBtn {
+  width: Fixed (506px);
+  height: Hug (45px);
+  top: 808px;
+  left: 590px;
+  padding: 12px, 20px, 12px, 20px;
+  border-radius: 8px;
+  gap: 10px;
+  background-color: #0b5fae;
+  color: #ffffff;
+}

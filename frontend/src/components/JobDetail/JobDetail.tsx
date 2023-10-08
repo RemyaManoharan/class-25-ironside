@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './JobDetail.css';
 import logoImage from '../../assets/Logo Tumbnail.svg';
 import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import useJobStore from '../../store/jobstore';
 
@@ -54,11 +55,12 @@ function JobDetail() {
             </div>
           </div>
         </div>
-
         <div className='apply-btn-container'>
-          <button type='submit' className='btn-apply'>
-            Apply
-          </button>
+          <Link to={`/applyform/${jobId}`} className='customLink'>
+            <button type='button' className='btn-apply'>
+              Apply
+            </button>
+          </Link>
         </div>
       </div>
 
