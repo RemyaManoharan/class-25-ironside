@@ -1,8 +1,12 @@
 import React from 'react';
 import styles from './FilterForm.module.css';
 import useJobStore from '../../store/jobstore';
+import { FaTimes } from 'react-icons/fa';
+interface FilterFormProps {
+  toggleFilter: () => void;
+}
 
-function FilterForm() {
+function FilterForm({ toggleFilter }: FilterFormProps) {
   const filters = useJobStore((state) => state.filters);
   const setFilters = useJobStore((state) => state.setFilters);
 
@@ -51,6 +55,9 @@ function FilterForm() {
 
   return (
     <div className={styles.filterContainer}>
+      <button className={styles.closeButton} onClick={toggleFilter}>
+        <FaTimes /> {/* Use the close icon */}
+      </button>
       <form className={styles.formContainer}>
         <div className={styles.locationDiv}>
           <label className={styles.label} htmlFor='location'>

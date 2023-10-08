@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
 interface Job {
-  id: number;
+  job_id: number;
   title: string;
   title_description: string;
   description: string;
@@ -26,6 +26,8 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
+  console.log(job);
+
   return (
     <div className='job-card'>
       <div className='card-head'>
@@ -34,7 +36,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         </div>
 
         <div className='card-title'>
-          <Link to={`/jobdetails/${job.id}`} className='customLink'>
+          <Link to={`/jobdetails/${job.job_id}`} className='customLink'>
             <Typography variant='h3' component='h2'>
               {job.title}
             </Typography>

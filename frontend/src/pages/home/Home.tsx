@@ -6,41 +6,43 @@ import FilterForm from '../../components/FilterForm/FilterForm';
 import { BsFilterSquare } from 'react-icons/bs';
 
 function Home() {
-  const [showFilter, setShowFilter] = useState(true);
+  const [showFilter, setShowFilter] = useState(false);
+
   const toggleFilter = () => {
-    setShowFilter(!showFilter);
+    setShowFilter((prev) => !prev);
   };
 
   return (
     <div className='home-container'>
       <div>this is Home</div>
+
       <div className='home-content '>
-        <div className={`filter-section sub-head ${showFilter ? 'show' : ''}`}>
+        <div className={`filter-section sub-head`}>
           <div className='filter-header'>
-            <div className='filter-heading'>
-              <Typography variant='h3' component='h2'>
-                Filter
-              </Typography>
-              <button className='toggleFilter' onClick={toggleFilter}>
-                <BsFilterSquare />
-                Filter
-              </button>
-            </div>
+            <Typography variant='h3' component='h2'>
+              Filter
+            </Typography>
           </div>
-          {showFilter && <FilterForm />}
+          {/* className={`home-filter ${showFilter ? 'home-show' : ''}`} */}
+          <div className={`home-filter ${showFilter ? 'home-show' : ''}`}>
+            <FilterForm toggleFilter={toggleFilter} />
+          </div>
         </div>
 
         <div className='job-wrapper'>
           <div className='result sub-head'>
             <div className='filter-btn-container'>
-              <Typography variant='h3' component='h2'>
-                Recomended Jobs
-              </Typography>
-
-              <button className='toggleFilter' onClick={toggleFilter}>
-                <BsFilterSquare />
+              <div className='recom-job-head'>
+                <Typography variant='h3' component='h2'>
+                  Recomended Jobs
+                </Typography>
+              </div>
+              <div className='filter-bttn'>
+                <button className='toggleFilterBtn' onClick={toggleFilter}>
+                  <BsFilterSquare />
+                </button>
                 Filter
-              </button>
+              </div>
             </div>
           </div>
           <JobList />

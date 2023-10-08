@@ -62,7 +62,7 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
 
   try {
     let query = db('jobs')
-      .select('jobs.*', 'companies.*')
+      .select('jobs.*', 'companies.*', 'jobs.id as job_id')
       .join('companies', 'jobs.company_id', 'companies.id');
     if (location) {
       query = query.whereRaw('LOWER(companies.location) LIKE LOWER(?)', [

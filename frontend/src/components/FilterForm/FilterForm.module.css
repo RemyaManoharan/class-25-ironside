@@ -127,3 +127,18 @@
   padding: 0; /* Remove default padding */
   margin: 0; /* Remove default margin */
 }
+.closeButton {
+  display: none;
+}
+@media screen and (max-width: 930px) {
+  .filterContainer {
+    position: relative; /* Make the container relative */
+  }
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    display: block;
+  }
+}

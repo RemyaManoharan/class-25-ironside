@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import api from '../api';
 
 interface Job {
-  id: number;
+  job_id: number;
   title: string;
   title_description: string;
   description: string;

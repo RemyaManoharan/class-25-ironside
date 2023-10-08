@@ -6,7 +6,6 @@
   --font-text: 'Inter', sans-serif;
   --font-color: #111111;
   --sec-font-color: #55555f;
-
   --color-blue: #0b5fae;
 }
 
@@ -14,7 +13,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  /* background-color: var(--color-white); */
 }
 .app {
   font-family: var(--font-primary);
