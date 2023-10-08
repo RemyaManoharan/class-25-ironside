@@ -12,6 +12,106 @@
   gap: 15px;
   width: 90%;
 }
+.inputStyle {
+  width: 100%;
+  max-width: 240px;
+  height: 30px;
+  background: #f8f9fd;
+  padding: 1rem;
+  border: 1px solid #b3b1bb;
+  border-radius: 3px;
+}
+.label {
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.28px;
+}
+.customInput::placeholder {
+  text-align: center;
+  color: #b3b1bb;
+  opacity: 1;
+  margin-left: 1rem;
+}
+.showByCont {
+  display: flex;
+}
+
+.customSelect {
+  background: #f8f9fd;
+  width: 100%;
+  max-width: 240px;
+  padding: 10px;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.75rem;
+}
+
+.customSelect::before {
+  content: '\f078';
+  font-family: var(--font-text);
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.customSelect option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 5px;
+  background-color: white;
+}
+.remoteWork {
+  display: flex;
+  align-items: center;
+}
+.remoteWork input[type='checkbox'] {
+  margin-left: 1rem; /* Adjust the right margin for spacing */
+}
+
+.typeWorkCont {
+  display: flex;
+  flex-direction: column;
+}
+/* Remove the border and adjust spacing */
+.typeWorkCont fieldset {
+  border: none; /* Remove the fieldset border */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+/* Add margin and padding to labels for spacing */
+.typeWorkCont label {
+  margin: 5px 0; /* Adjust vertical spacing between labels */
+  padding-left: 10px; /* Add padding to align with checkboxes */
+}
+.itemStyle {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.28px;
+}
+.itemStyle label {
+  display: flex; /* Align items horizontally */
+  align-items: center; /* Center vertically within the flex container */
+  margin: 1.5rem 0; /* Adjust vertical spacing between the checkbox and label */
+}
+/* Add space between checkbox and label text */
+.itemStyle input[type='checkbox'] {
+  margin-right: 1rem; /* Adjust the right margin for spacing */
+}
+.itemStyle input[type='checkbox']:checked {
+  background-color: #0b5fae;
+  border: 1px solid #0b5fae; /* Optional: Add a border for better visibility */
+}
 .locationDiv {
   width: 100%;
   display: flex;
@@ -21,4 +121,24 @@
 .showByCont {
   flex-direction: column;
   gap: 10px;
+}
+.experienceCont fieldset {
+  border: none; /* Remove the fieldset border */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+.closeButton {
+  display: none;
+}
+@media screen and (max-width: 930px) {
+  .filterContainer {
+    position: relative; /* Make the container relative */
+  }
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    display: block;
+  }
 }

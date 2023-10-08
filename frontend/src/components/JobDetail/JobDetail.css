@@ -65,3 +65,16 @@
   border-radius: 4px;
   cursor: pointer;
 }
+.job-subhead {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+@media screen and (max-width: 930px) {
+  .job-detail-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .jobType {
+    flex-wrap: wrap;
+  }
+}

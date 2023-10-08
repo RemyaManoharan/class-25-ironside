@@ -1,6 +1,5 @@
 import express, { Router } from 'express';
 import {
-  getAllJobs,
   getJobById,
   getJobsByLocation,
   getJobsByWorkTypes,
@@ -22,5 +21,5 @@ jobRoute.get('/experience', getJobsByExperience);
 // Route to get by id
 jobRoute.get('/:id', getJobById);
 // Route to get all jobs
-jobRoute.get('/', getAllJobs);
+// jobRoute.get('/', getAllJobs);
 export default jobRoute;

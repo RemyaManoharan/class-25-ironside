@@ -5,7 +5,7 @@ import style from './header.module.css';
 import me from '../../assets/me.png';
 import useAdminStore from '../../store/admin.store';
 import { getFormattedName } from './utils';
-import useJobStore from '../../store/job.store';
+import useJobStore from '../../store/jobstore';
 
 function Header() {
   const { logout, currentUser } = useContext(AuthContext);
