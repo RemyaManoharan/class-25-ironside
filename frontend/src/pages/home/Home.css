@@ -14,22 +14,23 @@
 .filter-section {
   flex: 1;
   max-width: 100%;
+  margin-top: 0;
 }
 .job-wrapper {
   flex: 3;
   margin: 16px;
   max-width: 100%;
   align-items: flex-start;
+  margin-top: 0;
 }
 .sub-head {
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   z-index: 1;
 }
 .home-filter {
   grid-area: nav;
   transition: transform 0.2s ease-in-out;
-
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .toggleFilterBtn {
   display: none;
@@ -42,6 +43,9 @@
 }
 .filter-bttn {
   display: none;
+}
+.filter-header {
+  margin-bottom: 1rem;
 }
 @media screen and (max-width: 930px) {
   .home-content {
