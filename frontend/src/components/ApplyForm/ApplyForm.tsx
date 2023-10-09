@@ -70,6 +70,7 @@ function ApplyForm() {
               label='Full Name'
               type='text'
               variant='outlined'
+              style={{ width: '512px' }}
               className={styles.inputField}
               InputProps={{ style: { background: '#F8F9FD' } }}
             />
@@ -82,6 +83,7 @@ function ApplyForm() {
               label='telephone number'
               type='number'
               variant='outlined'
+              style={{ width: '512px' }}
               className={styles.inputField}
               InputProps={{ style: { background: '#F8F9FD', color: '#55555F' } }}
             />
@@ -99,7 +101,9 @@ function ApplyForm() {
             />
           </div>
           <div className={styles.applyNowBtn}>
-            <button type='submit'>Apply Now</button>
+            <button type='submit' style={{ width: '512px' }}>
+              Apply Now
+            </button>
           </div>
         </form>
       </div>
