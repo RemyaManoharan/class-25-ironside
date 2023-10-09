@@ -81,8 +81,13 @@
   .job-detail-header {
     display: flex;
     flex-direction: column;
+    height: 250px;
   }
   .jobType {
     flex-wrap: wrap;
+  }
+  .job-detail-wrapper {
+    display: flex;
+    flex-direction: column;
   }
 }

@@ -1,5 +1,4 @@
 .job-card {
-  /* width: calc(30% - 16px); */
   width: 300px;
   margin-right: 16px;
   margin-bottom: 16px;
@@ -39,10 +38,12 @@
 }
 .card-title {
   margin-bottom: 0.5rem;
+  height: 4.5rem;
 }
 
 .job-descp {
   margin-bottom: 0.5rem;
+  height: 3rem;
 }
 .job-descp p {
   font-family: var(--font-primary);
@@ -55,6 +56,7 @@
 .card-footer {
   display: flex;
   gap: 1rem;
+  height: 2rem;
 }
 
 @media (max-width: 768px) {
