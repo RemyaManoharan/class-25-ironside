@@ -82,7 +82,6 @@ function ResetPassword() {
                     <TextField
                       name='email'
                       id='outlined-required'
-                      label='Enter email'
                       variant='outlined'
                       className='email-input'
                       InputProps={{ style: { background: '#F8F9FD' } }}
@@ -97,10 +96,10 @@ function ResetPassword() {
                       disabled={isButtonDisabled}
                       type='submit'
                       style={{
-                        width: '60%',
+                        width: '100%',
                         height: '10%',
                         padding: '2%',
-                        borderRadius: '4px',
+                        borderRadius: '8px',
                         cursor: 'pointer',
                         fontSize: '16px',
                       }}

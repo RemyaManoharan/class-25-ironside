@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import db from '../../config/db-config';
+
 export const getJobById = async (req: Request, res: Response) => {
   const jobId = req.params.id;
   try {
@@ -58,9 +59,10 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
   const experience = (req.query.experience as string)?.split('-');
   const sort = req.query.showBy as string;
   const isRemote = req.query.isRemote === 'true';
+
   try {
     let query = db('jobs')
-      .select('jobs.*', 'companies.*')
+      .select('jobs.*', 'companies.*', 'jobs.id as job_id')
       .join('companies', 'jobs.company_id', 'companies.id');
     if (location) {
       query = query.whereRaw('LOWER(companies.location) LIKE LOWER(?)', [
@@ -81,6 +83,7 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
     } else if (sort === 'oldest') {
       query = query.orderBy('jobs.created_date', 'asc');
     }
+
     if (isRemote === true) {
       query = query.where('is_remotework', isRemote);
     }

@@ -9,6 +9,7 @@
   align-items: flex-start;
   padding: 16px;
   gap: 2%;
+  width: 100%;
 }
 .filter-section {
   flex: 1;
@@ -22,4 +23,128 @@
 }
 .sub-head {
   margin-bottom: 2rem;
+  z-index: 1;
 }
+.home-filter {
+  grid-area: nav;
+  transition: transform 0.2s ease-in-out;
+
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.toggleFilterBtn {
+  display: none;
+}
+.filter-btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-bttn {
+  display: none;
+}
+@media screen and (max-width: 930px) {
+  .home-content {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .home-filter {
+    display: none;
+  }
+  .home-show {
+    transform: translateX(0);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    z-index: 1;
+    transition: transform 0.9s ease;
+  }
+  .toggleFilterBtn {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    margin-top: 5%;
+    margin-left: 5%;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+
+    transition: background-color 0.2s ease-in-out;
+  }
+  .filter-bttn {
+    display: flex;
+    align-items: center;
+  }
+  .filter-header {
+    display: none;
+  }
+}
+
+/* For smaller screens (e.g., mobile phones) */
+
+/* @media (max-width: 767px) {
+  .home-content {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .filter-section {
+    order: 1;
+    margin-top: 16px;
+    flex: 1;
+  }
+  .job-wrapper {
+    order: 2;
+    flex: 1;
+  }
+  .toggleFilter {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    margin-top: 5%;
+    margin-left: 5%;
+    display: block;
+
+    width: 2rem;
+    height: 2rem;
+    z-index: 2;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .toggleFilter:hover {
+    background-color: none;
+  }
+  .filter-heading {
+    display: none;
+  }
+  .filter-btn-container {
+    display: flex;
+  }
+} */
+/* For tablet screens and larger */
+
+/* @media (min-width: 768px) {
+  .home-content {
+    flex-direction: row;
+  }
+  .filter-section {
+    max-width: 30%;
+    margin-right: 16px;
+  }
+  .job-wrapper {
+    flex-grow: 1;
+    margin-top: 0;
+  }
+
+  .toggleFilter {
+    display: none;
+  }
+} */

@@ -1,154 +1,191 @@
 import React from 'react';
 import styles from './FilterForm.module.css';
-import { TextField, InputLabel, FormControlLabel, Switch, Select, MenuItem } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
-import Checkbox from '@mui/material/Checkbox';
-import FormLabel from '@mui/material/FormLabel';
-import FormGroup from '@mui/material/FormGroup';
+import useJobStore from '../../store/jobstore';
+import { FaTimes } from 'react-icons/fa';
+interface FilterFormProps {
+  toggleFilter: () => void;
+}
 
-function FilterForm() {
-  const [typeWork, setTypeWork] = React.useState({
-    internship: true,
-    partTime: false,
-    freelance: false,
-    fullTime: false,
-  });
-  const [experience] = React.useState({
-    freshGraduate: true,
-    group1: false,
-    group2: false,
-    group3: false,
-    group4: false,
-  });
-  const handleChangeCheckBox = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTypeWork({
-      ...typeWork,
-      [event.target.name]: event.target.checked,
-    });
+function FilterForm({ toggleFilter }: FilterFormProps) {
+  const filters = useJobStore((state) => state.filters);
+  const setFilters = useJobStore((state) => state.setFilters);
+
+  const handleChangeLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newFilters = { ...filters, location: event.target.value };
+    setFilters(newFilters);
   };
 
-  const { internship, partTime, freelance, fullTime } = typeWork;
-  const { freshGraduate, group1, group2, group3, group4 } = experience;
+  const handleChangeShowBy = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newFilters = { ...filters, showBy: event.target.value as 'latest' | 'oldest' };
+    setFilters(newFilters);
+  };
+
+  const handleChangeRemoteWork = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newFilters = { ...filters, isRemote: event.target.checked };
+    setFilters(newFilters);
+  };
+
+  const handleChangeWorkTypes = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const workType = event.target.name;
+    const newFilters = {
+      ...filters,
+      workTypes: [...filters.workTypes],
+    };
+    if (event.target.checked) {
+      newFilters.workTypes.push(workType);
+    } else {
+      newFilters.workTypes = newFilters.workTypes.filter((type) => type !== workType);
+    }
+    setFilters(newFilters);
+  };
+
+  const handleChangeExperience = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const experience = event.target.name;
+    const newFilters = {
+      ...filters,
+      experience: [...filters.experience],
+    };
+    if (event.target.checked) {
+      newFilters.experience.push(experience);
+    } else {
+      newFilters.experience = newFilters.experience.filter((type) => type !== experience);
+    }
+    setFilters(newFilters);
+  };
+
   return (
     <div className={styles.filterContainer}>
+      <button className={styles.closeButton} onClick={toggleFilter}>
+        <FaTimes /> {/* Use the close icon */}
+      </button>
       <form className={styles.formContainer}>
         <div className={styles.locationDiv}>
-          <InputLabel className='label'>Location</InputLabel>
-          <TextField
+          <label className={styles.label} htmlFor='location'>
+            Location
+          </label>
+          <input
+            className={styles.inputStyle}
             name='location'
-            id='outlined-required'
-            label='City'
+            id='location'
             type='text'
-            variant='outlined'
+            placeholder='City'
             required
-            InputProps={{ style: { background: '#F8F9FD', width: '100%', height: '50px' } }}
+            value={filters.location}
+            onChange={handleChangeLocation}
+            autoComplete='off'
           />
         </div>
-
-        {/* show by       */}
+        {/* show by  date*/}
         <div className={styles.showByCont}>
-          <InputLabel id='demo-simple-select-label'>Show By</InputLabel>
-          <Select
-            labelId='demo-simple-select-label'
-            id='demo-simple-select'
-            fullWidth
-            label='Age'
-            value={10}
+          <label htmlFor='showBy' className={styles.label}>
+            Show By Date
+          </label>
+          <select
+            id='showBy'
+            name='showBy'
+            className={styles.customSelect}
+            value={filters.showBy}
+            onChange={handleChangeShowBy}
           >
-            <MenuItem value=''>
-              <em>Relevant</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+            <option value='all'>All</option>
+            <option value='latest'>Latest</option>
+            <option value='oldest'>Oldest</option>
+          </select>
         </div>
 
         {/* remote work toggle button */}
-        <div className={styles.workTypeCont}>
-          <FormControlLabel
-            label={<span style={{ marginLeft: '10px' }}>Remote Worker</span>}
-            control={<Switch defaultChecked />}
-          />
-        </div>
-        {/* type of work */}
-        <div className={styles.typeWorkCont}>
-          <FormControl sx={{ m: 3 }} component='fieldset' variant='standard'>
-            <FormLabel component='legend'>Assign responsibility</FormLabel>
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={internship}
-                    onChange={handleChangeCheckBox}
-                    name='internship'
-                  />
-                }
-                label='Internship'
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox checked={partTime} onChange={handleChangeCheckBox} name='partTime' />
-                }
-                label='Part-time'
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox checked={freelance} onChange={handleChangeCheckBox} name='freelance' />
-                }
-                label='Freelance'
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox checked={fullTime} onChange={handleChangeCheckBox} name='fullTime' />
-                }
-                label='Full Time'
-              />
-            </FormGroup>
-          </FormControl>
+        <div className={styles.remoteWork}>
+          <label className={`${styles.toggleContainer} ${styles.label}`}>
+            Remote Worker
+            <input type='checkbox' checked={filters.isRemote} onChange={handleChangeRemoteWork} />
+          </label>
         </div>
 
         {/* type of work */}
+        <div className={styles.typeWorkCont}>
+          <fieldset className={styles.typeWorkCont}>
+            <legend className={styles.label}>Types Of Works</legend>
+            <label className={styles.itemStyle}>
+              <input
+                type='checkbox'
+                checked={filters.workTypes.includes('Internship')}
+                onChange={handleChangeWorkTypes}
+                name='Internship'
+              />
+              Internship
+            </label>
+            <label className={styles.itemStyle}>
+              <input
+                type='checkbox'
+                checked={filters.workTypes.includes('Part-Time')}
+                onChange={handleChangeWorkTypes}
+                name='Part-Time'
+              />
+              Part-time
+            </label>
+            <label className={styles.itemStyle}>
+              <input
+                type='checkbox'
+                checked={filters.workTypes.includes('Full-Time')}
+                onChange={handleChangeWorkTypes}
+                name='Full-Time'
+              />
+              Full-time
+            </label>
+            <label className={styles.itemStyle}>
+              <input
+                type='checkbox'
+                checked={filters.workTypes.includes('freelance')}
+                onChange={handleChangeWorkTypes}
+                name='freelance'
+              />
+              Freelance
+            </label>
+          </fieldset>
+        </div>
+        {/* experience */}
+
+        {/* experience */}
         <div className={styles.experienceCont}>
-          <FormControl sx={{ m: 3 }} component='fieldset' variant='standard'>
-            <FormLabel component='legend'>Experience</FormLabel>
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={freshGraduate}
-                    onChange={handleChangeCheckBox}
-                    name='freshGraduate'
-                  />
-                }
-                label='Fresh Graduate'
+          <fieldset className={styles.typeWorkCont}>
+            <legend className={styles.label}>Experience</legend>
+            <label className={styles.itemStyle}>
+              <input
+                type='checkbox'
+                checked={filters.experience.includes('1-3')}
+                onChange={handleChangeExperience}
+                name='1-3'
               />
-              <FormControlLabel
-                control={
-                  <Checkbox checked={group1} onChange={handleChangeCheckBox} name='group1' />
-                }
-                label='1-3 years'
+              1-3 years
+            </label>
+            <label className={styles.itemStyle}>
+              <input
+                type='checkbox'
+                checked={filters.experience.includes('3-5')}
+                onChange={handleChangeExperience}
+                name='3-5'
               />
-              <FormControlLabel
-                control={
-                  <Checkbox checked={group2} onChange={handleChangeCheckBox} name='group2' />
-                }
-                label='3-5years'
+              3-5 years
+            </label>
+            <label className={styles.itemStyle}>
+              <input
+                type='checkbox'
+                checked={filters.experience.includes('5-10')}
+                onChange={handleChangeExperience}
+                name='5-10'
               />
-              <FormControlLabel
-                control={
-                  <Checkbox checked={group3} onChange={handleChangeCheckBox} name='group3' />
-                }
-                label='5-10years'
+              5-10 years
+            </label>
+            <label className={styles.itemStyle}>
+              <input
+                type='checkbox'
+                checked={filters.experience.includes('10-50')}
+                onChange={handleChangeExperience}
+                name='10-50'
               />
-              <FormControlLabel
-                control={
-                  <Checkbox checked={group4} onChange={handleChangeCheckBox} name='group4' />
-                }
-                label='10+years'
-              />
-            </FormGroup>
-          </FormControl>
+              10+ years
+            </label>
+          </fieldset>
         </div>
       </form>
     </div>

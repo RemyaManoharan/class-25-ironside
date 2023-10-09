@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import './JobDetail.css';
 import logoImage from '../../assets/Logo Tumbnail.svg';
 import { Typography } from '@mui/material';
@@ -13,8 +13,11 @@ type JobDetailParams = {
 function JobDetail() {
   const { jobId } = useParams<JobDetailParams>();
   const jobs = useJobStore((state) => state.jobs);
-  const selectedJob = jobs.find((job) => job.id === Number(jobId));
-
+  const fetchJobs = useJobStore((state) => state.fetchJobs);
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+  const selectedJob = jobs.find((job) => job.job_id === Number(jobId));
   if (!selectedJob) {
     return <div>Job not found</div>;
   }
@@ -66,10 +69,11 @@ function JobDetail() {
 
       <div className='job-detail-main-container'>
         <div className='job-description'>
-          <Typography variant='body1' component='h2'>
-            Job Description
-          </Typography>
-
+          <div className='job-subhead'>
+            <Typography variant='body1' component='h2'>
+              Job Description
+            </Typography>
+          </div>
           <Typography variant='h4' component='h2'>
             {JobDescpArray.map((item, index) => (
               <li key={index}>{item}</li>
@@ -89,9 +93,11 @@ function JobDetail() {
           </ul>
         </div>
         <div className='requirement-container'>
-          <Typography variant='body1' component='h2'>
-            Requirement
-          </Typography>
+          <div className='job-subhead'>
+            <Typography variant='body1' component='h2'>
+              Requirement
+            </Typography>
+          </div>
           <Typography variant='h4' component='h2'>
             {jobRequirements.map((item, index) => (
               <li key={index}>{item}</li>
@@ -100,9 +106,11 @@ function JobDetail() {
         </div>
 
         <div className='about-company-container'>
-          <Typography variant='body1' component='h2'>
-            About Company
-          </Typography>
+          <div className='job-subhead'>
+            <Typography variant='body1' component='h2'>
+              About Company
+            </Typography>
+          </div>
           <Typography variant='h4' component='h2'>
             {selectedJob.about}
           </Typography>

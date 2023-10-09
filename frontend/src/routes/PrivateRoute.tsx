@@ -7,7 +7,7 @@ type Props = {
   uid?: string;
 };
 
-export const PrivateRoute: React.FC<Props> = ({ children }: Props) => {
+const PrivateRoute: React.FC<Props> = ({ children }: Props) => {
   const { currentUser } = useContext(AuthContext);
 
   if (currentUser) {

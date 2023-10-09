@@ -1,0 +1,37 @@
+.content {
+  padding: 20px 0;
+}
+.cardContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-family: var(--font-primary);
+}
+.title p {
+  color: #0b5fae;
+  cursor: pointer;
+  font-weight: bold;
+}
+.title a {
+  text-decoration: none;
+}
+@media screen and (max-width: 930px) {
+  .content {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .title {
+    margin: 20px 0;
+  }
+}

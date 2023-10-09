@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import logoImage from '../../assets/Logo Tumbnail.svg';
 import styles from './ApplyForm.module.css';
@@ -12,17 +12,39 @@ type ApplyFormParams = {
 
 function ApplyForm() {
   const { jobId } = useParams<ApplyFormParams>();
-  // const { jobId } = useParams<{ jobId: string }>();
   const jobs = useJobStore((state) => state.jobs);
   const fetchJobs = useJobStore((state) => state.fetchJobs);
   useEffect(() => {
     fetchJobs();
   }, []);
-  const selectedJob = jobs.find((job) => job.id === Number(jobId));
+  const selectedJob = jobs.find((job) => job.job_id === Number(jobId));
 
   if (!selectedJob) {
     return <div>Job not found</div>;
   }
+
+  const submitJobApplication = useJobStore((state) => state.submitJobApplication);
+  const [formData, setFormData] = useState({
+    name: '',
+    phoneNumber: '',
+    letter: '',
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    try {
+      await submitJobApplication(Number(jobId), formData);
+      console.log('Job application submitted successfully.');
+    } catch (error) {
+      console.error('Error submitting job application:', error);
+    }
+  };
 
   return (
     <div className={styles.applyContainer}>
