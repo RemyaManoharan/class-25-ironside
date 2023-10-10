@@ -18,8 +18,10 @@ interface Job {
 
 interface JobApplication {
   name: string;
-  phoneNumber: string;
-  letter: string;
+  contact_number: string;
+  application_letter: string;
+  job_id: number;
+  user_id: number;
 }
 interface JobStore {
   jobs: Job[];
@@ -91,13 +93,18 @@ const useJobStore = create<JobStore>((set, get) => ({
     set({ jobs: [] });
   },
 
-  submitJobApplication: async (jobId, applicationData) => {
+  submitJobApplication: async (jobId: number, formData: JobApplication) => {
     try {
+      const jobApplication: JobApplication = {
+        ...formData,
+        job_id: jobId,
+      };
       const axiosInstance = await api();
-      const response = await axiosInstance.post(`/jobs/${jobId}/applications`, applicationData);
+      console.log('Submitting job application:', jobApplication);
+      const response = await axiosInstance.post(`jobs/job-applications`, jobApplication);
       console.log('Job application submitted successfully.', response.data);
     } catch (error) {
-      console.error('Error submitting job application:', error);
+      console.error('Error submitting job application:', error as any); // Cast 'error' to 'any' type for logging
       throw new Error('Error submitting job application.');
     }
   },

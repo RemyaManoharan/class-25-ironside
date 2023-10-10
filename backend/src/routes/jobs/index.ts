@@ -6,6 +6,7 @@ import {
   getJobsByExperience,
   getFilteredJobs,
   getAllJobDetails,
+  postJobApplication,
 } from '../../controllers/jobs';
 const jobRoute: Router = express.Router();
 // Route to get all job details with company details
@@ -20,5 +21,7 @@ jobRoute.get('/workTypes', getJobsByWorkTypes);
 jobRoute.get('/experience', getJobsByExperience);
 // Route to get by id
 jobRoute.get('/:id', getJobById);
+// Route to post job into database
+jobRoute.post('/job-applications', postJobApplication);
 
 export default jobRoute;
