@@ -26,8 +26,6 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
-  console.log(job);
-
   return (
     <div className='job-card'>
       <div className='card-head'>
