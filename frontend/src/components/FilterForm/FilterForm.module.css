@@ -4,6 +4,7 @@
   padding: 1.5%;
   margin-top: 5%;
   background-color: white;
+  border-radius: 3px;
 }
 .formContainer {
   display: flex;

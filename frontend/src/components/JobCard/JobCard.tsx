@@ -26,8 +26,6 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
-  console.log(job);
-
   return (
     <div className='job-card'>
       <div className='card-head'>
@@ -36,7 +34,11 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         </div>
 
         <div className='card-title'>
-          <Link to={`/jobdetails/${job.job_id}`} className='customLink'>
+          <Link
+            to={`/jobdetails/${job.job_id}`}
+            className='customLink'
+            style={{ textDecoration: 'none' }}
+          >
             <Typography variant='h3' component='h2'>
               {job.title}
             </Typography>

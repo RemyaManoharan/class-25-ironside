@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import useJobStore from '../../store/jobstore';
+import JobCard from '../JobCard/JobCard';
 
 type JobDetailParams = {
   jobId: string;
@@ -33,87 +34,95 @@ function JobDetail() {
   return (
     //   main div
     <section className='job-detail-wrapper'>
-      {/* header div  */}
-      <div className='job-detail-header'>
-        <div className='logo-wrapper'>
-          <img src={logoImage} alt='logo-company' />
-          <div className='company-job'>
-            <Typography variant='h2' component='h2'>
-              {selectedJob.title}
-            </Typography>
-            <div className='jobType'>
-              <Typography variant='h4' component='h2'>
-                {selectedJob.name}
+      <div className='left-container'>
+        {/* header div  */}
+        <div className='job-detail-header'>
+          <div className='logo-wrapper'>
+            <img src={logoImage} alt='logo-company' />
+            <div className='company-job'>
+              <Typography variant='h2' component='h2'>
+                {selectedJob.title}
               </Typography>
-              <Typography variant='h4' component='h2'>
-                {selectedJob.is_remotework ? 'Remote' : 'In-Office'}
-              </Typography>
-              <Typography variant='h4' component='h2'>
-                {selectedJob.job_type}
-              </Typography>
+              <div className='jobType'>
+                <Typography variant='h4' component='h2'>
+                  {selectedJob.name}
+                </Typography>
+                <Typography variant='h4' component='h2'>
+                  {selectedJob.is_remotework ? 'Remote' : 'In-Office'}
+                </Typography>
+                <Typography variant='h4' component='h2'>
+                  {selectedJob.job_type}
+                </Typography>
 
-              <Typography variant='h4' component='h2'>
-                {selectedJob.experience} years experience
-              </Typography>
+                <Typography variant='h4' component='h2'>
+                  {selectedJob.experience} years experience
+                </Typography>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='apply-btn-container'>
-          <Link to={`/applyform/${jobId}`} className='customLink'>
-            <button type='button' className='btn-apply'>
+
+          <div className='apply-btn-container'>
+            <button type='submit' className='btn-apply'>
               Apply
             </button>
-          </Link>
+          </div>
+        </div>
+
+        <div className='job-detail-main-container'>
+          <div className='job-description'>
+            <div className='job-subhead'>
+              <Typography variant='body1' component='h2'>
+                Job Description
+              </Typography>
+            </div>
+            <Typography variant='h4' component='h2'>
+              {JobDescpArray.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </Typography>
+          </div>
+          <div className='skill-container'>
+            <Typography variant='body1' component='h2'>
+              Skills
+            </Typography>
+            <ul className='skillsList'>
+              {JobSkillsArray.map((skill, index) => (
+                <li key={index} className='skillItem'>
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className='requirement-container'>
+            <div className='job-subhead'>
+              <Typography variant='body1' component='h2'>
+                Requirement
+              </Typography>
+            </div>
+            <Typography variant='h4' component='h2'>
+              {jobRequirements.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </Typography>
+          </div>
+
+          <div className='about-company-container'>
+            <div className='job-subhead'>
+              <Typography variant='body1' component='h2'>
+                About Company
+              </Typography>
+            </div>
+            <Typography variant='h4' component='h2'>
+              {selectedJob.about}
+            </Typography>
+          </div>
         </div>
       </div>
-
-      <div className='job-detail-main-container'>
-        <div className='job-description'>
-          <div className='job-subhead'>
-            <Typography variant='body1' component='h2'>
-              Job Description
-            </Typography>
-          </div>
-          <Typography variant='h4' component='h2'>
-            {JobDescpArray.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </Typography>
-        </div>
-        <div className='skill-container'>
-          <Typography variant='body1' component='h2'>
-            Skills
-          </Typography>
-          <ul className='skillsList'>
-            {JobSkillsArray.map((skill, index) => (
-              <li key={index} className='skillItem'>
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className='requirement-container'>
-          <div className='job-subhead'>
-            <Typography variant='body1' component='h2'>
-              Requirement
-            </Typography>
-          </div>
-          <Typography variant='h4' component='h2'>
-            {jobRequirements.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </Typography>
-        </div>
-
-        <div className='about-company-container'>
-          <div className='job-subhead'>
-            <Typography variant='body1' component='h2'>
-              About Company
-            </Typography>
-          </div>
-          <Typography variant='h4' component='h2'>
-            {selectedJob.about}
-          </Typography>
+      <div className='right-container'>
+        <div className='job-card-container'>
+          {jobs.slice(0, 3).map((job) => (
+            <JobCard key={job.job_id} job={job} />
+          ))}
         </div>
       </div>
     </section>
