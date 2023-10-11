@@ -12,6 +12,8 @@ export const useAdminData = () => {
   const getJobsCount = useAdminStore((state) => state.getJobsCount);
   const openJobsCount = useAdminStore((state) => state.openJobsCount);
   const getOpenJobsCount = useAdminStore((state) => state.getOpenJobsCount);
+  const companiesRequest = useAdminStore((state) => state.companiesRequest);
+  const getCompanyRequest = useAdminStore((state) => state.getCompanyRequest);
 
   useEffect(() => {
     getJobRequest();
@@ -19,7 +21,8 @@ export const useAdminData = () => {
     getComaniesCount();
     getJobsCount();
     getOpenJobsCount();
+    getCompanyRequest();
   }, []);
 
-  return { usersCount, companiesCount, jobsCount, jobsRequest, openJobsCount };
+  return { usersCount, companiesCount, jobsCount, jobsRequest, openJobsCount, companiesRequest };
 };

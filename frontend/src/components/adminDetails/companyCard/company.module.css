@@ -1,0 +1,90 @@
+.cardContainer {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  height: 75px;
+  gap: 20px;
+}
+.cardContent {
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+.title {
+  flex-grow: 1;
+}
+.name {
+  color: #7d7a89;
+  font-weight: bold;
+  font-family: var(--font-text);
+  color: var(--font-color);
+}
+.hidden {
+  display: none;
+}
+.btn {
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.4rem;
+  font-size: 16px;
+  font-family: var(--font-text);
+  cursor: pointer;
+  border: 1px solid #0b5fae;
+  transition: all 400ms ease;
+}
+.approve {
+  background-color: #110d59;
+  color: white;
+}
+.about {
+  padding-bottom: 20px;
+  font-size: 16px;
+  font-family: var(--font-text);
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.map {
+  width: 500px;
+  height: 200px;
+}
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+.location {
+  font-size: 16px;
+  font-family: var(--font-text);
+}
+.fadeOut {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn:hover {
+  background-color: #0b5fae;
+  color: white;
+  border-color: transparent;
+}
+@media screen and (max-width: 680px) {
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    height: auto;
+  }
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .map {
+    width: 100%;
+    height: 200px;
+  }
+  .img {
+    display: none;
+  }
+  .about {
+    text-align: center;
+  }
+}
