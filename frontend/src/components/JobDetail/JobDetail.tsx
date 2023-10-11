@@ -62,9 +62,11 @@ function JobDetail() {
           </div>
 
           <div className='apply-btn-container'>
-            <button type='submit' className='btn-apply'>
-              Apply
-            </button>
+            <Link to={`/applyform/${jobId}`} className='customLink'>
+              <button type='submit' className='btn-apply'>
+                Apply
+              </button>
+            </Link>
           </div>
         </div>
 
