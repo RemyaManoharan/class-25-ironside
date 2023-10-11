@@ -105,3 +105,34 @@ export const getAllJobDetails = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Error fetching job details' });
   }
 };
+
+export const postJobApplication = async (req: Request, res: Response) => {
+  try {
+    const { job_id, user_id, application_date, contact_number, application_letter } = req.body;
+
+    // Insert the job application into the database
+    const insertedJobApplicationDetails = await db('job_applications')
+      .insert({
+        job_id,
+        user_id,
+        application_date,
+        contact_number,
+        application_letter,
+      })
+      .returning('*');
+
+    if (insertedJobApplicationDetails && insertedJobApplicationDetails.length > 0) {
+      res
+        .status(201)
+        .json({
+          message: 'Job application added successfully',
+          job: insertedJobApplicationDetails[0],
+        });
+    } else {
+      res.status(500).json({ error: 'Failed to insert the job application' });
+    }
+  } catch (error) {
+    const errorMessage = error instanceof Error && error.message ? error.message : 'Unknown error';
+    res.status(500).json({ error: `Server error: ${errorMessage}` });
+  }
+};

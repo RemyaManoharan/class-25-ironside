@@ -16,6 +16,7 @@ import JobDetail from './components/JobDetail/JobDetail';
 import AdminRoute from './routes/AdminRoute';
 import AdminPage from './pages/admin/adminPage/AdminPage';
 import AllJobsApply from './pages/admin/allJobsApply/AllJobs';
+import ApplyForm from './components/ApplyForm/ApplyForm';
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: '/jobdetails/:jobId',
         element: <JobDetail />,
+      },
+      {
+        path: '/applyform/:jobId',
+        element: <ApplyForm />,
       },
     ],
   },

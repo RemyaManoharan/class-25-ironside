@@ -16,6 +16,13 @@ interface Job {
   about: string;
 }
 
+interface JobApplication {
+  name: string;
+  contact_number: string;
+  application_letter: string;
+  job_id: number;
+  user_id: number;
+}
 interface JobStore {
   jobs: Job[];
   filters: {
@@ -25,6 +32,7 @@ interface JobStore {
     showBy: string;
     isRemote: boolean;
   };
+
   resetJobStore: () => void;
   fetchJobs: () => Promise<void>;
   setFilters: (newFilters: {
@@ -34,6 +42,8 @@ interface JobStore {
     showBy: string;
     isRemote: boolean;
   }) => void;
+
+  submitJobApplication: (jobId: number, applicationData: JobApplication) => Promise<void>;
 }
 
 const useJobStore = create<JobStore>((set, get) => ({
@@ -81,6 +91,22 @@ const useJobStore = create<JobStore>((set, get) => ({
   setFilters: (newFilters) => set((state) => ({ filters: newFilters })),
   resetJobStore: () => {
     set({ jobs: [] });
+  },
+
+  submitJobApplication: async (jobId: number, formData: JobApplication) => {
+    try {
+      const jobApplication: JobApplication = {
+        ...formData,
+        job_id: jobId,
+      };
+      const axiosInstance = await api();
+      console.log('Submitting job application:', jobApplication);
+      const response = await axiosInstance.post(`jobs/job-applications`, jobApplication);
+      console.log('Job application submitted successfully.', response.data);
+    } catch (error) {
+      console.error('Error submitting job application:', error as any); // Cast 'error' to 'any' type for logging
+      throw new Error('Error submitting job application.');
+    }
   },
 }));
 export default useJobStore;

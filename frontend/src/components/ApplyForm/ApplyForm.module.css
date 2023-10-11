@@ -1,0 +1,92 @@
+.applyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.formTitle {
+  width: 70%;
+  height: 22px;
+  bottom: 50px;
+}
+.jobHeader {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  margin-top: 20px;
+}
+.formContainer {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 70%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+/* Existing styles */
+
+.formContainer form .applyNowBtn {
+  display: flex;
+  margin-top: 20px;
+}
+
+.formContainer form .applyNowBtn button {
+  padding: 16px 32px;
+  background-color: #0b5fae;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.inputField .inputLabel .letterContainer {
+  margin-top: 3px;
+  margin-bottom: 20px;
+}
+
+.letterContainer .inputField {
+  width: 512px;
+}
+.contactContainer .inputField {
+  width: 512px;
+}
+.nameContainer .inputField {
+  width: 512px;
+}
+/* Additional styles for responsiveness */
+
+@media (max-width: 600px) {
+  .applyContainer {
+    margin: 2rem;
+    padding: 1rem;
+  }
+  .formTitle {
+    width: 100%;
+  }
+  .jobHeader,
+  .formContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .applyContainer {
+    margin: 3rem;
+    padding: 1.5rem;
+  }
+  .formTitle {
+    width: 80%;
+  }
+}

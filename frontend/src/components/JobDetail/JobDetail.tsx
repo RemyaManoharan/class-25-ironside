@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './JobDetail.css';
 import logoImage from '../../assets/Logo Tumbnail.svg';
 import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import useJobStore from '../../store/jobstore';
 import JobCard from '../JobCard/JobCard';

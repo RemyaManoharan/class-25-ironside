@@ -9,6 +9,7 @@ type Props = {
 
 const PrivateRoute: React.FC<Props> = ({ children }: Props) => {
   const { currentUser } = useContext(AuthContext);
+
   if (currentUser) {
     return <>{children}</>;
   }
