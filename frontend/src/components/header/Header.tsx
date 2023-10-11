@@ -12,10 +12,10 @@ function Header() {
   const resetUser = useAdminStore((state) => state.resetUser);
   const resetJobStore = useJobStore((state) => state.resetJobStore);
   const navigate = useNavigate();
-  const displayName = currentUser.displayName.split(' ');
+  const displayName = currentUser?.displayName?.split(' ');
 
-  const formattedFirstName = getFormattedName(displayName[0]);
-  const formattedLastName = getFormattedName(displayName[1]);
+  const formattedFirstName = getFormattedName(displayName && displayName[0]);
+  const formattedLastName = getFormattedName(displayName && displayName[1]);
 
   const userName = `${formattedFirstName} ${formattedLastName}`;
   const handleLogout = async () => {
