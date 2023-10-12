@@ -24,5 +24,15 @@ export const useAdminData = () => {
     getCompanyRequest();
   }, []);
 
-  return { usersCount, companiesCount, jobsCount, jobsRequest, openJobsCount, companiesRequest };
+  return {
+    usersCount,
+    companiesCount,
+    jobsCount,
+    jobsRequest,
+    openJobsCount,
+    companiesRequest,
+    getComaniesCount,
+    getJobsCount,
+    getOpenJobsCount,
+  };
 };
