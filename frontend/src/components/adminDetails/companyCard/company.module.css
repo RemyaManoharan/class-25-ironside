@@ -32,9 +32,16 @@
   transition: all 400ms ease;
 }
 .approve {
-  background-color: #110d59;
+  background-color: #4caf50;
   color: white;
+  transition: color 0.3s;
 }
+.deny {
+  background-color: #ff5722;
+  color: white;
+  transition: color 0.3s;
+}
+
 .about {
   padding-bottom: 20px;
   font-size: 16px;
@@ -61,7 +68,7 @@
 }
 .btn:hover {
   background-color: #0b5fae;
-  color: white;
+  color: #e0e0e0;
   border-color: transparent;
 }
 @media screen and (max-width: 680px) {

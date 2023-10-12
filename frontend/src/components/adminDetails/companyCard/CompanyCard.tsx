@@ -45,7 +45,10 @@ const CompanyCard: React.FC<CompanyPropsType> = ({ company }) => {
           <img src={locationSvg} alt='locationSvg' />
         </div>
         <div className={style.buttons}>
-          <button className={style.btn} onClick={() => handleDenyClick(company.id)}>
+          <button
+            className={`${style.btn} ${style.deny}`}
+            onClick={() => handleDenyClick(company.id)}
+          >
             X
           </button>
           <button

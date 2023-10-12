@@ -7,10 +7,9 @@ type MapProps = {
 };
 
 function Map({ city }: MapProps) {
-  const [isLoading, setIsLoading] = useState(true);
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
   const apiKey: any = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  console.log(apiKey);
+
   useEffect(() => {
     async function fetchCoordinates() {
       try {
@@ -30,11 +29,7 @@ function Map({ city }: MapProps) {
 
     fetchCoordinates();
   }, []);
-  useEffect(() => {
-    if (coordinates.lat !== 0 && coordinates.lng !== 0) {
-      setIsLoading(false);
-    }
-  }, [coordinates]);
+  const isLoading = coordinates.lat === 0 || coordinates.lng === 0;
 
   return (
     <div style={{ height: '100%', width: '100%' }}>

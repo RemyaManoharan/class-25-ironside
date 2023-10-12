@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import style from './companies.module.css';
 import CompanyCard from '../companyCard/CompanyCard';
 import { CompaniesProps } from '../types/types';
