@@ -57,7 +57,7 @@ function ApplyForm() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const { name, phoneNumber, letter } = formData;
+    const { phoneNumber, letter } = formData;
 
     // Check if required fields are empty
     if (!phoneNumber || !letter) {
@@ -76,7 +76,7 @@ function ApplyForm() {
         user_id: isUseId,
         job_id: jobId ? Number(jobId) : -1,
       });
-      console.log('Job application submitted successfully.');
+
       setSubmissionSuccess(true);
       setJobDetails(selectedJob);
     } catch (error) {

@@ -21,7 +21,7 @@ function Home() {
               Filter
             </Typography>
           </div>
-          {/* className={`home-filter ${showFilter ? 'home-show' : ''}`} */}
+
           <div className={`home-filter ${showFilter ? 'home-show' : ''}`}>
             <FilterForm toggleFilter={toggleFilter} />
           </div>

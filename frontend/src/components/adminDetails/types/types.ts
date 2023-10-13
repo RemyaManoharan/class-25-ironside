@@ -5,16 +5,28 @@ export interface Job {
   name: string;
   location: string;
 }
-
+export interface Company {
+  id: number;
+  about: string;
+  name: string;
+  location: string;
+}
 export interface AdminPropsType {
   job: Job;
 }
 export interface JobsProps {
   jobs: Job[];
 }
+export interface CompanyPropsType {
+  company: Company;
+}
+
 export interface CountDisplayProps {
   openJobsCount: number | null;
   jobsCount: number | null;
   companiesCount: number | null;
   usersCount: number | null;
+}
+export interface CompaniesProps {
+  companies: Company[];
 }

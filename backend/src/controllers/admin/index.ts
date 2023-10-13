@@ -74,3 +74,41 @@ export const addJob = async (req: Request, res: Response) => {
     res.status(500).json(err);
   }
 };
+export const getCompaniesRequests = async (req: Request, res: Response) => {
+  try {
+    const companiesToApprove = await db('companies').where('status', 'not approved');
+
+    res.status(200).json(companiesToApprove);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+export const addCompany = async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  try {
+    const companyExists = await db('companies').where('id', id).first();
+    if (!companyExists) {
+      return res.status(404).json('company not found');
+    }
+    await db('companies').where('id', id).update({ status: 'approved' });
+    res.status(200).json('company added successfully');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+export const deleteCompany = async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  try {
+    const jobExists = await db('companies').where('id', id).first();
+    if (!jobExists) {
+      return res.status(404).json('company not found');
+    }
+    await db('companies').where('id', id).del();
+    res.status(200).json('company deleted successfully');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};

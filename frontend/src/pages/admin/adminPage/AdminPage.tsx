@@ -2,9 +2,27 @@ import style from './admin.module.css';
 import CountDisplay from '../../../components/adminDetails/countDisplay/CountDisplay';
 import JobApproval from '../../../components/adminDetails/jobApproval/JobApproval';
 import { useAdminData } from '../../../hooks/UseAdminData';
+import CompanyApproval from '../../../components/adminDetails/companyApproval/CompanyApproval';
+import { useEffect } from 'react';
 
 function AdminPage() {
-  const { usersCount, companiesCount, jobsCount, jobsRequest, openJobsCount } = useAdminData();
+  const {
+    usersCount,
+    companiesCount,
+    jobsCount,
+    jobsRequest,
+    openJobsCount,
+    companiesRequest,
+    getComaniesCount,
+    getJobsCount,
+    getOpenJobsCount,
+  } = useAdminData();
+
+  useEffect(() => {
+    getComaniesCount();
+    getOpenJobsCount();
+    getJobsCount();
+  }, [jobsRequest, companiesRequest]);
 
   return (
     <div className={style.content}>
@@ -19,7 +37,9 @@ function AdminPage() {
       <div className={style.mid}>
         <JobApproval jobs={jobsRequest} />
       </div>
-      <div className={style.btm}>latest job vacasy</div>
+      <div className={style.btm}>
+        <CompanyApproval companies={companiesRequest} />
+      </div>
     </div>
   );
 }
