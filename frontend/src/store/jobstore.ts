@@ -100,9 +100,8 @@ const useJobStore = create<JobStore>((set, get) => ({
         job_id: jobId,
       };
       const axiosInstance = await api();
-      console.log('Submitting job application:', jobApplication);
+
       const response = await axiosInstance.post(`jobs/job-applications`, jobApplication);
-      console.log('Job application submitted successfully.', response.data);
     } catch (error) {
       console.error('Error submitting job application:', error as any); // Cast 'error' to 'any' type for logging
       throw new Error('Error submitting job application.');

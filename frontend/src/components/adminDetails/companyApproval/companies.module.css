@@ -1,0 +1,45 @@
+.content {
+  padding: 20px 0;
+}
+.cardContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-family: var(--font-primary);
+}
+.empty {
+  color: red;
+  font-size: 16px;
+  font-family: var(--font-primary);
+}
+.title p {
+  color: #0b5fae;
+  cursor: pointer;
+  font-weight: bold;
+}
+.title a {
+  text-decoration: none;
+}
+@media screen and (max-width: 930px) {
+  .content {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width: 680px) {
+  .cardContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
