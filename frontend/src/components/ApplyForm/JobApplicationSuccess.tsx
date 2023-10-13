@@ -1,6 +1,6 @@
 // JobApplicationSuccess.tsx
 import React from 'react';
-import { Typography, Button, IconButton } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import styles from './JobApplicationSuccess.module.css';
 import { Link } from 'react-router-dom';
 

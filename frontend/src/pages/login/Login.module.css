@@ -39,7 +39,7 @@
 .head {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   margin-bottom: 10px;
 }
 .loginTitle {
@@ -101,7 +101,7 @@
 .buttonWrap {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 }
 .formLink {
   color: #0b5fae;

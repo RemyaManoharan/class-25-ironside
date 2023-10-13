@@ -1,4 +1,14 @@
 .job-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+@media screen and (max-width: 680px) {
+  .job-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }

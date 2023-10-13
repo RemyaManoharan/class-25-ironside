@@ -4,6 +4,7 @@ import api from '../api';
 interface AdminStore {
   user: any | null;
   jobsRequest: any[];
+  companiesRequest: any[];
   usersCount: null | number;
   companiesCount: null | number;
   jobsCount: null | number;
@@ -17,6 +18,9 @@ interface AdminStore {
   getOpenJobsCount: () => Promise<void>;
   deleteJobRequest: (id: number) => Promise<void>;
   addJobRequest: (id: number) => Promise<void>;
+  getCompanyRequest: () => Promise<void>;
+  addcompany: (id: number) => Promise<void>;
+  deleteCompany: (id: number) => Promise<void>;
 }
 
 const useAdminStore = create<AdminStore>()((set) => ({
@@ -26,6 +30,7 @@ const useAdminStore = create<AdminStore>()((set) => ({
   companiesCount: null,
   jobsCount: null,
   openJobsCount: null,
+  companiesRequest: [],
   fetchCurrentUser: async (uid: string) => {
     try {
       const request = await api();
@@ -117,10 +122,50 @@ const useAdminStore = create<AdminStore>()((set) => ({
       console.error(err);
     }
   },
+  getCompanyRequest: async () => {
+    try {
+      const request = await api();
+      const response = await request.get(`/admin/companies`);
+      const companiesRequest = await response.data;
+
+      set({ companiesRequest });
+    } catch (err) {
+      console.error(err);
+    }
+  },
+  addcompany: async (id) => {
+    try {
+      const request = await api();
+      await request.put(`/admin/company/${id}`);
+      set((state) => {
+        const companiesRequest = state.companiesRequest.filter((company) => company.id !== id);
+        return { ...state, companiesRequest };
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  },
+  deleteCompany: async (id) => {
+    try {
+      const request = await api();
+      await request.delete(`/admin/company/${id}`);
+      set((state) => {
+        const companiesRequest = state.companiesRequest.filter((company) => company.id !== id);
+        return { ...state, companiesRequest };
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  },
   resetUser: () => {
     set({
       user: null,
       jobsRequest: [],
+      usersCount: null,
+      companiesCount: null,
+      jobsCount: null,
+      openJobsCount: null,
+      companiesRequest: [],
     });
   },
 }));
