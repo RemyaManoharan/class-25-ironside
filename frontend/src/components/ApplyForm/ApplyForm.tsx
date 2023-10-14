@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import logoImage from '../../assets/Logo Tumbnail.svg';
 import styles from './ApplyForm.module.css';
-import { TextField, InputLabel, TextareaAutosize } from '@mui/material';
+import { TextField, InputLabel } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import useJobStore from '../../store/jobstore';
 import JobApplicationSuccess from './JobApplicationSuccess';
@@ -26,7 +26,7 @@ function ApplyForm() {
     name: '',
     phoneNumber: '',
     letter: '',
-    user_id: '', // You need to implement a function to get the logged-in user ID
+    user_id: '',
     job_id: jobId,
   });
 
@@ -87,36 +87,34 @@ function ApplyForm() {
 
   return (
     <div className={styles.applyContainer}>
-      <div className={styles.errorMsg}>
-        {error && <Typography color='error'>{error}</Typography>}
-      </div>
       {submissionSuccess ? (
         <JobApplicationSuccess jobDetails={jobDetails} />
       ) : (
-        <>
-          <Typography variant='h3' component='h2' className={styles.formTitle}>
-            Apply Form
-          </Typography>
-          <div className={styles.jobHeader}>
-            <div className='logo-wrapper'>
+        <div className={styles.formContent}>
+          <div className={styles.formHeader}>
+            <div>
+              <h3 className={styles.formTitle}> Apply Form</h3>
+            </div>
+            <div className={styles.logoWrapper}>
               <img src={logoImage} alt='logo-company' />
               <div className={styles.companyJob}>
                 {selectedJob && (
                   <>
-                    <Typography variant='h2' component='h2'>
-                      {selectedJob.title}
-                    </Typography>
-                    <div className='jobType'>
+                    <h1 className={styles.companyHeader}> {selectedJob.title}</h1>
+
+                    <div className={styles.jobType}>
                       <Typography variant='h4' component='h2'>
                         {selectedJob.name}
                       </Typography>
+                      <span className={styles.dote}>•</span>
                       <Typography variant='h4' component='h2'>
                         {selectedJob.is_remotework ? 'Remote' : 'In-Office'}
                       </Typography>
+                      <span className={styles.dote}>•</span>
                       <Typography variant='h4' component='h2'>
                         {selectedJob.job_type}
                       </Typography>
-
+                      <span className={styles.dote}>•</span>
                       <Typography variant='h4' component='h2'>
                         {selectedJob.experience} years experience
                       </Typography>
@@ -126,57 +124,57 @@ function ApplyForm() {
               </div>
             </div>
           </div>
-          {/* form container */}
-          <div className={styles.formContainer}>
+
+          <div className={styles.fillform}>
             <form className={styles.form} onSubmit={handleSubmit}>
-              <div className={styles.nameContainer}>
-                <InputLabel className={styles.inputLabel}>Name</InputLabel>
+              <div className={styles.errorMsg}>
+                {error && (
+                  <Typography color='error' className={styles.errorMsg}>
+                    {error}
+                  </Typography>
+                )}
+              </div>
+              <div className={styles.inputs}>
+                <InputLabel className={styles.label}>Name</InputLabel>
                 <TextField
                   name='name'
                   id='outlined-required'
-                  label='Full Name'
                   type='text'
                   variant='outlined'
-                  style={{ width: '512px' }}
-                  className={styles.inputField}
                   InputProps={{ style: { background: '#F8F9FD' } }}
+                  placeholder='Full Name'
                 />
               </div>
-              <div className={styles.contactContainer}>
-                <InputLabel className={styles.inputLabel}>Contact</InputLabel>
+              <div className={styles.inputs}>
+                <InputLabel className={styles.label}>Contact</InputLabel>
                 <TextField
                   name='phoneNumber'
                   id='outlined-required'
-                  label='Contact number'
                   type='number'
                   variant='outlined'
-                  style={{ width: '512px' }}
-                  className={styles.inputField}
-                  InputProps={{ style: { background: '#F8F9FD', color: '#55555F' } }}
+                  InputProps={{ style: { background: '#F8F9FD' } }}
                   onChange={handleChange}
+                  placeholder='Phone Number'
                 />
               </div>
-              <div className={styles.letterContainer}>
-                <InputLabel className={styles.inputLabel}>Application Letter</InputLabel>
-                <TextareaAutosize
+              <div className={styles.textAreaContaier}>
+                <InputLabel className={styles.label}>Application Letter</InputLabel>
+                <textarea
                   name='letter'
                   id='outlined-required'
                   aria-label='Application letter'
-                  placeholder='Application letter'
-                  minRows={5}
-                  style={{ width: '512px', minHeight: '50px', background: '#F8F9FD' }}
-                  className={styles.inputField}
+                  placeholder='Input Text Here'
                   onChange={handleChange}
+                  className={styles.textArea}
                 />
               </div>
-              <div className={styles.applyNowBtn}>
-                <button type='submit' style={{ width: '512px' }}>
-                  Apply Now
-                </button>
-              </div>
+
+              <button type='submit' className={styles.applyNowBtn}>
+                Apply Now
+              </button>
             </form>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

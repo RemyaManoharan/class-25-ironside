@@ -9,20 +9,18 @@ type JobApplicationSuccessProps = {
     title: string;
     name: string;
     location: string;
-    // Add more job details as needed
   };
 };
 
 const JobApplicationSuccess: React.FC<JobApplicationSuccessProps> = ({ jobDetails }) => {
   return (
-    <div className={styles.applyContainer}>
+    <div className={styles.applyContainerSuccess}>
       <div className={styles.successMessage}>
         <Typography variant='h5'>Job application submitted successfully for:</Typography>
         <Typography variant='h6'>
           {jobDetails.title} at {jobDetails.name}
         </Typography>
         <Typography variant='body1'>Location: {jobDetails.location}</Typography>
-        {/* Add more job details as needed */}
         <div className={styles.additionalActions}>
           <Link to={`http://localhost:8000/`} className='customLink'>
             <Button variant='outlined' color='primary'>

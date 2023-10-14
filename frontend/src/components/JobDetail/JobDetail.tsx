@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import useJobStore from '../../store/jobstore';
 import JobCard from '../JobCard/JobCard';
+import { Link } from 'react-router-dom';
 
 type JobDetailParams = {
   jobId: string;
@@ -61,9 +62,11 @@ function JobDetail() {
           </div>
 
           <div className='apply-btn-container'>
-            <button type='submit' className='btn-apply'>
-              Apply
-            </button>
+            <Link to={`/applyform/${jobId}`} className='customLink'>
+              <button type='submit' className='btn-apply'>
+                Apply
+              </button>
+            </Link>
           </div>
         </div>
 
