@@ -1,9 +1,7 @@
+import UnderConstruction from '../../components/UnderConstruction/UnderConstruction';
+
 function History() {
-  return (
-    <div>
-      <div>this is History</div>
-    </div>
-  );
+  return <UnderConstruction />;
 }
 
 export default History;

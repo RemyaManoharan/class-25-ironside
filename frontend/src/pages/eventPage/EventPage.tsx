@@ -1,9 +1,7 @@
+import UnderConstruction from '../../components/UnderConstruction/UnderConstruction';
+
 function EventPage() {
-  return (
-    <div>
-      <div>this is EventPage</div>
-    </div>
-  );
+  return <UnderConstruction />;
 }
 
 export default EventPage;
