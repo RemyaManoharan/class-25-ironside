@@ -88,7 +88,7 @@ const useJobStore = create<JobStore>((set, get) => ({
       console.error('Error fetching jobs:', error);
     }
   },
-  setFilters: (newFilters) => set((state) => ({ filters: newFilters })),
+  setFilters: (newFilters) => set({ filters: newFilters }),
   resetJobStore: () => {
     set({ jobs: [] });
   },
@@ -101,7 +101,7 @@ const useJobStore = create<JobStore>((set, get) => ({
       };
       const axiosInstance = await api();
 
-      const response = await axiosInstance.post(`jobs/job-applications`, jobApplication);
+      await axiosInstance.post(`jobs/job-applications`, jobApplication);
     } catch (error) {
       console.error('Error submitting job application:', error as any); // Cast 'error' to 'any' type for logging
       throw new Error('Error submitting job application.');

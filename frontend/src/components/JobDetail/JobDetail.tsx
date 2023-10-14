@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import useJobStore from '../../store/jobstore';
 import JobCard from '../JobCard/JobCard';
+import { Link } from 'react-router-dom';
 
 type JobDetailParams = {
   jobId: string;

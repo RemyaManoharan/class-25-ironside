@@ -5,115 +5,152 @@
   justify-content: center;
   background-color: #ffffff;
   border-radius: 8px;
-  height: auto;
-  overflow-y: hidden;
+  height: 100%;
+  width: 100%;
+  overflow-y: inherit;
+}
+.formContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 60%;
+  padding: 20px;
+}
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-height: 100px;
+}
+.fillform {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 .formTitle {
-  width: 44%;
-  height: 5px;
-}
-.jobHeader {
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 30px;
-}
-.formContainer {
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-  border-radius: 8px;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.formContainer form .applyNowBtn {
-  display: flex;
-  margin-top: 20px;
-}
-
-.formContainer form .applyNowBtn button {
-  padding: 16px 32px;
-  background-color: #0b5fae;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 512px;
-  margin-bottom: 15px;
-}
-.inputField label {
-  color: #b3b1bb;
-}
-.inputField .inputLabel .letterContainer {
-  margin-top: 3px;
-  margin-bottom: 20px;
-}
-
-.letterContainer .inputFieldText {
-  width: 512px;
-  min-height: 50px;
-  background: #f8f9fd;
-}
-.contactContainer .inputField {
-  width: 512px;
-}
-.nameContainer .inputField {
-  width: 512px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  font-family: var(--font-primary);
+  color: #2b283d;
 }
 .logoWrapper {
   display: flex;
   align-items: center;
-  gap: 5px;
-  margin-left: 27%;
   border: 1px solid #d8e0e8;
-  width: 512px;
-  height: 94px;
   border-radius: 8px;
+  padding: 10px;
+  gap: 20px;
+}
+.logoWrapper img {
+  height: 60%;
+}
+.companyJob {
+  display: flex;
+  flex-direction: column;
+}
+.companyHeader {
+  font-family: var(--font-primary);
+  font-size: 26px;
+  font-weight: 600;
+}
+.jobType {
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 10px;
+}
+.dote {
+  color: #2b283d;
+  align-self: flex-end;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.errorMsg {
+  padding: 10px 0;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-@media (max-width: 600px) {
-  .letterContainer .inputFieldText {
-    width: 275px;
-    min-height: 50px;
-    background: #f8f9fd;
-  }
-  .contactContainer .inputField {
-    width: 275px;
-  }
-  .nameContainer .inputField {
-    width: 275px;
-  }
-  .formContainer form .applyNowBtn button {
-    width: 275px;
-  }
-  .logoWrapper {
-    margin-left: 0%;
-    border: none;
-  }
-  .errorMsg {
-    padding: 12px;
+.applyNowBtn {
+  width: 100%;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 1px solid #0b5fae;
+  transition: all 400ms ease;
+}
+.applyNowBtn:hover {
+  background-color: #0b5fae;
+  color: white;
+  border-color: transparent;
+}
+.inputFieldText {
+  height: 512px;
+}
+.textAreaContaier {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+}
+.textArea {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f8f9fd;
+  transition: #0b5fae 0.2s;
+  resize: 'none';
+}
+.label {
+  color: #55555f;
+}
+@media screen and (max-width: 1200px) {
+  .formContent {
+    width: 80%;
   }
 }
-@media (max-width: 960px) {
-  .formTitle {
-    font-size: 2rem;
-  }
-  .logoWrapper {
-    margin-left: 0%;
-    border: none;
-  }
-  .jobHeader,
-  .formContainer {
-    width: 100%;
+@media screen and (max-width: 680px) {
+  .applyContainer {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    height: auto;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .formContent {
+    width: 100%;
+  }
+
+  .jobType {
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .logoWrapper img {
+    height: 60px;
+    align-self: flex-start;
   }
 }
