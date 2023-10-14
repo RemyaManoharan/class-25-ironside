@@ -1,9 +1,7 @@
+import UnderConstruction from '../../components/UnderConstruction/UnderConstruction';
+
 function Schedule() {
-  return (
-    <div>
-      <div>this is Schedule</div>
-    </div>
-  );
+  return <UnderConstruction />;
 }
 
 export default Schedule;

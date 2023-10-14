@@ -3,90 +3,154 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  overflow-y: inherit;
+}
+.formContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 60%;
+  padding: 20px;
+}
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-height: 100px;
+}
+.fillform {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 .formTitle {
-  width: 70%;
-  height: 22px;
-  bottom: 50px;
+  font-family: var(--font-primary);
+  color: #2b283d;
 }
-.jobHeader {
+.logoWrapper {
   display: flex;
-  align-content: center;
-  justify-content: space-between;
-  border: 1px solid #e0e0e0;
+  align-items: center;
+  border: 1px solid #d8e0e8;
   border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  width: 70%;
-  margin-top: 20px;
+  padding: 10px;
+  gap: 20px;
 }
-.formContainer {
+.logoWrapper img {
+  height: 60%;
+}
+.companyJob {
   display: flex;
-  align-content: center;
-  justify-content: space-between;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  width: 70%;
+  flex-direction: column;
+}
+.companyHeader {
+  font-family: var(--font-primary);
+  font-size: 26px;
+  font-weight: 600;
+}
+.jobType {
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 10px;
+}
+.dote {
+  color: #2b283d;
+  align-self: flex-end;
 }
 .form {
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 10px;
 }
-
-/* Existing styles */
-
-.formContainer form .applyNowBtn {
+.errorMsg {
+  padding: 10px 0;
+}
+.inputs {
   display: flex;
-  margin-top: 20px;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.formContainer form .applyNowBtn button {
-  padding: 16px 32px;
+.applyNowBtn {
+  width: 100%;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 1px solid #0b5fae;
+  transition: all 400ms ease;
+}
+.applyNowBtn:hover {
   background-color: #0b5fae;
   color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  border-color: transparent;
 }
-.inputField .inputLabel .letterContainer {
-  margin-top: 3px;
-  margin-bottom: 20px;
+.inputFieldText {
+  height: 512px;
 }
-
-.letterContainer .inputField {
-  width: 512px;
+.textAreaContaier {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
 }
-.contactContainer .inputField {
-  width: 512px;
+.textArea {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f8f9fd;
+  transition: #0b5fae 0.2s;
+  resize: 'none';
 }
-.nameContainer .inputField {
-  width: 512px;
+.label {
+  color: #55555f;
 }
-/* Additional styles for responsiveness */
-
-@media (max-width: 600px) {
-  .applyContainer {
-    margin: 2rem;
-    padding: 1rem;
-  }
-  .formTitle {
-    width: 100%;
-  }
-  .jobHeader,
-  .formContainer {
-    width: 100%;
-  }
-}
-
-@media (max-width: 960px) {
-  .applyContainer {
-    margin: 3rem;
-    padding: 1.5rem;
-  }
-  .formTitle {
+@media screen and (max-width: 1200px) {
+  .formContent {
     width: 80%;
+  }
+}
+@media screen and (max-width: 680px) {
+  .applyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    height: auto;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .formContent {
+    width: 100%;
+  }
+
+  .jobType {
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .logoWrapper img {
+    height: 60px;
+    align-self: flex-start;
   }
 }
