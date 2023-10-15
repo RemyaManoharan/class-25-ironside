@@ -63,7 +63,8 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
   try {
     let query = db('jobs')
       .select('jobs.*', 'companies.*', 'jobs.id as job_id')
-      .join('companies', 'jobs.company_id', 'companies.id');
+      .join('companies', 'jobs.company_id', 'companies.id')
+      .where('jobs.status', 'approved');
     if (location) {
       query = query.whereRaw('LOWER(companies.location) LIKE LOWER(?)', [
         `%${location.toLowerCase()}%`,
@@ -122,12 +123,10 @@ export const postJobApplication = async (req: Request, res: Response) => {
       .returning('*');
 
     if (insertedJobApplicationDetails && insertedJobApplicationDetails.length > 0) {
-      res
-        .status(201)
-        .json({
-          message: 'Job application added successfully',
-          job: insertedJobApplicationDetails[0],
-        });
+      res.status(201).json({
+        message: 'Job application added successfully',
+        job: insertedJobApplicationDetails[0],
+      });
     } else {
       res.status(500).json({ error: 'Failed to insert the job application' });
     }

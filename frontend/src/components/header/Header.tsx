@@ -45,6 +45,9 @@ function Header() {
         return 'Company';
       case '/messages':
         return 'Messages';
+      case '/admin':
+        return 'Admin';
+
       default:
         return 'Dashboard';
     }
