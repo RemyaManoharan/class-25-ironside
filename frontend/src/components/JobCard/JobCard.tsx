@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './JobCard.css';
 import { CiLocationOn } from 'react-icons/ci';
 import { BsPeople } from 'react-icons/bs';
 import CompanyLogo from '../../assets/Logo Tumbnail.svg';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
+import useJobStore from '../../store/jobstore';
 
 interface Job {
   job_id: number;
@@ -26,6 +27,14 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
+  const totalJobApplicants = useJobStore((state) => state.totalJobApplicants);
+  const fetchTotalJobApplications = useJobStore((state) => state.fetchTotalJobApplications);
+
+  useEffect(() => {
+    fetchTotalJobApplications(job.job_id);
+  }, []);
+
+  console.log('jobcard applicants', totalJobApplicants);
   return (
     <div className='job-card'>
       <div className='card-head'>
@@ -57,7 +66,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
 
       <div className='card-footer'>
         <Typography variant='h4' component='h2'>
-          <BsPeople /> 00
+          <BsPeople /> {`${totalJobApplicants} khkgk`}
         </Typography>
         <Typography variant='h4' component='h2'>
           <CiLocationOn />
