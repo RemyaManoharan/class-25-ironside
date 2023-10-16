@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './FilterForm.module.css';
 import useJobStore from '../../store/jobstore';
 import { FaTimes } from 'react-icons/fa';
+import { Switch } from '@mui/material';
 interface FilterFormProps {
   toggleFilter: () => void;
 }
@@ -20,8 +21,8 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
     setFilters(newFilters);
   };
 
-  const handleChangeRemoteWork = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newFilters = { ...filters, isRemote: event.target.checked };
+  const handleChangeRemoteWork = (event: React.SyntheticEvent) => {
+    const newFilters = { ...filters, isRemote: (event.target as HTMLInputElement).checked };
     setFilters(newFilters);
   };
 
@@ -95,9 +96,8 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
 
         {/* remote work toggle button */}
         <div className={styles.remoteWork}>
-          <label className={`${styles.toggleContainer} ${styles.label}`}>
-            Remote Worker
-            <input type='checkbox' checked={filters.isRemote} onChange={handleChangeRemoteWork} />
+          <label className={`${styles.toggleContainer} ${styles.label} `}>
+            <Switch checked={filters.isRemote} onChange={handleChangeRemoteWork} />
           </label>
         </div>
 

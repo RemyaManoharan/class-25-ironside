@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import useCompanyStore, { Company } from '../../store/company.store';
 import locationSvg from '../adminDetails/assets/Location.svg';
 import CompanyLogo from '../../assets/Logo Tumbnail.svg';
-import BookmarkSvg from '../../assets/Bookmark.svg';
 
 const CompanyList: React.FC = () => {
   const { companies, fetchCompanies } = useCompanyStore();

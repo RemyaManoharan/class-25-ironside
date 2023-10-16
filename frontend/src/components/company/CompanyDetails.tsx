@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import useCompanyStore, { Job } from '../../store/company.store';
+import useCompanyStore from '../../store/company.store';
 import CompanyLogo from '../../assets/Logo Tumbnail.svg';
-import JobCard from '../JobCard/JobCard';
 import style from './CompanyDetails.module.css';
 import { Typography } from '@mui/material';
 import Map from '../../map/Map';
+import RelatedCompany from './RelatedCompany';
 
 type CompanyDetailParams = {
   companyId: string;
@@ -15,19 +15,29 @@ const CompanyDetail: React.FC = () => {
   const { companyId } = useParams<CompanyDetailParams>();
   const fetchCompanyById = useCompanyStore((state) => state.fetchCompanyById);
   const selectedCompany = useCompanyStore((state) => state.selectedCompany);
+  const fetchRelatedCompanies = useCompanyStore((state) => state.fetchRelatedCompanies);
+  const relatedCompanies = useCompanyStore((state) => state.relatedCompanies);
 
   useEffect(() => {
     fetchCompanyById(Number(companyId));
   }, [companyId, fetchCompanyById]);
 
+  useEffect(() => {
+    if (selectedCompany) {
+      // Fetch related companies for the selected company's location
+      fetchRelatedCompanies(selectedCompany.location);
+    }
+  }, [selectedCompany]);
+
+  const relatedCompaniesExceptCurrent = relatedCompanies.filter(
+    (company) => company.id !== (selectedCompany ? selectedCompany.id : -1),
+  );
+
+  console.log('Related Companies:', relatedCompanies);
   if (!selectedCompany) {
     return <div>Loading...</div>;
   }
 
-  let jobRequirements: string[] = [];
-  if (selectedCompany.requirement) {
-    jobRequirements = selectedCompany.requirement.split(',');
-  }
   return (
     //   main div
     <section className={style.companyDetailWrapper}>
@@ -65,11 +75,7 @@ const CompanyDetail: React.FC = () => {
             <Typography variant='body1' component='h2'>
               Services
             </Typography>
-            <ul className='skillsList'>
-              {selectedCompany.jobs.slice(0, 3).map((job) => (
-                <li key={job.id}>{job.skills}</li>
-              ))}
-            </ul>
+            <ul className='skillsList'>{selectedCompany.services}</ul>
           </div>
 
           <div className={style.jobDescription}>
@@ -100,8 +106,14 @@ const CompanyDetail: React.FC = () => {
                   </div>
                 </div>
               ))}
-              <hr></hr>
             </div>
+            {selectedCompany.jobs.length === 0 && (
+              <div className={style.noJobsContainer}>
+                <Typography variant='h4' component='p'>
+                  No current job openings.
+                </Typography>
+              </div>
+            )}
           </div>
 
           <div className={style.companyAddress}>
@@ -120,11 +132,14 @@ const CompanyDetail: React.FC = () => {
         </div>
       </div>
       <div className={style.rightContainer}>
-        {/* <div className='job-card-container'>
-          {jobs.slice(0, 3).map((job) => (
-            <JobCard key={job.job_id} job={job} />
-          ))}
-        </div> */}
+        <div>
+          <Typography variant='body1' component='h2'>
+            Related Company
+          </Typography>
+        </div>
+        <div className={style.relatedJobCardContainer}>
+          <RelatedCompany relatedCompanies={relatedCompaniesExceptCurrent} />
+        </div>
       </div>
     </section>
   );

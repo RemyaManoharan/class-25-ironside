@@ -17,19 +17,23 @@ export interface Company {
   skills: string;
   description: string;
   requirement: string;
+  services: string | null;
   jobs: Job[];
 }
 
 interface CompanyStore {
   companies: Company[];
   selectedCompany: Company | null;
+  relatedCompanies: Company[];
   fetchCompanies: () => Promise<void>;
   fetchCompanyById: (companyId: number) => Promise<void>;
+  fetchRelatedCompanies: (location: string) => Promise<void>;
 }
 
 const useCompanyStore = create<CompanyStore>((set) => ({
   companies: [] as Company[],
   selectedCompany: null,
+  relatedCompanies: [],
   fetchCompanies: async () => {
     try {
       const request = await api();
@@ -53,14 +57,27 @@ const useCompanyStore = create<CompanyStore>((set) => ({
       const jobsResponse = await request.get(`/company/${companyId}/jobs`);
       const jobs = await jobsResponse.data;
 
-      // Ensure jobs is an array, or set it to an empty array if undefined
       const jobsArray = Array.isArray(jobs) ? jobs : [];
 
       // Combine company data with jobs
       const selectedCompany = { ...company, jobs: jobsArray };
 
-      // Set the selected company
       set({ selectedCompany });
+    } catch (err) {
+      console.error(err);
+    }
+  },
+  fetchRelatedCompanies: async (location: string) => {
+    try {
+      const request = await api();
+      // Fetch related companies based on location
+      const relatedCompaniesResponse = await request.get(`/company/relatedCompanies/${location}`);
+      const relatedCompanies = await relatedCompaniesResponse.data;
+
+      set((state) => ({
+        ...state,
+        relatedCompanies: relatedCompanies,
+      }));
     } catch (err) {
       console.error(err);
     }

@@ -54,3 +54,15 @@ export const postCompany = async (req: Request, res: Response) => {
     res.status(500).json({ error: `Server error: ${errorMessage}` });
   }
 };
+export const getRelatedCompanyByLocation = async (req: Request, res: Response) => {
+  const location = req.params.location;
+  try {
+    const company = await db('companies').where('location', location);
+    if (!company) {
+      return res.status(404).json({ message: 'Company not found' });
+    }
+    res.json(company);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching company by id' });
+  }
+};
