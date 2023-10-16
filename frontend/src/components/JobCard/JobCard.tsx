@@ -66,7 +66,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
 
       <div className='card-footer'>
         <Typography variant='h4' component='h2'>
-          <BsPeople /> {`${totalJobApplicants} khkgk`}
+          <BsPeople /> {`${totalJobApplicants}`}
         </Typography>
         <Typography variant='h4' component='h2'>
           <CiLocationOn />

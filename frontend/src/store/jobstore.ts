@@ -114,9 +114,9 @@ const useJobStore = create<JobStore>((set, get) => ({
     try {
       const request = await api();
       const response = await request.get(`/jobs/${jobId}/count`);
-
       const totalApplicants = (await response.data[0].total_applicants) as number;
       set({ totalJobApplicants: totalApplicants });
+      console.log(`Total Applicants for job ${jobId}:`, totalApplicants);
     } catch (error) {
       console.error('Error fetching total job applicants:', error);
       throw new Error('Error fetching total job applicants.');
