@@ -23,6 +23,25 @@ function JobDetail() {
     return <div>Job not found</div>;
   }
 
+  const relatedJobs = jobs.filter((job) => job.job_id !== selectedJob.job_id);
+  const similarityCriteria = {
+    title: selectedJob.title,
+    location: selectedJob.location,
+    name: selectedJob.name,
+    job_type: selectedJob.job_type,
+  };
+  const similarJobs = relatedJobs.filter((job) => {
+    return (
+      job.title === similarityCriteria.title ||
+      job.location === similarityCriteria.location ||
+      job.name === similarityCriteria.name ||
+      job.job_type === similarityCriteria.job_type
+    );
+  });
+
+  // Slice the first three similar jobs
+  const topJobs = similarJobs.slice(0, 3);
+
   const JobSkillsArray = selectedJob.skills.split(',');
   const JobDescpArray = selectedJob.description.split(',');
 
@@ -121,8 +140,13 @@ function JobDetail() {
         </div>
       </div>
       <div className='right-container'>
+        <div className='related-job-title'>
+          <Typography variant='h3' component='h2'>
+            Related Jobs
+          </Typography>
+        </div>
         <div className='job-card-container'>
-          {jobs.slice(0, 3).map((job) => (
+          {topJobs.map((job) => (
             <JobCard key={job.job_id} job={job} />
           ))}
         </div>
