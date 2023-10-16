@@ -21,10 +21,6 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
     setFilters(newFilters);
   };
 
-  // const handleChangeRemoteWork = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const newFilters = { ...filters, isRemote: event.target.checked };
-  //   setFilters(newFilters);
-  // };
   const handleChangeRemoteWork = (event: React.SyntheticEvent) => {
     const newFilters = { ...filters, isRemote: (event.target as HTMLInputElement).checked };
     setFilters(newFilters);
