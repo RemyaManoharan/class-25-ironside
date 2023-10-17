@@ -13,22 +13,22 @@ const CompanyCard: React.FC<CompanyPropsType> = ({ company }) => {
   const [isShowAbout, setIsShowAbout] = useState(false);
 
   const handleDenyClick = async (id: number) => {
-    setIsClicked(true);
     setTimeout(() => {
       deleteCompany(id);
     }, 300);
+    setIsClicked(true);
   };
   const handleApproveClick = async (id: number) => {
-    setIsClicked(true);
     setTimeout(() => {
       addcompany(id);
     }, 300);
+    setIsClicked(true);
   };
   useEffect(() => {
-    setIsShowAbout(false);
     setTimeout(() => {
       setIsClicked(false);
     }, 300);
+    setIsShowAbout(false);
   }, [company]);
 
   return (
