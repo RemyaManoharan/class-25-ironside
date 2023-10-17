@@ -27,6 +27,7 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
+  const applicantCount = job?.applicant_count ?? 0;
   return (
     <div className='job-card'>
       <div className='card-head'>
@@ -58,7 +59,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
 
       <div className='card-footer'>
         <Typography variant='h4' component='h2'>
-          <BsPeople /> {job.applicant_count}
+          <BsPeople /> {applicantCount}
         </Typography>
         <Typography variant='h4' component='h2'>
           <CiLocationOn />
