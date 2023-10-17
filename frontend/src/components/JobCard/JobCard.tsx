@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './JobCard.css';
 import { CiLocationOn } from 'react-icons/ci';
 import { BsPeople } from 'react-icons/bs';
 import CompanyLogo from '../../assets/Logo Tumbnail.svg';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
-import useJobStore from '../../store/jobstore';
 
 interface Job {
   job_id: number;
