@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FilterForm.module.css';
 import useJobStore from '../../store/jobstore';
 import { FaTimes } from 'react-icons/fa';
-import { FormControlLabel, Switch } from '@mui/material';
+import { Switch } from '@mui/material';
 interface FilterFormProps {
   toggleFilter: () => void;
 }
@@ -98,6 +98,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
         <div className={styles.remoteWork}>
           <label className={`${styles.toggleContainer} ${styles.label} `}>
             <Switch checked={filters.isRemote} onChange={handleChangeRemoteWork} />
+            Remote Work
           </label>
         </div>
 
