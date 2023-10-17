@@ -49,6 +49,7 @@ interface JobStore {
 
 const useJobStore = create<JobStore>((set, get) => ({
   jobs: [],
+
   filters: {
     location: '',
     workTypes: [],
