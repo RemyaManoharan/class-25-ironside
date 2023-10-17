@@ -25,7 +25,6 @@ interface JobApplication {
 }
 interface JobStore {
   jobs: Job[];
-  totalJobApplicants: number;
   filters: {
     location: string;
     workTypes: string[];
@@ -45,12 +44,11 @@ interface JobStore {
   }) => void;
 
   submitJobApplication: (jobId: number, applicationData: JobApplication) => Promise<void>;
-  fetchTotalJobApplications: (jobId: number) => Promise<any>;
 }
 
 const useJobStore = create<JobStore>((set, get) => ({
   jobs: [],
-  totalJobApplicants: 3333,
+
   filters: {
     location: '',
     workTypes: [],
@@ -108,17 +106,6 @@ const useJobStore = create<JobStore>((set, get) => ({
     } catch (error) {
       console.error('Error submitting job application:', error as any); // Cast 'error' to 'any' type for logging
       throw new Error('Error submitting job application.');
-    }
-  },
-  fetchTotalJobApplications: async (jobId: number) => {
-    try {
-      const request = await api();
-      const response = await request.get(`/jobs/${jobId}/count`);
-      const totalApplicants = (await response.data[0].total_applicants) as number;
-      set({ totalJobApplicants: totalApplicants });
-    } catch (error) {
-      console.error('Error fetching total job applicants:', error);
-      throw new Error('Error fetching total job applicants.');
     }
   },
 }));

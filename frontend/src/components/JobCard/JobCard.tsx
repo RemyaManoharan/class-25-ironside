@@ -27,14 +27,6 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
-  const totalJobApplicants = useJobStore((state) => state.totalJobApplicants);
-  const fetchTotalJobApplications = useJobStore((state) => state.fetchTotalJobApplications);
-
-  useEffect(() => {
-    fetchTotalJobApplications(job.job_id);
-  }, []);
-
-  console.log('jobcard applicants', totalJobApplicants);
   return (
     <div className='job-card'>
       <div className='card-head'>
@@ -66,7 +58,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
 
       <div className='card-footer'>
         <Typography variant='h4' component='h2'>
-          <BsPeople /> {`${totalJobApplicants}`}
+          <BsPeople /> 0
         </Typography>
         <Typography variant='h4' component='h2'>
           <CiLocationOn />
