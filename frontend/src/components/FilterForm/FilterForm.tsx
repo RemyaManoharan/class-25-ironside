@@ -22,6 +22,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
   };
 
   const handleChangeRemoteWork = (event: React.SyntheticEvent) => {
+    console.log('handleChangeRemoteWork called');
     const newFilters = { ...filters, isRemote: (event.target as HTMLInputElement).checked };
     setFilters(newFilters);
   };

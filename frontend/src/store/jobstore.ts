@@ -14,6 +14,7 @@ interface Job {
   location: string;
   is_remotework: boolean;
   about: string;
+  applicant_count: number | null;
 }
 
 interface JobApplication {

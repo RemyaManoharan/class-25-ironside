@@ -20,6 +20,7 @@ interface Job {
   location: string;
   is_remotework: boolean;
   about: string;
+  applicant_count: number | null;
 }
 
 interface JobCardProps {
@@ -27,6 +28,7 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
+  const applicantCount = job?.applicant_count ?? 0;
   return (
     <div className='job-card'>
       <div className='card-head'>
@@ -58,7 +60,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
 
       <div className='card-footer'>
         <Typography variant='h4' component='h2'>
-          <BsPeople /> 0
+          <BsPeople /> {applicantCount}
         </Typography>
         <Typography variant='h4' component='h2'>
           <CiLocationOn />
