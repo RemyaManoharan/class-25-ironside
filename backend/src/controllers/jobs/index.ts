@@ -13,6 +13,21 @@ export const getJobById = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Error fetching job by id' });
   }
 };
+
+export const getTotalJobApplicants = async (req: Request, res: Response) => {
+  const jobId = req.params.jobId;
+  try {
+    const total_applicants = await db('job_applications')
+      .count('* as total_applicants')
+      .join('jobs', 'job_applications.job_id', 'jobs.id')
+      .where('jobs.id', `${jobId}`);
+    res.status(200).json(total_applicants);
+  } catch (error) {
+    console.error('Error fetching total job applicants:', error);
+    res.status(500).json({ error: 'Error fetching total job applicants' });
+  }
+};
+
 export const getJobsByLocation = async (req: Request, res: Response) => {
   const location = req.params.location;
   try {
@@ -63,8 +78,14 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
   try {
     let query = db('jobs')
       .select('jobs.*', 'companies.*', 'jobs.id as job_id')
+      .select(
+        db.raw(
+          '(SELECT COUNT(*) FROM job_applications WHERE job_applications.job_id = jobs.id) as applicant_count',
+        ),
+      )
       .join('companies', 'jobs.company_id', 'companies.id')
       .where('jobs.status', 'approved');
+
     if (location) {
       query = query.whereRaw('LOWER(companies.location) LIKE LOWER(?)', [
         `%${location.toLowerCase()}%`,

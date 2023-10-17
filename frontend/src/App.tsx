@@ -17,7 +17,7 @@ import AdminRoute from './routes/AdminRoute';
 import AdminPage from './pages/admin/adminPage/AdminPage';
 import AllJobsApply from './pages/admin/allJobsApply/AllJobs';
 import ApplyForm from './components/ApplyForm/ApplyForm';
-
+import CompanyDetail from './components/company/CompanyDetails';
 const router = createBrowserRouter([
   {
     path: '/signup',
@@ -70,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: '/applyform/:jobId',
         element: <ApplyForm />,
+      },
+      {
+        path: '/CompanyDetails/:companyId',
+        element: <CompanyDetail />,
       },
     ],
   },
