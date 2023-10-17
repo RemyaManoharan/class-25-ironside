@@ -63,8 +63,14 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
   try {
     let query = db('jobs')
       .select('jobs.*', 'companies.*', 'jobs.id as job_id')
+      .select(
+        db.raw(
+          '(SELECT COUNT(*) FROM job_applications WHERE job_applications.job_id = jobs.id) as applicant_count',
+        ),
+      )
       .join('companies', 'jobs.company_id', 'companies.id')
       .where('jobs.status', 'approved');
+
     if (location) {
       query = query.whereRaw('LOWER(companies.location) LIKE LOWER(?)', [
         `%${location.toLowerCase()}%`,
