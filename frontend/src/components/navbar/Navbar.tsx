@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import icon from '../../assets/icon.png';
 import style from './nav.module.css';
-import category from '../../assets/Category.png';
+import category from '../../assets/Category.svg';
 import ticket from '../../assets/Ticket.png';
 import calendar from '../../assets/Calendar.png';
 import circle from '../../assets/Circle.png';
@@ -10,7 +10,8 @@ import sidebar from '../../assets/Sidebar.png';
 import { useState } from 'react';
 
 function NavBar() {
-  const [selectedLink, setSelectedLink] = useState('/');
+  const location = useLocation();
+  const [selectedLink, setSelectedLink] = useState(location.pathname);
   const navLinks = [
     { to: '/', icon: category, text: 'Home' },
     { to: '/event', icon: ticket, text: 'Event' },

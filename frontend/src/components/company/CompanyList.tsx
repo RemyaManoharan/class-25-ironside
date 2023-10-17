@@ -67,7 +67,7 @@ const CompanyList: React.FC = () => {
               </div>
             </div>
 
-            <div className={style.description}>{company.about}</div>
+            <div className={style.description}>{company.services}</div>
             <div className={style.location}>
               <img src={locationSvg} alt='locationSvg' /> {company.location}
             </div>

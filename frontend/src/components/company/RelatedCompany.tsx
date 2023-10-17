@@ -18,6 +18,7 @@ const RelatedCompany: React.FC<RelatedCompaniesListProps> = ({ relatedCompanies 
       </div>
     );
   }
+
   return (
     <>
       {relatedCompanies.map((company) => (

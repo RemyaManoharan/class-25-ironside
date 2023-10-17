@@ -33,7 +33,8 @@ const CompanyDetail: React.FC = () => {
     (company) => company.id !== (selectedCompany ? selectedCompany.id : -1),
   );
 
-  console.log('Related Companies:', relatedCompanies);
+  const CompanyServicesArray = selectedCompany?.services ? selectedCompany.services.split(',') : [];
+
   if (!selectedCompany) {
     return <div>Loading...</div>;
   }
@@ -75,7 +76,13 @@ const CompanyDetail: React.FC = () => {
             <Typography variant='body1' component='h2'>
               Services
             </Typography>
-            <ul className='skillsList'>{selectedCompany.services}</ul>
+            <ul className={style.servicesList}>
+              {CompanyServicesArray.map((service, index) => (
+                <li key={index} className={style.serviceItem}>
+                  {service}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className={style.jobDescription}>
@@ -133,7 +140,7 @@ const CompanyDetail: React.FC = () => {
       </div>
       <div className={style.rightContainer}>
         <div>
-          <Typography variant='body1' component='h2'>
+          <Typography variant='h3' component='h2'>
             Related Company
           </Typography>
         </div>
