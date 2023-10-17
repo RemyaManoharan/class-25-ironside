@@ -70,7 +70,7 @@ export const getFilteredJobs = async (req: Request, res: Response) => {
       )
       .join('companies', 'jobs.company_id', 'companies.id')
       .where('jobs.status', 'approved');
-    // console.log(query);
+
     if (location) {
       query = query.whereRaw('LOWER(companies.location) LIKE LOWER(?)', [
         `%${location.toLowerCase()}%`,
