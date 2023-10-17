@@ -22,7 +22,7 @@ const JobApplicationSuccess: React.FC<JobApplicationSuccessProps> = ({ jobDetail
         </Typography>
         <Typography variant='body1'>Location: {jobDetails.location}</Typography>
         <div className={styles.additionalActions}>
-          <Link to={`http://localhost:8000/`} className='customLink'>
+          <Link to={`/`} className='customLink'>
             <Button variant='outlined' color='primary'>
               Explore more jobs
             </Button>
