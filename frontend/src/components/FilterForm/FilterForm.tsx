@@ -22,6 +22,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
   };
 
   const handleChangeRemoteWork = (event: React.SyntheticEvent) => {
+    console.log('handleChangeRemoteWork called');
     const newFilters = { ...filters, isRemote: (event.target as HTMLInputElement).checked };
     setFilters(newFilters);
   };
@@ -98,6 +99,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
         <div className={styles.remoteWork}>
           <label className={`${styles.toggleContainer} ${styles.label} `}>
             <Switch checked={filters.isRemote} onChange={handleChangeRemoteWork} />
+            Remote Work
           </label>
         </div>
 
