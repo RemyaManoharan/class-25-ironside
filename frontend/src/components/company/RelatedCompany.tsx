@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import locationSvg from '../adminDetails/assets/Location.svg';
-import useCompanyStore, { Company } from '../../store/company.store';
+import { Company } from '../../store/company.store';
 import CompanyLogo from '../../assets/Logo Tumbnail.svg';
 import style from './RelatedCompany.module.css';
 import { Typography } from '@mui/material';

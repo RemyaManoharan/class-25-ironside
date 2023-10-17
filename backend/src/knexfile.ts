@@ -8,6 +8,7 @@ export const config: Record<string, any> = {
       database: process.env.DB,
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
+      port: process.env.DB_PORT,
     },
 
     pool: {
@@ -22,6 +23,8 @@ export const config: Record<string, any> = {
       database: process.env.PROD_DB,
       user: process.env.PROD_DB_USER,
       password: process.env.PROD_DB_PASSWORD,
+      port: process.env.PROD_DB_PORT,
+      ssl: true,
     },
 
     pool: {
