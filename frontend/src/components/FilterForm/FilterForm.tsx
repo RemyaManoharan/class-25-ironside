@@ -206,7 +206,6 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
             </label>
           </fieldset>
         </div>
-        {/* experience */}
 
         <hr className={styles.line} />
         {/* experience */}
