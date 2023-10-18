@@ -20,7 +20,6 @@ const AdminRoute: React.FC<Props> = ({ children }: Props) => {
       setError(true);
       return;
     }
-    setError(false);
     fetchCurrentUser(currentUser.uid);
   }, []);
 
