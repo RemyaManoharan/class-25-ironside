@@ -1,3 +1,6 @@
+.content {
+  font-family: var(--font-primary);
+}
 .navLinkContainer {
   padding: 1.5rem;
   width: 100%;
