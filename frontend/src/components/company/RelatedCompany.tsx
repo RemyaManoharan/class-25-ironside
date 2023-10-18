@@ -20,7 +20,7 @@ const RelatedCompany: React.FC<RelatedCompaniesListProps> = ({ relatedCompanies 
   }
 
   return (
-    <>
+    <div>
       {relatedCompanies.map((company) => (
         <div key={company.id}>
           <div className={style.companyCard}>
@@ -53,7 +53,7 @@ const RelatedCompany: React.FC<RelatedCompaniesListProps> = ({ relatedCompanies 
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
