@@ -18,6 +18,7 @@ import AdminPage from './pages/admin/adminPage/AdminPage';
 import AllJobsApply from './pages/admin/allJobsApply/AllJobs';
 import ApplyForm from './components/ApplyForm/ApplyForm';
 import CompanyDetail from './components/company/CompanyDetails';
+import ErrorPage from './pages/errorPage/ErrorPage';
 const router = createBrowserRouter([
   {
     path: '/signup',
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
         element: <AllJobsApply />,
       },
     ],
+  },
+  {
+    path: '/*',
+    element: <ErrorPage />,
   },
 ]);
 
