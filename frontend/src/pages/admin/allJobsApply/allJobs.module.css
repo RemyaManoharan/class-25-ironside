@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 20px;
   overflow-wrap: normal;
 }
@@ -15,10 +15,12 @@
   justify-content: space-between;
   margin: 20px 0;
   align-items: center;
+  font-family: var(--font-primary);
 }
 .header a {
   text-decoration: none;
   color: #0b5fae;
+  font-weight: bold;
 }
 .filter {
   display: flex;
@@ -77,6 +79,17 @@
     gap: 20px;
   }
   .filter input {
+    width: 100%;
+  }
+  .card {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 680px) {
+  .content {
+    justify-content: center;
+  }
+  .card {
     width: 100%;
   }
 }
