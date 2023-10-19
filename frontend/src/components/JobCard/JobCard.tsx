@@ -2,7 +2,7 @@ import React from 'react';
 import './JobCard.css';
 import { CiLocationOn } from 'react-icons/ci';
 import { BsPeople } from 'react-icons/bs';
-import CompanyLogo from '../../assets/Logo Tumbnail.svg';
+import randomLogo from '../../hooks/randomLogo';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
@@ -32,7 +32,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
     <div className='job-card'>
       <div className='card-head'>
         <div className='logo'>
-          <img src={CompanyLogo} alt='companylogo' />
+          <img src={randomLogo('job')} alt='companylogo' />
         </div>
 
         <div className='card-title'>

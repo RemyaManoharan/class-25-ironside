@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useCompanyStore, { Company } from '../../store/company.store';
 import locationSvg from '../adminDetails/assets/Location.svg';
-import CompanyLogo from '../../assets/Logo Tumbnail.svg';
+import randomLogo from '../../hooks/randomLogo';
 
 const CompanyList: React.FC = () => {
   const { companies, fetchCompanies } = useCompanyStore();
@@ -56,7 +56,7 @@ const CompanyList: React.FC = () => {
           <div key={company.id} className={`${style.cardContainer}`}>
             <div className={style.logoTitle}>
               <div className={style.logo}>
-                <img src={CompanyLogo} alt='companylogo' />
+                <img src={randomLogo('company')} alt='companylogo' />
               </div>
               <div className={style.companyTitle}>
                 <div>
