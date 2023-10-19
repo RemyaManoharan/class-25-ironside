@@ -3,6 +3,57 @@ import styles from './FilterForm.module.css';
 import useJobStore from '../../store/jobstore';
 import { FaTimes } from 'react-icons/fa';
 import { Switch } from '@mui/material';
+import { SwitchProps } from '@mui/material/Switch';
+import { styled } from '@mui/material/styles';
+
+const IOSSwitch = styled((props: SwitchProps) => (
+  <Switch focusVisibleClassName='.Mui-focusVisible' disableRipple {...props} />
+))(({ theme }) => ({
+  width: 40,
+  height: 21,
+  padding: 0,
+  '& .MuiSwitch-switchBase': {
+    padding: 0,
+    margin: 2,
+    transitionDuration: '300ms',
+    '&.Mui-checked': {
+      transform: 'translateX(16px)',
+      color: '#fff',
+      '& + .MuiSwitch-track': {
+        backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+        opacity: 1,
+        border: 0,
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: 0.5,
+      },
+    },
+    '&.Mui-focusVisible .MuiSwitch-thumb': {
+      color: '#33cf4d',
+      border: '6px solid #fff',
+    },
+    '&.Mui-disabled .MuiSwitch-thumb': {
+      color: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[600],
+    },
+    '&.Mui-disabled + .MuiSwitch-track': {
+      opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+    },
+  },
+  '& .MuiSwitch-thumb': {
+    boxSizing: 'border-box',
+    width: 18,
+    height: 18,
+  },
+  '& .MuiSwitch-track': {
+    borderRadius: 26 / 2,
+    backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+    opacity: 1,
+    transition: theme.transitions.create(['background-color'], {
+      duration: 500,
+    }),
+  },
+}));
+
 interface FilterFormProps {
   toggleFilter: () => void;
 }
@@ -61,7 +112,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
       </button>
       <form className={styles.formContainer}>
         <div className={styles.locationDiv}>
-          <label className={styles.label} htmlFor='location'>
+          <label className={styles.showBy} htmlFor='location'>
             Location
           </label>
           <input
@@ -78,7 +129,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
         </div>
         {/* show by  date*/}
         <div className={styles.showByCont}>
-          <label htmlFor='showBy' className={styles.label}>
+          <label htmlFor='showBy' className={styles.showBy}>
             Show By Date
           </label>
           <select
@@ -95,13 +146,20 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
         </div>
 
         {/* remote work toggle button */}
+
         <div className={styles.remoteWork}>
           <label className={`${styles.toggleContainer} ${styles.label} `}>
-            <Switch checked={filters.isRemote} onChange={handleChangeRemoteWork} />
-            Remote Work
+            <div>Remote Work</div>
+            <div>
+              <IOSSwitch
+                sx={{ m: 1 }}
+                checked={filters.isRemote}
+                onChange={handleChangeRemoteWork}
+              />
+            </div>
           </label>
         </div>
-
+        <hr className={styles.line} />
         {/* type of work */}
         <div className={styles.typeWorkCont}>
           <fieldset className={styles.typeWorkCont}>
@@ -112,6 +170,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
                 checked={filters.workTypes.includes('Internship')}
                 onChange={handleChangeWorkTypes}
                 name='Internship'
+                className={styles.checkboxInput}
               />
               Internship
             </label>
@@ -121,6 +180,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
                 checked={filters.workTypes.includes('Part-Time')}
                 onChange={handleChangeWorkTypes}
                 name='Part-Time'
+                className={styles.checkboxInput}
               />
               Part-time
             </label>
@@ -130,6 +190,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
                 checked={filters.workTypes.includes('Full-Time')}
                 onChange={handleChangeWorkTypes}
                 name='Full-Time'
+                className={styles.checkboxInput}
               />
               Full-time
             </label>
@@ -139,13 +200,14 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
                 checked={filters.workTypes.includes('freelance')}
                 onChange={handleChangeWorkTypes}
                 name='freelance'
+                className={styles.checkboxInput}
               />
               Freelance
             </label>
           </fieldset>
         </div>
-        {/* experience */}
 
+        <hr className={styles.line} />
         {/* experience */}
         <div className={styles.experienceCont}>
           <fieldset className={styles.typeWorkCont}>
@@ -156,6 +218,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
                 checked={filters.experience.includes('1-3')}
                 onChange={handleChangeExperience}
                 name='1-3'
+                className={styles.checkboxInput}
               />
               1-3 years
             </label>
@@ -165,6 +228,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
                 checked={filters.experience.includes('3-5')}
                 onChange={handleChangeExperience}
                 name='3-5'
+                className={styles.checkboxInput}
               />
               3-5 years
             </label>
@@ -174,6 +238,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
                 checked={filters.experience.includes('5-10')}
                 onChange={handleChangeExperience}
                 name='5-10'
+                className={styles.checkboxInput}
               />
               5-10 years
             </label>
@@ -183,6 +248,7 @@ function FilterForm({ toggleFilter }: FilterFormProps) {
                 checked={filters.experience.includes('10-50')}
                 onChange={handleChangeExperience}
                 name='10-50'
+                className={styles.checkboxInput}
               />
               10+ years
             </label>

@@ -1,10 +1,10 @@
 .filterContainer {
   width: 100%;
-  height: 70%;
-  padding: 1.5%;
+  height: 100%;
+  padding: 20px;
   margin-top: 5%;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 .formContainer {
   display: flex;
@@ -13,22 +13,32 @@
   gap: 15px;
   width: 90%;
 }
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6rem;
+}
 .inputStyle {
   width: 100%;
   max-width: 240px;
   height: 30px;
   background: #f8f9fd;
   padding: 1rem;
-  border: 1px solid #b3b1bb;
-  border-radius: 3px;
+  border: 1px solid #d8e0e8;
+  border-radius: 8px;
+}
+.showBy {
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
 }
 .label {
   font-family: var(--font-text);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 150%; /* 21px */
-  letter-spacing: 0.28px;
 }
 .customInput::placeholder {
   text-align: center;
@@ -38,6 +48,7 @@
 }
 .showByCont {
   display: flex;
+  flex-direction: column;
 }
 
 .customSelect {
@@ -46,8 +57,8 @@
   max-width: 240px;
   padding: 10px;
   position: relative;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #d8e0e8;
+  border-radius: 8px;
   margin-top: 0.75rem;
 }
 
@@ -73,45 +84,48 @@
   align-items: center;
 }
 .remoteWork input[type='checkbox'] {
-  margin-left: 1rem; /* Adjust the right margin for spacing */
+  margin-left: 1rem;
 }
 
 .typeWorkCont {
   display: flex;
   flex-direction: column;
 }
-/* Remove the border and adjust spacing */
+
 .typeWorkCont fieldset {
-  border: none; /* Remove the fieldset border */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.label {
+  margin-bottom: 10px;
 }
 
-/* Add margin and padding to labels for spacing */
 .typeWorkCont label {
-  margin: 5px 0; /* Adjust vertical spacing between labels */
-  padding-left: 10px; /* Add padding to align with checkboxes */
+  margin: 5px 0;
+  padding-left: 10px;
 }
 .itemStyle {
   font-family: var(--font-primary);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%; /* 21px */
-  letter-spacing: 0.28px;
+
+  display: flex;
+  align-items: center;
 }
 .itemStyle label {
-  display: flex; /* Align items horizontally */
-  align-items: center; /* Center vertically within the flex container */
-  margin: 1.5rem 0; /* Adjust vertical spacing between the checkbox and label */
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
 }
-/* Add space between checkbox and label text */
+
 .itemStyle input[type='checkbox'] {
-  margin-right: 1rem; /* Adjust the right margin for spacing */
+  margin-right: 1rem;
 }
 .itemStyle input[type='checkbox']:checked {
   background-color: #0b5fae;
-  border: 1px solid #0b5fae; /* Optional: Add a border for better visibility */
+  border: 1px solid #0b5fae;
 }
 .locationDiv {
   width: 100%;
@@ -119,21 +133,29 @@
   flex-direction: column;
   gap: 10px;
 }
-.showByCont {
-  flex-direction: column;
-  gap: 10px;
-}
+
 .experienceCont fieldset {
-  border: none; /* Remove the fieldset border */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 .closeButton {
   display: none;
 }
+
+.checkboxInput {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  cursor: pointer;
+  background: #f5f7f8;
+}
+.line {
+  border: 1px solid #d8e0e8;
+}
 @media screen and (max-width: 930px) {
   .filterContainer {
-    position: relative; /* Make the container relative */
+    position: relative;
   }
   .closeButton {
     position: absolute;
