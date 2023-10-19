@@ -28,15 +28,15 @@
   font-size: 16px;
   font-family: var(--font-text);
   cursor: pointer;
-  border: 1px solid #0b5fae;
+  border: 1px solid #00a74a;
   transition: all 400ms ease;
 }
 .approve {
-  background-color: #110d59;
+  background-color: #004c00;
   color: white;
 }
 .deny {
-  background-color: #d4d4d4;
+  background-color: #f0fff0;
 }
 
 .about {
@@ -65,7 +65,7 @@
   transition: opacity 0.3s ease;
 }
 .btn:hover {
-  background-color: #0b5fae;
+  background-color: #00a74a;
   color: #e0e0e0;
   border-color: transparent;
 }
