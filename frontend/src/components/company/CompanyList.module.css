@@ -68,7 +68,6 @@
 
 .logoTitle {
   display: flex;
-  align-items: center;
   gap: 20px;
   font-weight: bold;
   font-family: var(--font-text);
@@ -95,45 +94,34 @@
   font-family: var(--font-text);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 930px) {
   .cardContent {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 10px;
   }
   .inputField {
-    width: calc(100% - 32px);
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .searchBtn {
-    width: calc(100% - 32px);
-    height: 45px;
-    background-color: #0b5fae;
-    color: #ffffff;
-    font-size: 14px;
-  }
-}
-@media (min-width: 750px) and (max-width: 960px) {
-  .cardContent {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .inputField {
     width: 100%;
-    margin-bottom: 10px;
   }
-
   .searchBtn {
     width: 100%;
   }
-
   .cardContainer {
     height: auto;
   }
-
   .searchContainer {
-    flex-direction: column;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .searchContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .cardContent {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
   }
 }
