@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
-import logoImage from '../../assets/Logo Tumbnail.svg';
+import randomLogo from '../../hooks/randomLogo';
 import styles from './ApplyForm.module.css';
 import { TextField, InputLabel } from '@mui/material';
 import { useParams } from 'react-router-dom';
@@ -96,7 +96,7 @@ function ApplyForm() {
               <h3 className={styles.formTitle}> Apply Form</h3>
             </div>
             <div className={styles.logoWrapper}>
-              <img src={logoImage} alt='logo-company' />
+              <img src={randomLogo(selectedJob.logo)} alt='logo-company' />
               <div className={styles.companyJob}>
                 {selectedJob && (
                   <>

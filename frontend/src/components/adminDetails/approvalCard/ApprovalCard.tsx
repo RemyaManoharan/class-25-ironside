@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CompanyLogo from '../../../assets/Logo Tumbnail.svg';
+import randomLogo from '../../../hooks/randomLogo';
 import locationSvg from '../assets/Location.svg';
 import style from './approvalCard.module.css';
 import useAdminStore from '../../../store/admin.store';
@@ -32,7 +32,7 @@ const ApprovalCard: React.FC<AdminPropsType> = ({ job }) => {
     <div className={`${style.cardContainer} ${isClicked ? style.fadeOut : ''}`}>
       <div className={style.logoTitle}>
         <div className={style.logo}>
-          <img src={CompanyLogo} alt='companylogo' />
+          <img src={randomLogo(job.logo)} alt='companylogo' />
         </div>
         <div className={style.title}>
           <div>{job.title}</div>

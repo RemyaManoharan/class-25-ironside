@@ -4,12 +4,14 @@ export interface Job {
   description: string;
   name: string;
   location: string;
+  logo: number;
 }
 export interface Company {
   id: number;
   about: string;
   name: string;
   location: string;
+  logo: number;
 }
 export interface AdminPropsType {
   job: Job;

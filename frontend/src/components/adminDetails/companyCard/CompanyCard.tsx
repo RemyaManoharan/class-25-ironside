@@ -5,6 +5,7 @@ import useAdminStore from '../../../store/admin.store';
 import { CompanyPropsType } from '../types/types';
 import { useEffect } from 'react';
 import Map from '../../../map/Map';
+import randomLogo from '../../../hooks/randomLogo';
 
 const CompanyCard: React.FC<CompanyPropsType> = ({ company }) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -38,6 +39,9 @@ const CompanyCard: React.FC<CompanyPropsType> = ({ company }) => {
         onClick={() => setIsShowAbout(!isShowAbout)}
       >
         <div className={style.title}>
+          <div className={style.logo}>
+            <img src={randomLogo(company.logo)} alt='company-logo' />
+          </div>
           <div className={style.name}>{company.name}</div>
         </div>
         <div className={style.location}>{company.location}</div>

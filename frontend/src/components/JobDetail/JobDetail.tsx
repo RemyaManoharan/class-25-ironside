@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './JobDetail.css';
-import logoImage from '../../assets/Logo Tumbnail.svg';
+import randomLogo from '../../hooks/randomLogo';
 import { Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import useJobStore from '../../store/jobstore';
@@ -57,7 +57,7 @@ function JobDetail() {
         {/* header div  */}
         <div className='job-detail-header'>
           <div className='logo-wrapper'>
-            <img src={logoImage} alt='logo-company' />
+            <img src={randomLogo(selectedJob.logo)} alt='logo-company' />
             <div className='company-job'>
               <Typography variant='h2' component='h2'>
                 {selectedJob.title}

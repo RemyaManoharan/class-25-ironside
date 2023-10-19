@@ -2,7 +2,7 @@ import React from 'react';
 import './JobCard.css';
 import { CiLocationOn } from 'react-icons/ci';
 import { BsPeople } from 'react-icons/bs';
-import CompanyLogo from '../../assets/Logo Tumbnail.svg';
+import randomLogo from '../../hooks/randomLogo';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
@@ -20,6 +20,7 @@ interface Job {
   is_remotework: boolean;
   about: string;
   applicant_count: number | null;
+  logo: number;
 }
 
 interface JobCardProps {
@@ -32,7 +33,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
     <div className='job-card'>
       <div className='card-head'>
         <div className='logo'>
-          <img src={CompanyLogo} alt='companylogo' />
+          <img src={randomLogo(job.logo)} alt='companylogo' />
         </div>
 
         <div className='card-title'>
