@@ -92,13 +92,12 @@
 
 @media (max-width: 930px) {
   .cardContent {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 10px;
   }
   .inputField {
     width: 100%;
-    margin-bottom: 10px;
   }
   .searchBtn {
     width: 100%;
@@ -107,6 +106,18 @@
     height: auto;
   }
   .searchContainer {
-    flex-direction: column;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .searchContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .cardContent {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
   }
 }
