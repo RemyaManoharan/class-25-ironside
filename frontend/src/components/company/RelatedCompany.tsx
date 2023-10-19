@@ -1,7 +1,7 @@
 import React from 'react';
 import locationSvg from '../adminDetails/assets/Location.svg';
 import { Company } from '../../store/company.store';
-import CompanyLogo from '../../assets/Logo Tumbnail.svg';
+import randomLogo from '../../hooks/randomLogo';
 import style from './RelatedCompany.module.css';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -26,7 +26,7 @@ const RelatedCompany: React.FC<RelatedCompaniesListProps> = ({ relatedCompanies 
           <div className={style.companyCard}>
             <div className={style.cardHead}>
               <div className={style.logo}>
-                <img src={CompanyLogo} alt='companylogo' />
+                <img src={randomLogo(company.logo)} alt='companylogo' />
               </div>
 
               <div className={style.cardTitle}>

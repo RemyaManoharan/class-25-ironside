@@ -18,6 +18,7 @@ export interface Company {
   description: string;
   requirement: string;
   services: string | null;
+  logo: number;
   jobs: Job[];
 }
 
