@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 16px;
   gap: 2%;
   width: 100%;
 }
@@ -16,10 +15,10 @@
   max-width: 100%;
   margin-top: 0;
   min-width: 250px;
+  height: 100%;
 }
 .job-wrapper {
   flex: 3;
-  margin: 16px;
   max-width: 100%;
   align-items: flex-start;
   margin-top: 0;
@@ -47,6 +46,9 @@
 }
 .filter-header {
   margin-bottom: 1rem;
+}
+.recom-job-head {
+  margin-left: 20px;
 }
 @media screen and (max-width: 930px) {
   .home-content {
@@ -88,5 +90,8 @@
   }
   .filter-header {
     display: none;
+  }
+  .recom-job-head {
+    margin-left: 0;
   }
 }
