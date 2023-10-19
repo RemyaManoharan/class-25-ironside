@@ -35,7 +35,7 @@ function NavBar() {
         <span className={style.icon}>
           <img src={icon} alt='dashboard icon' />
         </span>
-        <h1>Dashhhhboard</h1>
+        <h1>Ironside</h1>
       </div>
       <div className={style.navLinkContainer}>
         {navLinks.map((link, index) => (

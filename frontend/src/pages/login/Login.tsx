@@ -45,7 +45,7 @@ function LoginPage() {
     <div className={style.mainContainer}>
       <div className={style.formHeader}>
         <p>
-          <img className={style.icon} src={Icon} alt='Icon' /> Dashboard
+          <img className={style.icon} src={Icon} alt='Icon' /> Ironside
         </p>
       </div>
       <div className={style.mainContent}>

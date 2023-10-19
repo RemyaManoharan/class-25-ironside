@@ -42,12 +42,13 @@
   font-size: 16px;
   font-family: var(--font-text);
   cursor: pointer;
-  border: 1px solid #0b5fae;
+  border: 1px solid #00a74a;
   transition: all 400ms ease;
   width: 107px;
+  background-color: #f0fff0;
 }
 .approve {
-  background-color: #110d59;
+  background-color: #006400;
   color: white;
 }
 .description {
@@ -66,7 +67,7 @@
   transition: opacity 0.3s ease;
 }
 .btn:hover {
-  background-color: #0b5fae;
+  background-color: #00a74a;
   color: white;
   border-color: transparent;
 }

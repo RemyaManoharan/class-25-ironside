@@ -50,7 +50,7 @@ export default function SignUpPage() {
     <div className={styles.mainContainer}>
       <div className={styles.formHeader}>
         <p>
-          <img className={styles.icon} src={Icon} alt='Icon' /> Dashboard
+          <img className={styles.icon} src={Icon} alt='Icon' /> Ironside
         </p>
       </div>
       <div className={styles.mainContent}>

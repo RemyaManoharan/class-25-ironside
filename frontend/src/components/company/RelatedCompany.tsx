@@ -18,10 +18,10 @@ const RelatedCompany: React.FC<RelatedCompaniesListProps> = ({ relatedCompanies 
       </div>
     );
   }
-
+  const relatedCompaniesLimit = relatedCompanies.slice(0, 4);
   return (
     <div>
-      {relatedCompanies.map((company) => (
+      {relatedCompaniesLimit.map((company) => (
         <div key={company.id}>
           <div className={style.companyCard}>
             <div className={style.cardHead}>
