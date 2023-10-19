@@ -56,7 +56,7 @@ const CompanyList: React.FC = () => {
           <div key={company.id} className={`${style.cardContainer}`}>
             <div className={style.logoTitle}>
               <div className={style.logo}>
-                <img src={randomLogo('company')} alt='companylogo' />
+                <img src={randomLogo(company.logo)} alt='companylogo' />
               </div>
               <div className={style.companyTitle}>
                 <div>

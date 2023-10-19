@@ -20,6 +20,7 @@ interface Job {
   is_remotework: boolean;
   about: string;
   applicant_count: number | null;
+  logo: number;
 }
 
 interface JobCardProps {
@@ -32,7 +33,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
     <div className='job-card'>
       <div className='card-head'>
         <div className='logo'>
-          <img src={randomLogo('job')} alt='companylogo' />
+          <img src={randomLogo(job.logo)} alt='companylogo' />
         </div>
 
         <div className='card-title'>

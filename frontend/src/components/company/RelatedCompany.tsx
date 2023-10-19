@@ -26,7 +26,7 @@ const RelatedCompany: React.FC<RelatedCompaniesListProps> = ({ relatedCompanies 
           <div className={style.companyCard}>
             <div className={style.cardHead}>
               <div className={style.logo}>
-                <img src={randomLogo('company')} alt='companylogo' />
+                <img src={randomLogo(company.logo)} alt='companylogo' />
               </div>
 
               <div className={style.cardTitle}>

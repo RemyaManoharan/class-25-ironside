@@ -4,7 +4,7 @@ import db from '../../config/db-config';
 export const getJobRequests = async (req: Request, res: Response) => {
   try {
     const jobsRequest = await db('jobs')
-      .select('jobs.*', 'companies.name', 'companies.location')
+      .select('jobs.*', 'companies.name', 'companies.location', 'companies.logo')
       .join('companies', 'jobs.company_id', 'companies.id')
       .where('jobs.status', 'not approved');
     res.status(200).json(jobsRequest);

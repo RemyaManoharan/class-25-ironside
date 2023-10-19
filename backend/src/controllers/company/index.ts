@@ -48,6 +48,7 @@ export const postCompany = async (req: Request, res: Response) => {
     } else {
       res.status(500).json({ error: 'Failed to retrieve the inserted company' });
     }
+    await db.raw('UPDATE companies SET logo = FLOOR(RANDOM() * 14)');
   } catch (error) {
     console.error('Error posting a company:', error);
     const errorMessage = error instanceof Error && error.message ? error.message : 'Unknown error';

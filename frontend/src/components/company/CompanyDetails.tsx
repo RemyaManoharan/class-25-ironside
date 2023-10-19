@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useCompanyStore from '../../store/company.store';
-import CompanyLogo from '../../assets/Logo Tumbnail.svg';
+import randomLogo from '../../hooks/randomLogo';
 import style from './CompanyDetails.module.css';
 import { Typography } from '@mui/material';
 import Map from '../../map/Map';
@@ -46,7 +46,7 @@ const CompanyDetail: React.FC = () => {
         {/* header div  */}
         <div className={style.companyDetailHeader}>
           <div className={style.logoWrapper}>
-            <img src={CompanyLogo} alt='logo-company' />
+            <img src={randomLogo(selectedCompany.logo)} alt='logo-company' />
             <div className={style.companyJob}>
               <Typography variant='h2' component='h2'>
                 {selectedCompany.name}
