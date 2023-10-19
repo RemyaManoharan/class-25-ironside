@@ -7,11 +7,19 @@ import calendar from '../../assets/Calendar.png';
 import circle from '../../assets/Circle.png';
 import work from '../../assets/Work.png';
 import sidebar from '../../assets/Sidebar.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function NavBar() {
   const location = useLocation();
-  const [selectedLink, setSelectedLink] = useState(location.pathname);
+  const [selectedLink, setSelectedLink] = useState(() => {
+    const savedLink = localStorage.getItem('selectedLink');
+    return savedLink ? savedLink : location.pathname;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('selectedLink', selectedLink);
+  }, [selectedLink]);
+
   const navLinks = [
     { to: '/', icon: category, text: 'Home' },
     { to: '/event', icon: ticket, text: 'Event' },
