@@ -16,9 +16,11 @@ const AdminRoute: React.FC<Props> = ({ children }: Props) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (currentUser === null) {
-      setError(true);
-      return;
+    if (user) {
+      if (currentUser === null) {
+        setError(true);
+        return;
+      }
     }
     fetchCurrentUser(currentUser.uid);
   }, []);
