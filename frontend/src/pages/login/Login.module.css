@@ -87,16 +87,17 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  background-color: #0b5fae;
-  color: white;
+  background-color: white;
+  color: #004c00;
   cursor: pointer;
-  border: 1px solid #0b5fae;
+  border: 1px solid #004c00;
   transition: all 400ms ease;
 }
 
 .loginButton:hover {
-  background-color: white;
-  color: #0b5fae;
+  background-color: #004c00;
+
+  color: #fefefe;
 }
 .buttonWrap {
   display: flex;
@@ -104,7 +105,7 @@
   align-items: flex-end;
 }
 .formLink {
-  color: #0b5fae;
+  color: #00a74a;
   text-decoration: none;
   font-weight: bold;
   margin-left: 5px;

@@ -34,7 +34,7 @@ function ResetPassword() {
     <div className='main-container'>
       <div className='form-header'>
         <Typography component='p' variant='h5' style={{ fontSize: '150%' }}>
-          <img className='Icon' src={Icon} alt='Icon' /> Dashboard
+          <img className='Icon' src={Icon} alt='Icon' /> Ironside
         </Typography>
       </div>
       <div className='main-content'>
