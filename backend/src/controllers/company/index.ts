@@ -26,7 +26,10 @@ export const getCompaniesById = async (req: Request, res: Response) => {
 export const getJobsByCompanyId = async (req: Request, res: Response) => {
   const companyId = req.params.id;
   try {
-    const jobs = await db('jobs').where('company_id', companyId);
+    const jobs = await db('jobs').where({
+      company_id: companyId,
+      status: 'approved',
+    });
     res.json(jobs);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching jobs for the company' });

@@ -10,6 +10,7 @@ interface Job {
   job_type: string;
   experience: string;
   requirement: string;
+  id: number;
   name: string;
   location: string;
   is_remotework: boolean;
