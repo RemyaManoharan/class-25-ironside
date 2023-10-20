@@ -6,6 +6,7 @@ import style from './CompanyDetails.module.css';
 import { Typography } from '@mui/material';
 import Map from '../../map/Map';
 import RelatedCompany from './RelatedCompany';
+import { Link } from 'react-router-dom';
 
 type CompanyDetailParams = {
   companyId: string;
@@ -95,16 +96,18 @@ const CompanyDetail: React.FC = () => {
               {selectedCompany.jobs.map((job) => (
                 <div key={job.id} className={style.jobList}>
                   <div className={style.jobName}>
-                    <div>
-                      <Typography variant='body1' component='h2'>
-                        {job.title}
-                      </Typography>
-                    </div>
-                    <div>
-                      <Typography variant='h4' component='h2'>
-                        {job.experience} years Experience
-                      </Typography>
-                    </div>
+                    <Link to={`/jobdetails/${job.id}`} className={style.customLink}>
+                      <div>
+                        <Typography variant='body1' component='h2' className={style.titleOnhover}>
+                          {job.title}
+                        </Typography>
+                      </div>
+                      <div>
+                        <Typography variant='h4' component='h2' className={style.titleOnhover}>
+                          {job.experience} years Experience
+                        </Typography>
+                      </div>
+                    </Link>
                   </div>
                   <div className={style.jobDescription}>
                     <Typography variant='h4' component='p'>

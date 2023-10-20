@@ -63,9 +63,11 @@ function JobDetail() {
                 {selectedJob.title}
               </Typography>
               <div className='jobType'>
-                <Typography variant='h4' component='h2'>
-                  {selectedJob.name}
-                </Typography>
+                <Link to={`/CompanyDetails/${selectedJob.id}`} className='customLinkCompany'>
+                  <Typography variant='h4' component='h2' className='customLinkCompany'>
+                    {selectedJob.name}
+                  </Typography>
+                </Link>
                 <Typography variant='h4' component='h2'>
                   {selectedJob.is_remotework ? 'Remote' : 'In-Office'}
                 </Typography>
