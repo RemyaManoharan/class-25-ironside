@@ -32,9 +32,11 @@ function NavBar() {
   return (
     <div className={style.content}>
       <div className={style.header}>
-        <span className={style.icon}>
-          <img src={icon} alt='dashboard icon' />
-        </span>
+        <Link to={'/'} onClick={() => setSelectedLink('/')}>
+          <span className={style.icon}>
+            <img src={icon} alt='dashboard icon' />
+          </span>
+        </Link>
         <h1>Ironside</h1>
       </div>
       <div className={style.navLinkContainer}>
