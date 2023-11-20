@@ -1,8 +1,8 @@
-### Work instructions
-
-This repository is organised as a monorepo, which means that it has an entry point and client and server are made as different projects. They are organised as workspaces, which gives us control over projects from this entry point.
-
-If you need to install dependencies, please install them in the packages where they are needed (going to the client and installing client-based dependencies)
+# Iron-side Job Search React App
+A complete full stack project developed using typecript,react,nodejs.
+Added functionality to search for the job, apply for job ,search for company for users. Admin has 
+wide range of functinalities including giving approval/rejection for company and job.Admin can view total jobs,companies registered.
+For state managemnt used Zustand .Done as part of Hack Your future Group project.
 
 In order to start and install all the dependencies run:
 
