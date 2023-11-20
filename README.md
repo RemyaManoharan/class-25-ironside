@@ -8,7 +8,8 @@ In order to start and install all the dependencies run:
 
 ```bash
 npm run init-project
-```
+```![adminpage](https://github.com/RemyaManoharan/class-25-ironside/assets/114389785/60811d6f-ee30-434b-9227-2d699d5f0ee1)
+
 
 It will install dependencies in all the workspaces
 
